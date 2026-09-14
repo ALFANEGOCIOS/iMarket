@@ -1,1 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - iMarket Cuba</title>
+  
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/pages.css">
+</head>
+<body class="admin-body">
 
+  <div class="admin-layout">
+    
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+      <div class="brand-logo">iMarket <span>Admin</span></div>
+      <nav class="admin-menu">
+        <a href="#kpi-section" class="active">Métricas</a>
+        <a href="#kyc-section">Solicitudes KYC</a>
+        <a href="#listings-section">Moderación de Anuncios</a>
+        <a href="../index.html">Salir del Admin</a>
+      </nav>
+    </aside>
+
+    <!-- Content -->
+    <main class="admin-content">
+      <header class="admin-header">
+        <h1>Panel de Control Administrador</h1>
+      </header>
+
+      <!-- KPI Cards -->
+      <section id="kpi-section" class="kpi-grid">
+        <div class="kpi-card">
+          <h3>Usuarios Registrados</h3>
+          <p id="kpi-users" class="kpi-value">0</p>
+        </div>
+        <div class="kpi-card">
+          <h3>Anuncios Activos</h3>
+          <p id="kpi-listings" class="kpi-value">0</p>
+        </div>
+        <div class="kpi-card">
+          <h3>KYC Pendientes</h3>
+          <p id="kpi-kyc" class="kpi-value">0</p>
+        </div>
+      </section>
+
+      <!-- Tabla Moderación KYC -->
+      <section id="kyc-section" class="admin-table-container">
+        <h2>Solicitudes KYC Pendientes</h2>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Usuario</th>
+              <th>Tipo Doc</th>
+              <th>Documento</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="kyc-table-body">
+            <!-- Renderizado dinámico vía admin.js -->
+          </tbody>
+        </table>
+      </section>
+
+    </main>
+
+  </div>
+
+  <script type="module" src="../js/app.js"></script>
+  <script type="module" src="../js/admin.js"></script>
+</body>
+</html>
