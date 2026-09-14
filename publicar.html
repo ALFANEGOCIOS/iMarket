@@ -1,1 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Publicar Anuncio - iMarket Cuba</title>
+  
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
 
+  <header class="navbar">
+    <div class="navbar-container">
+      <a href="index.html" class="brand-logo">iMarket <span>Cuba</span></a>
+      <a href="index.html" class="btn btn-secondary">Volver al Inicio</a>
+    </div>
+  </header>
+
+  <main class="container form-page-container">
+    <div class="card form-card">
+      <h2>Crear Nueva Publicación</h2>
+      <p class="subtitle">Completa los detalles de tu producto para vender en la comunidad.</p>
+
+      <form id="create-listing-form" class="form-layout">
+        
+        <div class="form-group">
+          <label for="title">Título de la publicación *</label>
+          <input type="text" id="title" name="title" placeholder="Ej: iPhone 13 Pro 128GB Sellado" required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="price">Precio (USD) *</label>
+            <input type="number" id="price" name="price" step="0.01" placeholder="350" required>
+          </div>
+
+          <div class="form-group">
+            <label for="category">Categoría *</label>
+            <select id="category" name="category" required>
+              <option value="">Selecciona una opción</option>
+              <option value="celulares">Celulares y Laptops</option>
+              <option value="autos">Autos y Motores</option>
+              <option value="electrodomesticos">Electrodomésticos</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="province">Provincia *</label>
+            <select id="province" name="province" required>
+              <option value="">Selecciona provincia</option>
+              <option value="La Habana">La Habana</option>
+              <option value="Santiago de Cuba">Santiago de Cuba</option>
+              <option value="Holguín">Holguín</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Teléfono de contacto / WhatsApp *</label>
+            <input type="tel" id="phone" name="phone" placeholder="+53 51234567" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="description">Descripción detallada *</label>
+          <textarea id="description" name="description" rows="5" placeholder="Detalla el estado físico, batería, accesorios incluidos..." required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="images">Fotos del producto (Máx 5)</label>
+          <input type="file" id="images" accept="image/*" multiple>
+          <div id="image-preview-container" class="image-preview-grid"></div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Publicar Anuncio</button>
+      </form>
+    </div>
+  </main>
+
+  <script type="module" src="js/app.js"></script>
+  <script type="module" src="js/listings.js"></script>
+</body>
+</html>
