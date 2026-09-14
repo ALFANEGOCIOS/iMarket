@@ -1,1 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verificación de Identidad (KYC) - iMarket Cuba</title>
+  
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
 
+  <header class="navbar">
+    <div class="navbar-container">
+      <a href="index.html" class="brand-logo">iMarket <span>Cuba</span></a>
+      <a href="perfil.html" class="btn btn-secondary">Mi Perfil</a>
+    </div>
+  </header>
+
+  <main class="container form-page-container">
+    <div class="card form-card">
+      <h2>Verificación de Cuenta (KYC)</h2>
+      <p class="subtitle">Sube tu documento para obtener la insignia de Vendedor Verificado y generar mayor confianza.</p>
+
+      <form id="kyc-form" class="form-layout">
+        <div class="form-group">
+          <label for="doc-type">Tipo de Documento *</label>
+          <select id="doc-type" name="docType" required>
+            <option value="identity_card">Carné de Identidad (CI)</option>
+            <option value="passport">Pasaporte</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="doc-file">Foto Frontal del Documento *</label>
+          <input type="file" id="doc-file" accept="image/*" required>
+        </div>
+
+        <div class="form-group">
+          <label for="selfie-file">Foto Selfie sosteniendo tu Documento *</label>
+          <input type="file" id="selfie-file" accept="image/*" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Enviar para Revisión</button>
+      </form>
+    </div>
+  </main>
+
+  <script type="module" src="js/app.js"></script>
+  <script type="module" src="js/verification.js"></script>
+</body>
+</html>
