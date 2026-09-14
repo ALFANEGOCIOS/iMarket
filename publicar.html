@@ -1,86 +1,2085 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Publicar Anuncio - iMarket Cuba</title>
-  
-  <link rel="stylesheet" href="css/global.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/pages.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Publica tu iPhone en iMarket Cuba."
+    >
+
+    <meta name="theme-color" content="#111111">
+
+    <title>Publicar iPhone | iMarket Cuba</title>
+
+    <style>
+        /* =========================================================
+           IMARKET CUBA
+           PUBLICAR IPHONE
+           ========================================================= */
+
+        :root {
+            --black: #111111;
+            --black-soft: #1a1a1a;
+            --white: #ffffff;
+
+            --background: #f5f6f8;
+            --surface: #ffffff;
+            --surface-soft: #f1f2f4;
+
+            --text: #111111;
+            --text-secondary: #6d7279;
+            --text-light: #969ba2;
+
+            --blue: #147ef5;
+            --blue-dark: #0865d8;
+            --blue-soft: #eaf3ff;
+
+            --green: #20a464;
+            --green-soft: #e9f8f0;
+
+            --red: #df3f45;
+            --red-soft: #fff0f1;
+
+            --border: #e2e4e8;
+
+            --radius-sm: 9px;
+            --radius-md: 14px;
+            --radius-lg: 20px;
+
+            --container: 1080px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "SF Pro Display",
+                "SF Pro Text",
+                "Segoe UI",
+                Roboto,
+                Arial,
+                sans-serif;
+
+            background: var(--background);
+            color: var(--text);
+
+            -webkit-font-smoothing: antialiased;
+        }
+
+        button,
+        input,
+        select,
+        textarea {
+            font: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(
+                calc(100% - 32px),
+                var(--container)
+            );
+
+            margin: auto;
+        }
+
+        /* =========================================================
+           HEADER
+           ========================================================= */
+
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+
+            height: 70px;
+
+            background: rgba(255,255,255,.94);
+
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+
+            border-bottom: 1px solid rgba(0,0,0,.07);
+        }
+
+        .header-inner {
+            height: 100%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+
+            font-size: 20px;
+            font-weight: 800;
+
+            letter-spacing: -.6px;
+        }
+
+        .logo-icon {
+            width: 34px;
+            height: 34px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 10px;
+
+            background: var(--black);
+            color: white;
+
+            font-size: 17px;
+            font-weight: 800;
+        }
+
+        .logo span {
+            color: var(--blue);
+        }
+
+        .header-link {
+            color: var(--text-secondary);
+
+            font-size: 13px;
+            font-weight: 650;
+        }
+
+        .header-link:hover {
+            color: var(--black);
+        }
+
+        /* =========================================================
+           PAGE HEADER
+           ========================================================= */
+
+        .page-header {
+            padding: 42px 0 30px;
+        }
+
+        .breadcrumb {
+            margin-bottom: 15px;
+
+            color: var(--text-light);
+
+            font-size: 12px;
+        }
+
+        .breadcrumb a {
+            color: var(--blue);
+        }
+
+        .page-header h1 {
+            font-size: 34px;
+            line-height: 1.1;
+
+            letter-spacing: -1.5px;
+            font-weight: 800;
+        }
+
+        .page-header p {
+            max-width: 600px;
+
+            margin-top: 9px;
+
+            color: var(--text-secondary);
+
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* =========================================================
+           LAYOUT
+           ========================================================= */
+
+        .publish-layout {
+            display: grid;
+            gap: 20px;
+
+            padding-bottom: 70px;
+        }
+
+        /* =========================================================
+           FORM CARD
+           ========================================================= */
+
+        .form-card {
+            overflow: hidden;
+
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+
+            background: var(--surface);
+        }
+
+        .form-section {
+            padding: 25px 20px;
+
+            border-bottom: 1px solid var(--border);
+        }
+
+        .form-section:last-child {
+            border-bottom: 0;
+        }
+
+        .section-heading {
+            margin-bottom: 21px;
+        }
+
+        .section-heading h2 {
+            font-size: 18px;
+            letter-spacing: -.4px;
+            font-weight: 800;
+        }
+
+        .section-heading p {
+            margin-top: 5px;
+
+            color: var(--text-secondary);
+
+            font-size: 12px;
+            line-height: 1.55;
+        }
+
+        /* =========================================================
+           FIELDS
+           ========================================================= */
+
+        .field-grid {
+            display: grid;
+            gap: 17px;
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .field label {
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .required {
+            color: var(--red);
+        }
+
+        .field-help {
+            color: var(--text-light);
+
+            font-size: 11px;
+            line-height: 1.45;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+
+            border: 1px solid var(--border);
+            border-radius: 11px;
+
+            outline: none;
+
+            background: white;
+            color: var(--text);
+
+            transition:
+                border-color .2s ease,
+                box-shadow .2s ease;
+        }
+
+        input,
+        select {
+            height: 45px;
+            padding: 0 13px;
+
+            font-size: 13px;
+        }
+
+        textarea {
+            min-height: 125px;
+
+            padding: 12px 13px;
+
+            resize: vertical;
+
+            font-size: 13px;
+            line-height: 1.55;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: var(--blue);
+
+            box-shadow:
+                0 0 0 3px rgba(20,126,245,.10);
+        }
+
+        /* =========================================================
+           SELECT
+           ========================================================= */
+
+        select {
+            appearance: none;
+
+            background-image:
+                linear-gradient(45deg, transparent 50%, #777 50%),
+                linear-gradient(135deg, #777 50%, transparent 50%);
+
+            background-position:
+                calc(100% - 17px) 19px,
+                calc(100% - 12px) 19px;
+
+            background-size:
+                5px 5px,
+                5px 5px;
+
+            background-repeat: no-repeat;
+
+            padding-right: 35px;
+        }
+
+        /* =========================================================
+           CONDITION BUTTONS
+           ========================================================= */
+
+        .condition-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 9px;
+        }
+
+        .condition-option {
+            position: relative;
+        }
+
+        .condition-option input {
+            position: absolute;
+
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .condition-option label {
+            display: block;
+
+            padding: 13px 12px;
+
+            border: 1px solid var(--border);
+            border-radius: 11px;
+
+            background: white;
+
+            cursor: pointer;
+
+            transition:
+                border-color .2s ease,
+                background .2s ease;
+        }
+
+        .condition-option strong {
+            display: block;
+
+            font-size: 12px;
+        }
+
+        .condition-option span {
+            display: block;
+
+            margin-top: 3px;
+
+            color: var(--text-secondary);
+
+            font-size: 10px;
+        }
+
+        .condition-option input:checked + label {
+            border-color: var(--blue);
+
+            background: var(--blue-soft);
+        }
+
+        /* =========================================================
+           CHECKBOXES
+           ========================================================= */
+
+        .checks {
+            display: grid;
+            gap: 10px;
+        }
+
+        .check {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            padding: 12px;
+
+            border: 1px solid var(--border);
+            border-radius: 11px;
+
+            cursor: pointer;
+        }
+
+        .check input {
+            width: 18px;
+            height: 18px;
+
+            accent-color: var(--blue);
+        }
+
+        .check-text {
+            flex: 1;
+        }
+
+        .check-title {
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .check-description {
+            margin-top: 2px;
+
+            color: var(--text-secondary);
+
+            font-size: 10px;
+        }
+
+        /* =========================================================
+           BATTERY
+           ========================================================= */
+
+        .battery-field {
+            position: relative;
+        }
+
+        .battery-field input {
+            padding-right: 38px;
+        }
+
+        .battery-symbol {
+            position: absolute;
+
+            right: 13px;
+            bottom: 13px;
+
+            color: var(--text-secondary);
+
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        /* =========================================================
+           PHOTOS
+           ========================================================= */
+
+        .photo-upload {
+            display: grid;
+            gap: 12px;
+        }
+
+        .upload-zone {
+            min-height: 170px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            padding: 25px;
+
+            border: 1.5px dashed #c9cdd3;
+            border-radius: 14px;
+
+            background: #fafbfc;
+
+            text-align: center;
+
+            cursor: pointer;
+
+            transition:
+                border-color .2s ease,
+                background .2s ease;
+        }
+
+        .upload-zone:hover {
+            border-color: var(--blue);
+            background: var(--blue-soft);
+        }
+
+        .upload-icon {
+            width: 48px;
+            height: 48px;
+
+            display: grid;
+            place-items: center;
+
+            margin-bottom: 12px;
+
+            border-radius: 14px;
+
+            background: var(--blue-soft);
+            color: var(--blue);
+        }
+
+        .upload-zone strong {
+            font-size: 13px;
+        }
+
+        .upload-zone span {
+            max-width: 300px;
+
+            margin-top: 5px;
+
+            color: var(--text-secondary);
+
+            font-size: 11px;
+            line-height: 1.5;
+        }
+
+        .upload-zone input {
+            display: none;
+        }
+
+        .photo-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 8px;
+        }
+
+        .photo-preview {
+            position: relative;
+
+            aspect-ratio: 1;
+
+            overflow: hidden;
+
+            border-radius: 10px;
+
+            background: var(--surface-soft);
+        }
+
+        .photo-preview img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+        }
+
+        .remove-photo {
+            position: absolute;
+
+            top: 6px;
+            right: 6px;
+
+            width: 25px;
+            height: 25px;
+
+            display: grid;
+            place-items: center;
+
+            border: 0;
+            border-radius: 50%;
+
+            background: rgba(0,0,0,.72);
+            color: white;
+
+            font-size: 12px;
+        }
+
+        /* =========================================================
+           LOCATION
+           ========================================================= */
+
+        .location-box {
+            display: grid;
+            gap: 15px;
+        }
+
+        /* =========================================================
+           PRICE
+           ========================================================= */
+
+        .price-input {
+            position: relative;
+        }
+
+        .currency {
+            position: absolute;
+
+            left: 13px;
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            color: var(--text-secondary);
+
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .price-input input {
+            padding-left: 31px;
+
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        /* =========================================================
+           PUBLISH FOOTER
+           ========================================================= */
+
+        .form-actions {
+            display: flex;
+            flex-direction: column-reverse;
+            gap: 10px;
+
+            padding: 20px;
+
+            background: #fafbfc;
+        }
+
+        .button {
+            min-height: 46px;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 0 18px;
+
+            border: 0;
+            border-radius: 11px;
+
+            font-size: 13px;
+            font-weight: 750;
+        }
+
+        .button-primary {
+            background: var(--blue);
+            color: white;
+        }
+
+        .button-primary:hover {
+            background: var(--blue-dark);
+        }
+
+        .button-secondary {
+            border: 1px solid var(--border);
+
+            background: white;
+            color: var(--text);
+        }
+
+        /* =========================================================
+           SIDE SUMMARY
+           ========================================================= */
+
+        .summary {
+            display: none;
+
+            position: sticky;
+            top: 95px;
+
+            align-self: start;
+        }
+
+        .summary-card {
+            padding: 21px;
+
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+
+            background: white;
+        }
+
+        .summary-card h3 {
+            font-size: 15px;
+            font-weight: 800;
+        }
+
+        .summary-card > p {
+            margin-top: 5px;
+
+            color: var(--text-secondary);
+
+            font-size: 11px;
+        }
+
+        .progress {
+            height: 6px;
+
+            overflow: hidden;
+
+            margin-top: 20px;
+
+            border-radius: 99px;
+
+            background: var(--surface-soft);
+        }
+
+        .progress-bar {
+            width: 25%;
+            height: 100%;
+
+            border-radius: inherit;
+
+            background: var(--blue);
+
+            transition: width .3s ease;
+        }
+
+        .summary-steps {
+            display: grid;
+            gap: 16px;
+
+            margin-top: 22px;
+        }
+
+        .summary-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+
+            color: var(--text-light);
+
+            font-size: 11px;
+        }
+
+        .step-number {
+            width: 24px;
+            height: 24px;
+
+            flex-shrink: 0;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 50%;
+
+            background: var(--surface-soft);
+
+            font-size: 10px;
+            font-weight: 800;
+        }
+
+        .summary-step.active {
+            color: var(--black);
+            font-weight: 700;
+        }
+
+        .summary-step.active .step-number {
+            background: var(--blue);
+            color: white;
+        }
+
+        .trust-note {
+            display: flex;
+            gap: 9px;
+
+            margin-top: 24px;
+            padding-top: 18px;
+
+            border-top: 1px solid var(--border);
+
+            color: var(--text-secondary);
+
+            font-size: 10px;
+            line-height: 1.5;
+        }
+
+        .trust-note-icon {
+            flex-shrink: 0;
+
+            color: var(--green);
+        }
+
+        /* =========================================================
+           RESPONSIVE
+           ========================================================= */
+
+        @media (min-width: 650px) {
+
+            .field-grid.two {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .condition-options {
+                grid-template-columns:
+                    repeat(4, 1fr);
+            }
+
+            .photo-grid {
+                grid-template-columns:
+                    repeat(5, 1fr);
+            }
+
+            .form-section {
+                padding: 30px;
+            }
+
+            .form-actions {
+                flex-direction: row;
+                justify-content: flex-end;
+            }
+
+            .button {
+                min-width: 145px;
+            }
+        }
+
+        @media (min-width: 900px) {
+
+            .publish-layout {
+                grid-template-columns:
+                    minmax(0, 1fr) 285px;
+            }
+
+            .summary {
+                display: block;
+            }
+
+            .page-header {
+                padding-top: 55px;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .container {
+                width: min(
+                    calc(100% - 22px),
+                    var(--container)
+                );
+            }
+
+            .page-header h1 {
+                font-size: 29px;
+            }
+
+            .form-section {
+                padding: 22px 16px;
+            }
+
+            .condition-option label {
+                padding: 11px 9px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-  <header class="navbar">
-    <div class="navbar-container">
-      <a href="index.html" class="brand-logo">iMarket <span>Cuba</span></a>
-      <a href="index.html" class="btn btn-secondary">Volver al Inicio</a>
+<header class="header">
+
+    <div class="container header-inner">
+
+        <a href="index.html" class="logo">
+            <div class="logo-icon">i</div>
+            iMarket <span>Cuba</span>
+        </a>
+
+        <a href="mis-publicaciones.html" class="header-link">
+            Mis publicaciones
+        </a>
+
     </div>
-  </header>
 
-  <main class="container form-page-container">
-    <div class="card form-card">
-      <h2>Crear Nueva Publicación</h2>
-      <p class="subtitle">Completa los detalles de tu producto para vender en la comunidad.</p>
+</header>
 
-      <form id="create-listing-form" class="form-layout">
-        
-        <div class="form-group">
-          <label for="title">Título de la publicación *</label>
-          <input type="text" id="title" name="title" placeholder="Ej: iPhone 13 Pro 128GB Sellado" required>
+
+<main>
+
+    <!-- =========================================================
+         PAGE HEADER
+         ========================================================= -->
+
+    <div class="container">
+
+        <section class="page-header">
+
+            <div class="breadcrumb">
+                <a href="index.html">Inicio</a>
+                &nbsp;/&nbsp;
+                Publicar iPhone
+            </div>
+
+            <h1>
+                Publica tu iPhone
+            </h1>
+
+            <p>
+                Completa la información del equipo para que los compradores
+                puedan conocer exactamente qué estás ofreciendo.
+            </p>
+
+        </section>
+
+
+        <!-- =====================================================
+             MAIN LAYOUT
+             ===================================================== -->
+
+        <div class="publish-layout">
+
+            <form
+                class="form-card"
+                id="publishForm"
+            >
+
+                <!-- =================================================
+                     PHOTOS
+                     ================================================= -->
+
+                <section class="form-section">
+
+                    <div class="section-heading">
+
+                        <h2>
+                            Fotos del iPhone
+                        </h2>
+
+                        <p>
+                            Añade entre 1 y 5 fotos claras del equipo.
+                            Las fotografías reales generan mayor confianza.
+                        </p>
+
+                    </div>
+
+                    <div class="photo-upload">
+
+                        <label class="upload-zone">
+
+                            <div class="upload-icon">
+
+                                <svg
+                                    width="23"
+                                    height="23"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1.8"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                >
+                                    <rect
+                                        x="3"
+                                        y="5"
+                                        width="18"
+                                        height="14"
+                                        rx="2"
+                                    />
+                                    <circle
+                                        cx="8.5"
+                                        cy="10"
+                                        r="1.5"
+                                    />
+                                    <path d="m21 15-4.5-4.5L8 19" />
+                                </svg>
+
+                            </div>
+
+                            <strong>
+                                Añadir fotografías
+                            </strong>
+
+                            <span>
+                                Puedes seleccionar hasta 5 imágenes.
+                                Recomendamos fotos delantera, trasera,
+                                laterales y pantalla encendida.
+                            </span>
+
+                            <input
+                                type="file"
+                                id="photos"
+                                accept="image/*"
+                                multiple
+                            >
+
+                        </label>
+
+                        <div
+                            class="photo-grid"
+                            id="photoPreview"
+                        ></div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     BASIC INFORMATION
+                     ================================================= -->
+
+                <section class="form-section">
+
+                    <div class="section-heading">
+
+                        <h2>
+                            Información del equipo
+                        </h2>
+
+                        <p>
+                            Selecciona exactamente el modelo que estás vendiendo.
+                        </p>
+
+                    </div>
+
+                    <div class="field-grid two">
+
+                        <div class="field">
+
+                            <label for="model">
+                                Modelo <span class="required">*</span>
+                            </label>
+
+                            <select id="model" required>
+
+                                <option value="">
+                                    Selecciona un modelo
+                                </option>
+
+                                <option>iPhone 11</option>
+                                <option>iPhone 11 Pro</option>
+                                <option>iPhone 11 Pro Max</option>
+
+                                <option>iPhone 12</option>
+                                <option>iPhone 12 mini</option>
+                                <option>iPhone 12 Pro</option>
+                                <option>iPhone 12 Pro Max</option>
+
+                                <option>iPhone 13</option>
+                                <option>iPhone 13 mini</option>
+                                <option>iPhone 13 Pro</option>
+                                <option>iPhone 13 Pro Max</option>
+
+                                <option>iPhone 14</option>
+                                <option>iPhone 14 Plus</option>
+                                <option>iPhone 14 Pro</option>
+                                <option>iPhone 14 Pro Max</option>
+
+                                <option>iPhone 15</option>
+                                <option>iPhone 15 Plus</option>
+                                <option>iPhone 15 Pro</option>
+                                <option>iPhone 15 Pro Max</option>
+
+                                <option>iPhone 16</option>
+                                <option>iPhone 16 Plus</option>
+                                <option>iPhone 16 Pro</option>
+                                <option>iPhone 16 Pro Max</option>
+
+                                <option>iPhone 17</option>
+                                <option>iPhone 17 Air</option>
+                                <option>iPhone 17 Pro</option>
+                                <option>iPhone 17 Pro Max</option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label for="storage">
+                                Almacenamiento <span class="required">*</span>
+                            </label>
+
+                            <select id="storage" required>
+
+                                <option value="">
+                                    Selecciona capacidad
+                                </option>
+
+                                <option>64 GB</option>
+                                <option>128 GB</option>
+                                <option>256 GB</option>
+                                <option>512 GB</option>
+                                <option>1 TB</option>
+                                <option>2 TB</option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label for="color">
+                                Color <span class="required">*</span>
+                            </label>
+
+                            <input
+                                id="color"
+                                type="text"
+                                placeholder="Ej. Titanio Natural"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label for="condition">
+                                Condición estética <span class="required">*</span>
+                            </label>
+
+                            <select id="condition" required>
+
+                                <option value="">
+                                    Selecciona una opción
+                                </option>
+
+                                <option>Nuevo</option>
+                                <option>Como nuevo</option>
+                                <option>Buen estado</option>
+                                <option>Estado aceptable</option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     BATTERY
+                     ================================================= -->
+
+                <section class="form-section">
+
+                    <div class="section-heading">
+
+                        <h2>
+                            Batería
+                        </h2>
+
+                        <p>
+                            Indica el porcentaje de capacidad máxima mostrado
+                            actualmente por el iPhone.
+                        </p>
+
+                    </div>
+
+                    <div class="field-grid two">
+
+                        <div class="field battery-field">
+
+                            <label for="battery">
+                                Capacidad máxima <span class="required">*</span>
+                            </label>
+
+                            <input
+                                id="battery"
+                                type="number"
+                                min="1"
+                                max="100"
+                                placeholder="Ej. 91"
+                                required
+                            >
+
+                            <span class="battery-symbol">%</span>
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label for="batteryType">
+                                Estado de la batería
+                            </label>
+
+                            <select id="batteryType">
+
+                                <option value="">
+                                    Selecciona una opción
+                                </option>
+
+                                <option>
+                                    Original
+                                </option>
+
+                                <option>
+                                    Original reemplazada
+                                </option>
+
+                                <option>
+                                    Genérica
+                                </option>
+
+                                <option>
+                                    No lo sé
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     DEVICE FEATURES
+                     ================================================= -->
+
+                <section class="form-section">
+
+                    <div class="section-heading">
+
+                        <h2>
+                            Estado y funciones
+                        </h2>
+
+                        <p>
+                            Marca las funciones que funcionan correctamente.
+                        </p>
+
+                    </div>
+
+                    <div class="checks">
+
+                        <label class="check">
+
+                            <input
+                                type="checkbox"
+                                id="unlocked"
+                            >
+
+                            <div class="check-text">
+
+                                <div class="check-title">
+                                    Libre de fábrica
+                                </div>
+
+                                <div class="check-description">
+                                    El iPhone puede utilizarse con diferentes operadores.
+                                </div>
+
+                            </div>
+
+                        </label>
+
+
+                        <label class="check">
+
+                            <input
+                                type="checkbox"
+                                id="faceId"
+                            >
+
+                            <div class="check-text">
+
+                                <div class="check-title">
+                                    Face ID funciona
+                                </div>
+
+                                <div class="check-description">
+                                    El reconocimiento facial funciona correctamente.
+                                </div>
+
+                            </div>
+
+                        </label>
+
+
+                        <label class="check">
+
+                            <input
+                                type="checkbox"
+                                id="trueTone"
+                            >
+
+                            <div class="check-text">
+
+                                <div class="check-title">
+                                    True Tone funciona
+                                </div>
+
+                                <div class="check-description">
+                                    La función True Tone está disponible y funciona.
+                                </div>
+
+                            </div>
+
+                        </label>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     ACCESSORIES
+                     ================================================= -->
+
+                <section class="form-section">
+
+                    <div class="section-heading">
+
+                        <h2>
+                            Accesorios incluidos
+                        </h2>
+
+                        <p>
+                            Indica qué recibirá el comprador junto al iPhone.
+                        </p>
+
+                    </div>
+
+                    <div class="checks">
+
+                        <label class="check">
+
+                            <input
+                                type="checkbox"
+                                id="cable"
+                            >
+
+                            <div class="check-text">
+
+                                <div class="check-title">
+                                    Cable
+                                </div>
+
+                                <div class="check-description">
+                                    Incluye cable de carga.
+                                </div>
+
+                            </div>
+
+                        </label>
+
+
+                        <label class="check">
+
+                            <input
+                                type="checkbox"
+                                id="charger"
+                            >
+
+                            <div class="check-text">
+
+                                <div class="check-title">
+                                    Cargador
+                                </div>
+
+                                <div class="check-description">
+                                    Incluye adaptador de corriente.
+                                </div>
+
+                            </div>
+
+                        </label>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     WARRANTY
+                     ================================================= -->
+
+                <section class="form-section">
+
+                    <div class="section-heading">
+
+                        <h2>
+                            Garantía
+                        </h2>
+
+                        <p>
+                            Si ofreces garantía, especifica cuántos días.
+                        </p>
+
+                    </div>
+
+                    <div class="field-grid two">
+
+                        <div class="field">
+
+                            <label for="warranty">
+                                ¿Ofreces garantía?
+                            </label>
+
+                            <select id="warranty">
+
+                                <option value="no">
+                                    No
+                                </option>
+
+                                <option value="yes">
+                                    Sí
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label for="warrantyDays">
+                                Días de garantía
+                            </label>
+
+                            <input
+                                id="warrantyDays"
+                                type="number"
+                                min="1"
+                                placeholder="Ej. 30"
+                                disabled
+                            >
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     DESCRIPTION
+                     ================================================= -->
+
+                <section class="form-section">
+
+                    <div class="section-heading">
+
+                        <h2>
+                            Detalles del equipo
+                        </h2>
+
+                        <p>
+                            Sé transparente. Indica cualquier golpe,
+                            rayón, reparación o problema conocido.
+                        </p>
+
+                    </div>
+
+                    <div class="field">
+
+                        <label for="description">
+                            Descripción <span class="required">*</span>
+                        </label>
+
+                        <textarea
+                            id="description"
+                            maxlength="1000"
+                            placeholder="Describe el estado del iPhone, reparaciones realizadas, detalles estéticos, problemas conocidos, etc."
+                            required
+                        ></textarea>
+
+                        <span class="field-help">
+                            Máximo 1000 caracteres.
+                        </span>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     LOCATION
+                     ================================================= -->
+
+                <section class="form-section">
+
+                    <div class="section-heading">
+
+                        <h2>
+                            Ubicación
+                        </h2>
+
+                        <p>
+                            Indica dónde podrá encontrarse el equipo.
+                        </p>
+
+                    </div>
+
+                    <div class="location-box">
+
+                        <div class="field-grid two">
+
+                            <div class="field">
+
+                                <label for="province">
+                                    Provincia <span class="required">*</span>
+                                </label>
+
+                                <select id="province" required>
+
+                                    <option value="">
+                                        Selecciona provincia
+                                    </option>
+
+                                    <option>
+                                        La Habana
+                                    </option>
+
+                                    <option>
+                                        Artemisa
+                                    </option>
+
+                                    <option>
+                                        Mayabeque
+                                    </option>
+
+                                    <option>
+                                        Matanzas
+                                    </option>
+
+                                    <option>
+                                        Villa Clara
+                                    </option>
+
+                                    <option>
+                                        Cienfuegos
+                                    </option>
+
+                                    <option>
+                                        Sancti Spíritus
+                                    </option>
+
+                                    <option>
+                                        Ciego de Ávila
+                                    </option>
+
+                                    <option>
+                                        Camagüey
+                                    </option>
+
+                                    <option>
+                                        Las Tunas
+                                    </option>
+
+                                    <option>
+                                        Holguín
+                                    </option>
+
+                                    <option>
+                                        Granma
+                                    </option>
+
+                                    <option>
+                                        Santiago de Cuba
+                                    </option>
+
+                                    <option>
+                                        Guantánamo
+                                    </option>
+
+                                    <option>
+                                        Pinar del Río
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="field">
+
+                                <label for="municipality">
+                                    Municipio <span class="required">*</span>
+                                </label>
+
+                                <input
+                                    id="municipality"
+                                    type="text"
+                                    placeholder="Ej. Playa"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label for="meetingPlace">
+                                Zona o referencia
+                            </label>
+
+                            <input
+                                id="meetingPlace"
+                                type="text"
+                                placeholder="Ej. Cerca de 3ra y 70"
+                            >
+
+                            <span class="field-help">
+                                Por seguridad, evita publicar tu dirección exacta.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     PRICE
+                     ================================================= -->
+
+                <section class="form-section">
+
+                    <div class="section-heading">
+
+                        <h2>
+                            Precio
+                        </h2>
+
+                        <p>
+                            Define el precio que deseas recibir por el equipo.
+                        </p>
+
+                    </div>
+
+                    <div class="field">
+
+                        <label for="price">
+                            Precio <span class="required">*</span>
+                        </label>
+
+                        <div class="price-input">
+
+                            <span class="currency">
+                                $
+                            </span>
+
+                            <input
+                                id="price"
+                                type="number"
+                                min="1"
+                                step="1"
+                                placeholder="Ej. 650"
+                                required
+                            >
+
+                        </div>
+
+                        <span class="field-help">
+                            Precio expresado en USD.
+                        </span>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     ACTIONS
+                     ================================================= -->
+
+                <div class="form-actions">
+
+                    <button
+                        type="button"
+                        class="button button-secondary"
+                        onclick="saveDraft()"
+                    >
+                        Guardar borrador
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="button button-primary"
+                    >
+                        Publicar iPhone
+                    </button>
+
+                </div>
+
+            </form>
+
+
+            <!-- =====================================================
+                 SUMMARY
+                 ===================================================== -->
+
+            <aside class="summary">
+
+                <div class="summary-card">
+
+                    <h3>
+                        Publicar iPhone
+                    </h3>
+
+                    <p>
+                        Completa todos los datos para enviar tu publicación.
+                    </p>
+
+                    <div class="progress">
+
+                        <div
+                            class="progress-bar"
+                            id="progressBar"
+                        ></div>
+
+                    </div>
+
+
+                    <div class="summary-steps">
+
+                        <div class="summary-step active">
+
+                            <span class="step-number">
+                                1
+                            </span>
+
+                            <span>
+                                Información del equipo
+                            </span>
+
+                        </div>
+
+
+                        <div class="summary-step">
+
+                            <span class="step-number">
+                                2
+                            </span>
+
+                            <span>
+                                Estado y características
+                            </span>
+
+                        </div>
+
+
+                        <div class="summary-step">
+
+                            <span class="step-number">
+                                3
+                            </span>
+
+                            <span>
+                                Ubicación y precio
+                            </span>
+
+                        </div>
+
+
+                        <div class="summary-step">
+
+                            <span class="step-number">
+                                4
+                            </span>
+
+                            <span>
+                                Revisión y publicación
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="trust-note">
+
+                        <span class="trust-note-icon">
+                            ✓
+                        </span>
+
+                        <span>
+                            Antes de publicarse, el anuncio podrá pasar
+                            por un proceso de revisión de iMarket Cuba.
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </aside>
+
         </div>
 
-        <div class="form-row">
-          <div class="form-group">
-            <label for="price">Precio (USD) *</label>
-            <input type="number" id="price" name="price" step="0.01" placeholder="350" required>
-          </div>
-
-          <div class="form-group">
-            <label for="category">Categoría *</label>
-            <select id="category" name="category" required>
-              <option value="">Selecciona una opción</option>
-              <option value="celulares">Celulares y Laptops</option>
-              <option value="autos">Autos y Motores</option>
-              <option value="electrodomesticos">Electrodomésticos</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label for="province">Provincia *</label>
-            <select id="province" name="province" required>
-              <option value="">Selecciona provincia</option>
-              <option value="La Habana">La Habana</option>
-              <option value="Santiago de Cuba">Santiago de Cuba</option>
-              <option value="Holguín">Holguín</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="phone">Teléfono de contacto / WhatsApp *</label>
-            <input type="tel" id="phone" name="phone" placeholder="+53 51234567" required>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="description">Descripción detallada *</label>
-          <textarea id="description" name="description" rows="5" placeholder="Detalla el estado físico, batería, accesorios incluidos..." required></textarea>
-        </div>
-
-        <div class="form-group">
-          <label for="images">Fotos del producto (Máx 5)</label>
-          <input type="file" id="images" accept="image/*" multiple>
-          <div id="image-preview-container" class="image-preview-grid"></div>
-        </div>
-
-        <button type="submit" class="btn btn-primary btn-block">Publicar Anuncio</button>
-      </form>
     </div>
-  </main>
 
-  <script type="module" src="js/app.js"></script>
-  <script type="module" src="js/listings.js"></script>
+</main>
+
+
+<script>
+
+    /* =========================================================
+       PHOTOS
+       ========================================================= */
+
+    const photoInput =
+        document.getElementById("photos");
+
+    const photoPreview =
+        document.getElementById("photoPreview");
+
+    let selectedFiles = [];
+
+    photoInput.addEventListener("change", function () {
+
+        const files =
+            Array.from(this.files);
+
+        if (selectedFiles.length + files.length > 5) {
+
+            alert("Puedes añadir un máximo de 5 fotografías.");
+
+            return;
+        }
+
+        files.forEach(file => {
+
+            if (!file.type.startsWith("image/")) {
+                return;
+            }
+
+            selectedFiles.push(file);
+
+            const reader =
+                new FileReader();
+
+            reader.onload = function (event) {
+
+                const wrapper =
+                    document.createElement("div");
+
+                wrapper.className =
+                    "photo-preview";
+
+                wrapper.innerHTML = `
+
+                    <img
+                        src="${event.target.result}"
+                        alt="Vista previa del iPhone"
+                    >
+
+                    <button
+                        type="button"
+                        class="remove-photo"
+                        aria-label="Eliminar fotografía"
+                    >
+                        ×
+                    </button>
+
+                `;
+
+                wrapper
+                    .querySelector(".remove-photo")
+                    .addEventListener("click", function () {
+
+                        const index =
+                            Array.from(
+                                photoPreview.children
+                            ).indexOf(wrapper);
+
+                        if (index !== -1) {
+                            selectedFiles.splice(index, 1);
+                        }
+
+                        wrapper.remove();
+
+                    });
+
+                photoPreview.appendChild(wrapper);
+
+            };
+
+            reader.readAsDataURL(file);
+
+        });
+
+        this.value = "";
+
+        updateProgress();
+
+    });
+
+
+    /* =========================================================
+       WARRANTY
+       ========================================================= */
+
+    const warranty =
+        document.getElementById("warranty");
+
+    const warrantyDays =
+        document.getElementById("warrantyDays");
+
+    warranty.addEventListener("change", function () {
+
+        const enabled =
+            this.value === "yes";
+
+        warrantyDays.disabled =
+            !enabled;
+
+        if (!enabled) {
+            warrantyDays.value = "";
+        }
+
+    });
+
+
+    /* =========================================================
+       BATTERY LIMIT
+       ========================================================= */
+
+    const battery =
+        document.getElementById("battery");
+
+    battery.addEventListener("input", function () {
+
+        let value =
+            parseInt(this.value);
+
+        if (value > 100) {
+            this.value = 100;
+        }
+
+        if (value < 0) {
+            this.value = 0;
+        }
+
+    });
+
+
+    /* =========================================================
+       PROGRESS
+       ========================================================= */
+
+    function updateProgress() {
+
+        const fields =
+            document.querySelectorAll(
+                "#publishForm [required]"
+            );
+
+        let completed = 0;
+
+        fields.forEach(field => {
+
+            if (
+                field.type === "radio" ||
+                field.type === "checkbox"
+            ) {
+                return;
+            }
+
+            if (field.value.trim() !== "") {
+                completed++;
+            }
+
+        });
+
+        const percentage =
+            Math.round(
+                (completed / fields.length) * 100
+            );
+
+        const progress =
+            Math.max(
+                8,
+                Math.min(100, percentage)
+            );
+
+        document.getElementById("progressBar")
+            .style.width = progress + "%";
+
+    }
+
+
+    document
+        .querySelectorAll(
+            "#publishForm input, #publishForm select, #publishForm textarea"
+        )
+        .forEach(element => {
+
+            element.addEventListener(
+                "input",
+                updateProgress
+            );
+
+            element.addEventListener(
+                "change",
+                updateProgress
+            );
+
+        });
+
+
+    /* =========================================================
+       SAVE DRAFT
+       ========================================================= */
+
+    function saveDraft() {
+
+        alert(
+            "El guardado de borradores se conectará con Supabase."
+        );
+
+    }
+
+
+    /* =========================================================
+       FORM SUBMIT
+       ========================================================= */
+
+    document
+        .getElementById("publishForm")
+        .addEventListener("submit", function (event) {
+
+            event.preventDefault();
+
+            /*
+             * Más adelante:
+             *
+             * 1. Comprobar autenticación
+             * 2. Comprobar KYC aprobado
+             * 3. Crear listing
+             * 4. Subir imágenes a Storage
+             * 5. Crear listing_images
+             * 6. Estado = pendiente de moderación
+             * 7. Redirigir a mis-publicaciones.html
+             */
+
+            alert(
+                "La publicación se conectará con Supabase en la siguiente fase."
+            );
+
+        });
+
+</script>
+
 </body>
 </html>
