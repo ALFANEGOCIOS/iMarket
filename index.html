@@ -1,1 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>iMarket Cuba - Compra y Venta en Cuba</title>
+  
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
 
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="navbar-container">
+      <a href="index.html" class="brand-logo">iMarket <span>Cuba</span></a>
+      
+      <div class="search-bar">
+        <input type="text" id="search-input" placeholder="Buscar productos, iPhones, piezas...">
+        <button id="search-btn" class="btn btn-primary">Buscar</button>
+      </div>
+
+      <nav class="nav-links">
+        <a href="publicar.html" class="btn btn-accent">+ Publicar</a>
+        <a href="favoritos.html" class="nav-item">Favoritos</a>
+        <div id="auth-actions">
+          <a href="login.html" class="btn btn-secondary">Iniciar Sesión</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container main-content">
+    
+    <!-- Filtros Secundarios -->
+    <section class="filters-bar">
+      <select id="filter-category" class="form-control">
+        <option value="">Todas las categorías</option>
+        <option value="celulares">Celulares y Laptops</option>
+        <option value="autos">Autos y Motores</option>
+        <option value="electrodomesticos">Electrodomésticos</option>
+      </select>
+
+      <select id="filter-province" class="form-control">
+        <option value="">Todas las provincias</option>
+        <option value="La Habana">La Habana</option>
+        <option value="Santiago de Cuba">Santiago de Cuba</option>
+        <option value="Holguín">Holguín</option>
+      </select>
+
+      <select id="sort-by" class="form-control">
+        <option value="recent">Más recientes</option>
+        <option value="price_asc">Precio: Menor a Mayor</option>
+        <option value="price_desc">Precio: Mayor a Menor</option>
+      </select>
+    </section>
+
+    <!-- Grid de Publicaciones -->
+    <section class="listings-section">
+      <h2 class="section-title">Anuncios Recientes</h2>
+      <div id="listings-grid" class="grid-products">
+        <!-- Renderizado dinámico vía JS -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 iMarket Cuba. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script type="module" src="js/app.js"></script>
+  <script type="module" src="js/listings.js"></script>
+</body>
+</html>
