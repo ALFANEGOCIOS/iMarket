@@ -1,1 +1,2231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
 
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Buscar iPhone | iMarket Cuba</title>
+
+    <meta
+        name="description"
+        content="Busca iPhones en venta en La Habana. Filtra por modelo, almacenamiento, color, condición, batería y precio."
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/global.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/components.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/pages.css"
+    >
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="site-header">
+
+        <div class="container header-inner">
+
+            <a
+                href="index.html"
+                class="brand"
+                aria-label="iMarket Cuba"
+            >
+                <span class="brand-mark">i</span>
+
+                <span class="brand-text">
+                    iMarket Cuba
+                </span>
+            </a>
+
+
+            <nav class="main-nav">
+
+                <a href="index.html">
+                    Inicio
+                </a>
+
+                <a
+                    href="buscar.html"
+                    class="active"
+                >
+                    Buscar
+                </a>
+
+                <a href="como-funciona.html">
+                    Cómo funciona
+                </a>
+
+                <a href="seguridad.html">
+                    Seguridad
+                </a>
+
+            </nav>
+
+
+            <div class="header-actions">
+
+                <a
+                    href="favoritos.html"
+                    class="header-icon-button"
+                    aria-label="Favoritos"
+                    title="Favoritos"
+                >
+                    ♡
+                </a>
+
+                <a
+                    href="publicar.html"
+                    class="header-sell-button"
+                >
+                    Vender iPhone
+                </a>
+
+                <a
+                    href="login.html"
+                    class="header-login-button"
+                >
+                    Entrar
+                </a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="search-page">
+
+        <div class="container">
+
+
+            <!-- =================================================
+                 PAGE HEADER
+            ================================================== -->
+
+            <section class="search-page-header">
+
+                <div>
+
+                    <a
+                        href="index.html"
+                        class="back-link"
+                    >
+                        ← Volver al inicio
+                    </a>
+
+                    <h1>
+                        Buscar iPhone
+                    </h1>
+
+                    <p>
+                        Encuentra el iPhone que buscas entre
+                        publicaciones de vendedores verificados.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 SEARCH BAR
+            ================================================== -->
+
+            <section class="search-main-bar">
+
+                <div class="search-input-wrapper">
+
+                    <span class="search-icon">
+                        ⌕
+                    </span>
+
+                    <input
+                        type="search"
+                        id="searchInput"
+                        placeholder="Buscar por modelo, color o características..."
+                        autocomplete="off"
+                    >
+
+                    <button
+                        type="button"
+                        id="clearSearch"
+                        class="search-clear"
+                        aria-label="Limpiar búsqueda"
+                    >
+                        ×
+                    </button>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="mobileFiltersButton"
+                    class="mobile-filter-button"
+                >
+                    ☷
+                    <span>
+                        Filtros
+                    </span>
+                </button>
+
+            </section>
+
+
+            <!-- =================================================
+                 SEARCH CONTENT
+            ================================================== -->
+
+            <div class="search-layout">
+
+
+                <!-- =============================================
+                     FILTER SIDEBAR
+                ============================================== -->
+
+                <aside
+                    class="filters-panel"
+                    id="filtersPanel"
+                >
+
+                    <div class="filters-header">
+
+                        <div>
+
+                            <h2>
+                                Filtros
+                            </h2>
+
+                            <span
+                                id="activeFiltersCount"
+                                class="filters-count"
+                            >
+                                0 activos
+                            </span>
+
+                        </div>
+
+                        <button
+                            type="button"
+                            id="clearFilters"
+                            class="clear-filters-button"
+                        >
+                            Limpiar
+                        </button>
+
+                    </div>
+
+
+                    <!-- MODELO -->
+
+                    <div class="filter-group">
+
+                        <label
+                            for="modelFilter"
+                            class="filter-label"
+                        >
+                            Modelo
+                        </label>
+
+                        <select
+                            id="modelFilter"
+                            class="filter-select"
+                        >
+
+                            <option value="">
+                                Todos los modelos
+                            </option>
+
+                            <option value="iPhone 18">
+                                iPhone 18
+                            </option>
+
+                            <option value="iPhone 17">
+                                iPhone 17
+                            </option>
+
+                            <option value="iPhone 17 Pro">
+                                iPhone 17 Pro
+                            </option>
+
+                            <option value="iPhone 17 Air">
+                                iPhone 17 Air
+                            </option>
+
+                            <option value="iPhone 17e">
+                                iPhone 17e
+                            </option>
+
+                            <option value="iPhone 16">
+                                iPhone 16
+                            </option>
+
+                            <option value="iPhone 16 Pro">
+                                iPhone 16 Pro
+                            </option>
+
+                            <option value="iPhone 15">
+                                iPhone 15
+                            </option>
+
+                            <option value="iPhone 15 Pro">
+                                iPhone 15 Pro
+                            </option>
+
+                            <option value="iPhone 14">
+                                iPhone 14
+                            </option>
+
+                            <option value="iPhone 14 Pro">
+                                iPhone 14 Pro
+                            </option>
+
+                            <option value="iPhone 13">
+                                iPhone 13
+                            </option>
+
+                            <option value="iPhone 13 Pro">
+                                iPhone 13 Pro
+                            </option>
+
+                            <option value="iPhone 12">
+                                iPhone 12
+                            </option>
+
+                            <option value="iPhone 12 Pro">
+                                iPhone 12 Pro
+                            </option>
+
+                            <option value="iPhone 11">
+                                iPhone 11
+                            </option>
+
+                            <option value="iPhone 11 Pro">
+                                iPhone 11 Pro
+                            </option>
+
+                            <option value="iPhone XS">
+                                iPhone XS
+                            </option>
+
+                            <option value="iPhone XR">
+                                iPhone XR
+                            </option>
+
+                            <option value="iPhone X">
+                                iPhone X
+                            </option>
+
+                            <option value="iPhone 8">
+                                iPhone 8
+                            </option>
+
+                            <option value="iPhone 7">
+                                iPhone 7
+                            </option>
+
+                            <option value="iPhone 6s">
+                                iPhone 6s
+                            </option>
+
+                            <option value="iPhone 6">
+                                iPhone 6
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- ALMACENAMIENTO -->
+
+                    <div class="filter-group">
+
+                        <span class="filter-label">
+                            Almacenamiento
+                        </span>
+
+                        <div class="filter-options">
+
+                            <label class="check-option">
+
+                                <input
+                                    type="checkbox"
+                                    name="storage"
+                                    value="32"
+                                >
+
+                                <span>
+                                    32 GB
+                                </span>
+
+                            </label>
+
+
+                            <label class="check-option">
+
+                                <input
+                                    type="checkbox"
+                                    name="storage"
+                                    value="64"
+                                >
+
+                                <span>
+                                    64 GB
+                                </span>
+
+                            </label>
+
+
+                            <label class="check-option">
+
+                                <input
+                                    type="checkbox"
+                                    name="storage"
+                                    value="128"
+                                >
+
+                                <span>
+                                    128 GB
+                                </span>
+
+                            </label>
+
+
+                            <label class="check-option">
+
+                                <input
+                                    type="checkbox"
+                                    name="storage"
+                                    value="256"
+                                >
+
+                                <span>
+                                    256 GB
+                                </span>
+
+                            </label>
+
+
+                            <label class="check-option">
+
+                                <input
+                                    type="checkbox"
+                                    name="storage"
+                                    value="512"
+                                >
+
+                                <span>
+                                    512 GB
+                                </span>
+
+                            </label>
+
+
+                            <label class="check-option">
+
+                                <input
+                                    type="checkbox"
+                                    name="storage"
+                                    value="1024"
+                                >
+
+                                <span>
+                                    1 TB
+                                </span>
+
+                            </label>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- COLOR -->
+
+                    <div class="filter-group">
+
+                        <label
+                            for="colorFilter"
+                            class="filter-label"
+                        >
+                            Color
+                        </label>
+
+                        <select
+                            id="colorFilter"
+                            class="filter-select"
+                        >
+
+                            <option value="">
+                                Todos los colores
+                            </option>
+
+                            <option value="Negro">
+                                Negro
+                            </option>
+
+                            <option value="Blanco">
+                                Blanco
+                            </option>
+
+                            <option value="Azul">
+                                Azul
+                            </option>
+
+                            <option value="Verde">
+                                Verde
+                            </option>
+
+                            <option value="Rojo">
+                                Rojo
+                            </option>
+
+                            <option value="Rosa">
+                                Rosa
+                            </option>
+
+                            <option value="Morado">
+                                Morado
+                            </option>
+
+                            <option value="Amarillo">
+                                Amarillo
+                            </option>
+
+                            <option value="Titanio natural">
+                                Titanio natural
+                            </option>
+
+                            <option value="Titanio negro">
+                                Titanio negro
+                            </option>
+
+                            <option value="Titanio blanco">
+                                Titanio blanco
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- CONDICIÓN -->
+
+                    <div class="filter-group">
+
+                        <span class="filter-label">
+                            Condición estética
+                        </span>
+
+                        <div class="filter-options">
+
+                            <label class="check-option">
+
+                                <input
+                                    type="checkbox"
+                                    name="condition"
+                                    value="new"
+                                >
+
+                                <span>
+                                    Nuevo
+                                </span>
+
+                            </label>
+
+
+                            <label class="check-option">
+
+                                <input
+                                    type="checkbox"
+                                    name="condition"
+                                    value="like_new"
+                                >
+
+                                <span>
+                                    Como nuevo
+                                </span>
+
+                            </label>
+
+
+                            <label class="check-option">
+
+                                <input
+                                    type="checkbox"
+                                    name="condition"
+                                    value="excellent"
+                                >
+
+                                <span>
+                                    Excelente
+                                </span>
+
+                            </label>
+
+
+                            <label class="check-option">
+
+                                <input
+                                    type="checkbox"
+                                    name="condition"
+                                    value="good"
+                                >
+
+                                <span>
+                                    Buen estado
+                                </span>
+
+                            </label>
+
+
+                            <label class="check-option">
+
+                                <input
+                                    type="checkbox"
+                                    name="condition"
+                                    value="acceptable"
+                                >
+
+                                <span>
+                                    Aceptable
+                                </span>
+
+                            </label>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- BATERÍA -->
+
+                    <div class="filter-group">
+
+                        <span class="filter-label">
+                            Batería
+                        </span>
+
+                        <div class="filter-options">
+
+                            <label class="check-option">
+
+                                <input
+                                    type="checkbox"
+                                    name="battery"
+                                    value="90"
+                                >
+
+                                <span>
+                                    90% o más
+                                </span>
+
+                            </label>
+
+
+                            <label class="check-option">
+
+                                <input
+                                    type="checkbox"
+                                    name="battery"
+                                    value="80"
+                                >
+
+                                <span>
+                                    80% o más
+                                </span>
+
+                            </label>
+
+
+                            <label class="check-option">
+
+                                <input
+                                    type="checkbox"
+                                    name="battery"
+                                    value="70"
+                                >
+
+                                <span>
+                                    70% o más
+                                </span>
+
+                            </label>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PRECIO -->
+
+                    <div class="filter-group">
+
+                        <span class="filter-label">
+                            Precio
+                        </span>
+
+                        <div class="price-range-inputs">
+
+                            <div class="price-input-wrapper">
+
+                                <span>
+                                    $
+                                </span>
+
+                                <input
+                                    type="number"
+                                    id="minPrice"
+                                    placeholder="Mín."
+                                    min="0"
+                                >
+
+                            </div>
+
+
+                            <span class="price-separator">
+                                -
+                            </span>
+
+
+                            <div class="price-input-wrapper">
+
+                                <span>
+                                    $
+                                </span>
+
+                                <input
+                                    type="number"
+                                    id="maxPrice"
+                                    placeholder="Máx."
+                                    min="0"
+                                >
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- UBICACIÓN -->
+
+                    <div class="filter-group">
+
+                        <label
+                            for="municipalityFilter"
+                            class="filter-label"
+                        >
+                            Municipio
+                        </label>
+
+                        <select
+                            id="municipalityFilter"
+                            class="filter-select"
+                        >
+
+                            <option value="">
+                                Toda La Habana
+                            </option>
+
+                            <option value="Playa">
+                                Playa
+                            </option>
+
+                            <option value="Plaza">
+                                Plaza
+                            </option>
+
+                            <option value="Centro Habana">
+                                Centro Habana
+                            </option>
+
+                            <option value="Habana Vieja">
+                                Habana Vieja
+                            </option>
+
+                            <option value="Regla">
+                                Regla
+                            </option>
+
+                            <option value="La Habana del Este">
+                                La Habana del Este
+                            </option>
+
+                            <option value="Guanabacoa">
+                                Guanabacoa
+                            </option>
+
+                            <option value="San Miguel del Padrón">
+                                San Miguel del Padrón
+                            </option>
+
+                            <option value="Diez de Octubre">
+                                Diez de Octubre
+                            </option>
+
+                            <option value="Cerro">
+                                Cerro
+                            </option>
+
+                            <option value="Marianao">
+                                Marianao
+                            </option>
+
+                            <option value="La Lisa">
+                                La Lisa
+                            </option>
+
+                            <option value="Boyeros">
+                                Boyeros
+                            </option>
+
+                            <option value="Arroyo Naranjo">
+                                Arroyo Naranjo
+                            </option>
+
+                            <option value="Cotorro">
+                                Cotorro
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- CARACTERÍSTICAS -->
+
+                    <div class="filter-group">
+
+                        <span class="filter-label">
+                            Características
+                        </span>
+
+                        <div class="filter-options">
+
+                            <label class="check-option">
+
+                                <input
+                                    type="checkbox"
+                                    id="factoryUnlockedFilter"
+                                >
+
+                                <span>
+                                    Libre de fábrica
+                                </span>
+
+                            </label>
+
+
+                            <label class="check-option">
+
+                                <input
+                                    type="checkbox"
+                                    id="faceIdFilter"
+                                >
+
+                                <span>
+                                    Face ID funcionando
+                                </span>
+
+                            </label>
+
+
+                            <label class="check-option">
+
+                                <input
+                                    type="checkbox"
+                                    id="trueToneFilter"
+                                >
+
+                                <span>
+                                    True Tone funcionando
+                                </span>
+
+                            </label>
+
+
+                            <label class="check-option">
+
+                                <input
+                                    type="checkbox"
+                                    id="warrantyFilter"
+                                >
+
+                                <span>
+                                    Con garantía
+                                </span>
+
+                            </label>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="apply-filters-button"
+                        id="applyFilters"
+                    >
+                        Aplicar filtros
+                    </button>
+
+                </aside>
+
+
+                <!-- =============================================
+                     RESULTS
+                ============================================== -->
+
+                <section class="search-results">
+
+
+                    <!-- RESULTS HEADER -->
+
+                    <div class="results-header">
+
+                        <div>
+
+                            <span
+                                class="results-eyebrow"
+                                id="resultsCount"
+                            >
+                                Anuncios disponibles
+                            </span>
+
+                            <h2>
+                                iPhones en venta
+                            </h2>
+
+                        </div>
+
+
+                        <div class="results-actions">
+
+                            <button
+                                type="button"
+                                class="view-button active"
+                                data-view="grid"
+                                aria-label="Vista de cuadrícula"
+                                title="Vista de cuadrícula"
+                            >
+                                ▦
+                            </button>
+
+                            <button
+                                type="button"
+                                class="view-button"
+                                data-view="list"
+                                aria-label="Vista de lista"
+                                title="Vista de lista"
+                            >
+                                ☰
+                            </button>
+
+
+                            <select
+                                id="sortSelect"
+                                class="sort-select"
+                            >
+
+                                <option value="recent">
+                                    Más recientes
+                                </option>
+
+                                <option value="price_low">
+                                    Precio: menor a mayor
+                                </option>
+
+                                <option value="price_high">
+                                    Precio: mayor a menor
+                                </option>
+
+                                <option value="battery">
+                                    Mejor batería
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ACTIVE FILTER CHIPS -->
+
+                    <div
+                        class="active-filter-chips"
+                        id="activeFilterChips"
+                    >
+                        <!-- Se generan mediante JavaScript -->
+                    </div>
+
+
+                    <!-- =================================================
+                         LISTINGS GRID
+                    ================================================== -->
+
+                    <div
+                        class="listings-grid"
+                        id="listingsGrid"
+                    >
+
+
+                        <!-- CARD 1 -->
+
+                        <article
+                            class="listing-card"
+                            data-listing-id="demo-1"
+                        >
+
+                            <a
+                                href="iphone.html?id=demo-1"
+                                class="listing-image-wrapper"
+                            >
+
+                                <span class="listing-badge">
+                                    Verificado
+                                </span>
+
+                                <button
+                                    type="button"
+                                    class="favorite-button"
+                                    data-favorite="demo-1"
+                                    aria-label="Añadir a favoritos"
+                                >
+                                    ♡
+                                </button>
+
+                                <img
+                                    src="assets/images/iphone-demo-1.webp"
+                                    alt="iPhone 15 Pro"
+                                    class="listing-image"
+                                    loading="lazy"
+                                >
+
+                            </a>
+
+
+                            <div class="listing-content">
+
+                                <div class="listing-top">
+
+                                    <div>
+
+                                        <span class="listing-model">
+                                            iPhone 15 Pro
+                                        </span>
+
+                                        <h3 class="listing-title">
+                                            iPhone 15 Pro 256 GB
+                                        </h3>
+
+                                    </div>
+
+                                    <span class="listing-condition">
+                                        Excelente
+                                    </span>
+
+                                </div>
+
+
+                                <div class="listing-specs">
+
+                                    <span>
+                                        256 GB
+                                    </span>
+
+                                    <span>
+                                        Titanio natural
+                                    </span>
+
+                                    <span>
+                                        Batería 92%
+                                    </span>
+
+                                </div>
+
+
+                                <div class="listing-location">
+                                    📍 Playa, La Habana
+                                </div>
+
+
+                                <div class="listing-footer">
+
+                                    <strong class="listing-price">
+                                        $780
+                                    </strong>
+
+                                    <span class="listing-date">
+                                        Hoy
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </article>
+
+
+                        <!-- CARD 2 -->
+
+                        <article
+                            class="listing-card"
+                            data-listing-id="demo-2"
+                        >
+
+                            <a
+                                href="iphone.html?id=demo-2"
+                                class="listing-image-wrapper"
+                            >
+
+                                <span class="listing-badge">
+                                    Verificado
+                                </span>
+
+                                <button
+                                    type="button"
+                                    class="favorite-button"
+                                    data-favorite="demo-2"
+                                    aria-label="Añadir a favoritos"
+                                >
+                                    ♡
+                                </button>
+
+                                <img
+                                    src="assets/images/iphone-demo-2.webp"
+                                    alt="iPhone 14 Pro Max"
+                                    class="listing-image"
+                                    loading="lazy"
+                                >
+
+                            </a>
+
+
+                            <div class="listing-content">
+
+                                <div class="listing-top">
+
+                                    <div>
+
+                                        <span class="listing-model">
+                                            iPhone 14 Pro Max
+                                        </span>
+
+                                        <h3 class="listing-title">
+                                            iPhone 14 Pro Max 256 GB
+                                        </h3>
+
+                                    </div>
+
+                                    <span class="listing-condition">
+                                        Como nuevo
+                                    </span>
+
+                                </div>
+
+
+                                <div class="listing-specs">
+
+                                    <span>
+                                        256 GB
+                                    </span>
+
+                                    <span>
+                                        Morado profundo
+                                    </span>
+
+                                    <span>
+                                        Batería 89%
+                                    </span>
+
+                                </div>
+
+
+                                <div class="listing-location">
+                                    📍 Plaza, La Habana
+                                </div>
+
+
+                                <div class="listing-footer">
+
+                                    <strong class="listing-price">
+                                        $690
+                                    </strong>
+
+                                    <span class="listing-date">
+                                        Hoy
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </article>
+
+
+                        <!-- CARD 3 -->
+
+                        <article
+                            class="listing-card"
+                            data-listing-id="demo-3"
+                        >
+
+                            <a
+                                href="iphone.html?id=demo-3"
+                                class="listing-image-wrapper"
+                            >
+
+                                <span class="listing-badge">
+                                    Verificado
+                                </span>
+
+                                <button
+                                    type="button"
+                                    class="favorite-button"
+                                    data-favorite="demo-3"
+                                    aria-label="Añadir a favoritos"
+                                >
+                                    ♡
+                                </button>
+
+                                <img
+                                    src="assets/images/iphone-demo-3.webp"
+                                    alt="iPhone 13"
+                                    class="listing-image"
+                                    loading="lazy"
+                                >
+
+                            </a>
+
+
+                            <div class="listing-content">
+
+                                <div class="listing-top">
+
+                                    <div>
+
+                                        <span class="listing-model">
+                                            iPhone 13
+                                        </span>
+
+                                        <h3 class="listing-title">
+                                            iPhone 13 128 GB
+                                        </h3>
+
+                                    </div>
+
+                                    <span class="listing-condition">
+                                        Buen estado
+                                    </span>
+
+                                </div>
+
+
+                                <div class="listing-specs">
+
+                                    <span>
+                                        128 GB
+                                    </span>
+
+                                    <span>
+                                        Azul
+                                    </span>
+
+                                    <span>
+                                        Batería 84%
+                                    </span>
+
+                                </div>
+
+
+                                <div class="listing-location">
+                                    📍 Diez de Octubre
+                                </div>
+
+
+                                <div class="listing-footer">
+
+                                    <strong class="listing-price">
+                                        $480
+                                    </strong>
+
+                                    <span class="listing-date">
+                                        Ayer
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </article>
+
+
+                        <!-- CARD 4 -->
+
+                        <article
+                            class="listing-card"
+                            data-listing-id="demo-4"
+                        >
+
+                            <a
+                                href="iphone.html?id=demo-4"
+                                class="listing-image-wrapper"
+                            >
+
+                                <span class="listing-badge">
+                                    Verificado
+                                </span>
+
+                                <button
+                                    type="button"
+                                    class="favorite-button"
+                                    data-favorite="demo-4"
+                                    aria-label="Añadir a favoritos"
+                                >
+                                    ♡
+                                </button>
+
+                                <img
+                                    src="assets/images/iphone-demo-4.webp"
+                                    alt="iPhone 12 Pro"
+                                    class="listing-image"
+                                    loading="lazy"
+                                >
+
+                            </a>
+
+
+                            <div class="listing-content">
+
+                                <div class="listing-top">
+
+                                    <div>
+
+                                        <span class="listing-model">
+                                            iPhone 12 Pro
+                                        </span>
+
+                                        <h3 class="listing-title">
+                                            iPhone 12 Pro 128 GB
+                                        </h3>
+
+                                    </div>
+
+                                    <span class="listing-condition">
+                                        Excelente
+                                    </span>
+
+                                </div>
+
+
+                                <div class="listing-specs">
+
+                                    <span>
+                                        128 GB
+                                    </span>
+
+                                    <span>
+                                        Grafito
+                                    </span>
+
+                                    <span>
+                                        Batería 86%
+                                    </span>
+
+                                </div>
+
+
+                                <div class="listing-location">
+                                    📍 Marianao
+                                </div>
+
+
+                                <div class="listing-footer">
+
+                                    <strong class="listing-price">
+                                        $420
+                                    </strong>
+
+                                    <span class="listing-date">
+                                        Ayer
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </article>
+
+
+                        <!-- CARD 5 -->
+
+                        <article
+                            class="listing-card"
+                            data-listing-id="demo-5"
+                        >
+
+                            <a
+                                href="iphone.html?id=demo-5"
+                                class="listing-image-wrapper"
+                            >
+
+                                <span class="listing-badge">
+                                    Verificado
+                                </span>
+
+                                <button
+                                    type="button"
+                                    class="favorite-button"
+                                    data-favorite="demo-5"
+                                    aria-label="Añadir a favoritos"
+                                >
+                                    ♡
+                                </button>
+
+                                <img
+                                    src="assets/images/iphone-demo-5.webp"
+                                    alt="iPhone 15"
+                                    class="listing-image"
+                                    loading="lazy"
+                                >
+
+                            </a>
+
+
+                            <div class="listing-content">
+
+                                <div class="listing-top">
+
+                                    <div>
+
+                                        <span class="listing-model">
+                                            iPhone 15
+                                        </span>
+
+                                        <h3 class="listing-title">
+                                            iPhone 15 128 GB
+                                        </h3>
+
+                                    </div>
+
+                                    <span class="listing-condition">
+                                        Como nuevo
+                                    </span>
+
+                                </div>
+
+
+                                <div class="listing-specs">
+
+                                    <span>
+                                        128 GB
+                                    </span>
+
+                                    <span>
+                                        Negro
+                                    </span>
+
+                                    <span>
+                                        Batería 95%
+                                    </span>
+
+                                </div>
+
+
+                                <div class="listing-location">
+                                    📍 La Lisa
+                                </div>
+
+
+                                <div class="listing-footer">
+
+                                    <strong class="listing-price">
+                                        $620
+                                    </strong>
+
+                                    <span class="listing-date">
+                                        2 días
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </article>
+
+
+                        <!-- CARD 6 -->
+
+                        <article
+                            class="listing-card"
+                            data-listing-id="demo-6"
+                        >
+
+                            <a
+                                href="iphone.html?id=demo-6"
+                                class="listing-image-wrapper"
+                            >
+
+                                <span class="listing-badge">
+                                    Verificado
+                                </span>
+
+                                <button
+                                    type="button"
+                                    class="favorite-button"
+                                    data-favorite="demo-6"
+                                    aria-label="Añadir a favoritos"
+                                >
+                                    ♡
+                                </button>
+
+                                <img
+                                    src="assets/images/iphone-demo-6.webp"
+                                    alt="iPhone 11"
+                                    class="listing-image"
+                                    loading="lazy"
+                                >
+
+                            </a>
+
+
+                            <div class="listing-content">
+
+                                <div class="listing-top">
+
+                                    <div>
+
+                                        <span class="listing-model">
+                                            iPhone 11
+                                        </span>
+
+                                        <h3 class="listing-title">
+                                            iPhone 11 128 GB
+                                        </h3>
+
+                                    </div>
+
+                                    <span class="listing-condition">
+                                        Buen estado
+                                    </span>
+
+                                </div>
+
+
+                                <div class="listing-specs">
+
+                                    <span>
+                                        128 GB
+                                    </span>
+
+                                    <span>
+                                        Blanco
+                                    </span>
+
+                                    <span>
+                                        Batería 81%
+                                    </span>
+
+                                </div>
+
+
+                                <div class="listing-location">
+                                    📍 Boyeros
+                                </div>
+
+
+                                <div class="listing-footer">
+
+                                    <strong class="listing-price">
+                                        $350
+                                    </strong>
+
+                                    <span class="listing-date">
+                                        3 días
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </article>
+
+
+                    </div>
+
+
+                    <!-- =================================================
+                         EMPTY STATE
+                    ================================================== -->
+
+                    <div
+                        class="search-empty-state"
+                        id="emptyState"
+                        hidden
+                    >
+
+                        <div class="empty-icon">
+                            ⌕
+                        </div>
+
+                        <h3>
+                            No encontramos iPhones
+                        </h3>
+
+                        <p>
+                            Prueba cambiando los filtros o usando
+                            otros términos de búsqueda.
+                        </p>
+
+                        <button
+                            type="button"
+                            id="emptyClearFilters"
+                            class="secondary-button"
+                        >
+                            Limpiar filtros
+                        </button>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         LOADING STATE
+                    ================================================== -->
+
+                    <div
+                        class="search-loading-state"
+                        id="loadingState"
+                        hidden
+                    >
+
+                        <div class="loading-spinner"></div>
+
+                        <p>
+                            Buscando publicaciones...
+                        </p>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         PAGINATION
+                    ================================================== -->
+
+                    <div class="pagination">
+
+                        <button
+                            type="button"
+                            class="pagination-button disabled"
+                            disabled
+                        >
+                            ←
+                        </button>
+
+                        <button
+                            type="button"
+                            class="pagination-button active"
+                        >
+                            1
+                        </button>
+
+                        <button
+                            type="button"
+                            class="pagination-button"
+                        >
+                            2
+                        </button>
+
+                        <button
+                            type="button"
+                            class="pagination-button"
+                        >
+                            3
+                        </button>
+
+                        <span class="pagination-dots">
+                            …
+                        </span>
+
+                        <button
+                            type="button"
+                            class="pagination-button"
+                        >
+                            8
+                        </button>
+
+                        <button
+                            type="button"
+                            class="pagination-button"
+                        >
+                            →
+                        </button>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="site-footer">
+
+        <div class="container footer-inner">
+
+            <div class="footer-brand">
+
+                <div class="brand">
+
+                    <span class="brand-mark">
+                        i
+                    </span>
+
+                    <span class="brand-text">
+                        iMarket Cuba
+                    </span>
+
+                </div>
+
+                <p>
+                    El marketplace de iPhones entre particulares
+                    en La Habana.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <a href="como-funciona.html">
+                    Cómo funciona
+                </a>
+
+                <a href="seguridad.html">
+                    Seguridad
+                </a>
+
+                <a href="terminos.html">
+                    Términos
+                </a>
+
+                <a href="login.html">
+                    Iniciar sesión
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom container">
+
+            <span>
+                © 2026 iMarket Cuba
+            </span>
+
+            <span>
+                By
+                <a
+                    href="https://alfanegocios.github.io/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    ALFA NEGOCIOS
+                </a>
+            </span>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =====================================================
+         PAGE JAVASCRIPT
+    ====================================================== -->
+
+    <script>
+
+        /* =====================================================
+           ELEMENTOS
+        ====================================================== */
+
+        const searchInput =
+            document.getElementById("searchInput");
+
+        const clearSearch =
+            document.getElementById("clearSearch");
+
+        const clearFilters =
+            document.getElementById("clearFilters");
+
+        const emptyClearFilters =
+            document.getElementById("emptyClearFilters");
+
+        const mobileFiltersButton =
+            document.getElementById("mobileFiltersButton");
+
+        const filtersPanel =
+            document.getElementById("filtersPanel");
+
+        const activeFiltersCount =
+            document.getElementById("activeFiltersCount");
+
+        const activeFilterChips =
+            document.getElementById("activeFilterChips");
+
+        const listingsGrid =
+            document.getElementById("listingsGrid");
+
+        const emptyState =
+            document.getElementById("emptyState");
+
+        const viewButtons =
+            document.querySelectorAll(".view-button");
+
+        const favoriteButtons =
+            document.querySelectorAll(".favorite-button");
+
+
+        /* =====================================================
+           BÚSQUEDA
+        ====================================================== */
+
+        function updateSearchState() {
+
+            const hasText =
+                searchInput.value.trim().length > 0;
+
+            clearSearch.classList.toggle(
+                "visible",
+                hasText
+            );
+        }
+
+
+        searchInput.addEventListener(
+            "input",
+            updateSearchState
+        );
+
+
+        clearSearch.addEventListener(
+            "click",
+            () => {
+
+                searchInput.value = "";
+
+                updateSearchState();
+
+                searchInput.focus();
+
+            }
+        );
+
+
+        /* =====================================================
+           FILTROS
+        ====================================================== */
+
+        function getFilterInputs() {
+
+            return document.querySelectorAll(
+                '.filters-panel input[type="checkbox"]'
+            );
+
+        }
+
+
+        function updateFilterCount() {
+
+            let count = 0;
+
+
+            const model =
+                document.getElementById("modelFilter").value;
+
+            const color =
+                document.getElementById("colorFilter").value;
+
+            const municipality =
+                document.getElementById(
+                    "municipalityFilter"
+                ).value;
+
+            const minPrice =
+                document.getElementById("minPrice").value;
+
+            const maxPrice =
+                document.getElementById("maxPrice").value;
+
+
+            if (model) count++;
+
+            if (color) count++;
+
+            if (municipality) count++;
+
+            if (minPrice) count++;
+
+            if (maxPrice) count++;
+
+
+            getFilterInputs().forEach(
+                input => {
+
+                    if (input.checked) {
+                        count++;
+                    }
+
+                }
+            );
+
+
+            activeFiltersCount.textContent =
+                `${count} activo${count === 1 ? "" : "s"}`;
+
+
+            updateFilterChips();
+
+        }
+
+
+        function updateFilterChips() {
+
+            activeFilterChips.innerHTML = "";
+
+
+            const model =
+                document.getElementById("modelFilter").value;
+
+            const color =
+                document.getElementById("colorFilter").value;
+
+            const municipality =
+                document.getElementById(
+                    "municipalityFilter"
+                ).value;
+
+
+            if (model) {
+                createFilterChip(
+                    "Modelo: " + model,
+                    "modelFilter"
+                );
+            }
+
+
+            if (color) {
+                createFilterChip(
+                    "Color: " + color,
+                    "colorFilter"
+                );
+            }
+
+
+            if (municipality) {
+                createFilterChip(
+                    municipality,
+                    "municipalityFilter"
+                );
+            }
+
+
+            getFilterInputs().forEach(
+                input => {
+
+                    if (!input.checked) {
+                        return;
+                    }
+
+
+                    let label =
+                        input.parentElement
+                            .querySelector("span")
+                            ?.textContent
+                            .trim();
+
+
+                    if (label) {
+
+                        createFilterChip(
+                            label,
+                            input.id || input.name
+                        );
+
+                    }
+
+                }
+            );
+
+        }
+
+
+        function createFilterChip(
+            text,
+            source
+        ) {
+
+            const chip =
+                document.createElement("button");
+
+            chip.type = "button";
+
+            chip.className =
+                "filter-chip";
+
+            chip.innerHTML = `
+                <span>${text}</span>
+                <span>×</span>
+            `;
+
+
+            chip.addEventListener(
+                "click",
+                () => {
+
+                    const element =
+                        document.getElementById(source);
+
+
+                    if (element) {
+
+                        if (
+                            element.type ===
+                            "checkbox"
+                        ) {
+                            element.checked = false;
+                        } else {
+                            element.value = "";
+                        }
+
+                    }
+
+
+                    updateFilterCount();
+
+                }
+            );
+
+
+            activeFilterChips.appendChild(
+                chip
+            );
+
+        }
+
+
+        document
+            .querySelectorAll(
+                ".filters-panel select, .filters-panel input"
+            )
+            .forEach(
+                element => {
+
+                    element.addEventListener(
+                        "change",
+                        updateFilterCount
+                    );
+
+                    element.addEventListener(
+                        "input",
+                        updateFilterCount
+                    );
+
+                }
+            );
+
+
+        function resetFilters() {
+
+            document
+                .querySelectorAll(
+                    ".filters-panel input"
+                )
+                .forEach(
+                    input => {
+
+                        if (
+                            input.type ===
+                            "checkbox"
+                        ) {
+                            input.checked = false;
+                        } else {
+                            input.value = "";
+                        }
+
+                    }
+                );
+
+
+            document
+                .querySelectorAll(
+                    ".filters-panel select"
+                )
+                .forEach(
+                    select => {
+
+                        select.value = "";
+
+                    }
+                );
+
+
+            searchInput.value = "";
+
+            updateSearchState();
+
+            updateFilterCount();
+
+        }
+
+
+        clearFilters.addEventListener(
+            "click",
+            resetFilters
+        );
+
+
+        emptyClearFilters.addEventListener(
+            "click",
+            resetFilters
+        );
+
+
+        /* =====================================================
+           FILTROS MÓVILES
+        ====================================================== */
+
+        mobileFiltersButton.addEventListener(
+            "click",
+            () => {
+
+                filtersPanel.classList.toggle(
+                    "mobile-open"
+                );
+
+            }
+        );
+
+
+        /* =====================================================
+           VISTA GRID / LISTA
+        ====================================================== */
+
+        viewButtons.forEach(
+            button => {
+
+                button.addEventListener(
+                    "click",
+                    () => {
+
+                        viewButtons.forEach(
+                            item => {
+
+                                item.classList.remove(
+                                    "active"
+                                );
+
+                            }
+                        );
+
+
+                        button.classList.add(
+                            "active"
+                        );
+
+
+                        const view =
+                            button.dataset.view;
+
+
+                        listingsGrid.classList.toggle(
+                            "list-view",
+                            view === "list"
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+
+        /* =====================================================
+           FAVORITOS
+        ====================================================== */
+
+        favoriteButtons.forEach(
+            button => {
+
+                button.addEventListener(
+                    "click",
+                    event => {
+
+                        event.preventDefault();
+
+                        event.stopPropagation();
+
+
+                        button.classList.toggle(
+                            "active"
+                        );
+
+
+                        button.textContent =
+                            button.classList.contains(
+                                "active"
+                            )
+                                ? "♥"
+                                : "♡";
+
+                    }
+                );
+
+            }
+        );
+
+
+        /* =====================================================
+           INICIALIZACIÓN
+        ====================================================== */
+
+        updateSearchState();
+
+        updateFilterCount();
+
+    </script>
+
+</body>
+</html>
