@@ -1,182 +1,305 @@
-/* ==========================================
-   VARIABLES GLOBALES & TEMA
-   ========================================== */
+/* =========================================================
+   IMARKET CUBA - GLOBAL
+   ========================================================= */
+
 :root {
-  /* Paleta de Colores Principal */
-  --primary: #0071e3;             /* Azul Apple */
-  --primary-hover: #0077ed;
-  --secondary: #1d1d1f;           /* Negro oscuro tipo Apple */
-  --accent: #e63946;              /* Rojo de acento / Favorito */
-  
-  /* Fondos y Superficies */
-  --bg-main: #f5f5f7;
-  --bg-surface: #ffffff;
-  --bg-subtle: #f0f0f2;
-  
-  /* Texto */
-  --text-main: #1d1d1f;
-  --text-muted: #86868b;
-  --text-inverse: #ffffff;
-  
-  /* Estados / Feedback */
-  --success: #34c759;
-  --warning: #ff9500;
-  --error: #ff3b30;
-  --info: #5856d6;
+            --black: #111111;
+            --black-soft: #181818;
+            --white: #ffffff;
+            --background: #f6f7f9;
+            --surface: #ffffff;
+            --surface-soft: #f0f1f3;
 
-  /* Bordes y Sombras */
-  --border-color: #d2d2d7;
-  --border-subtle: #e5e5ea;
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 18px;
-  --radius-full: 9999px;
-  
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
-  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.12);
+            --text: #111111;
+            --text-secondary: #6b6f76;
+            --text-light: #92969d;
 
-  /* Fuentes */
-  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --blue: #147ef5;
+            --blue-dark: #0865d8;
+            --blue-soft: #eaf3ff;
+
+            --green: #20a464;
+            --green-soft: #e9f8f0;
+
+            --red: #e5484d;
+            --border: #e5e7eb;
+
+            --radius-sm: 10px;
+            --radius-md: 16px;
+            --radius-lg: 22px;
+            --radius-xl: 30px;
+
+            --shadow-sm:
+                0 2px 8px rgba(0, 0, 0, 0.05);
+
+            --shadow-md:
+                0 8px 30px rgba(0, 0, 0, 0.08);
+
+            --container: 1180px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "SF Pro Display",
+                "SF Pro Text",
+                "Segoe UI",
+                Roboto,
+                Helvetica,
+                Arial,
+                sans-serif;
+
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        button,
+        input,
+        select {
+            font: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+        }
+
+        .container {
+            width: min(
+                calc(100% - 32px),
+                var(--container)
+            );
+
+            margin-inline: auto;
+        }
+
+.header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .header-inner {
+            height: 70px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: -0.6px;
+        }
+
+        .logo-icon {
+            width: 34px;
+            height: 34px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 10px;
+
+            background: var(--black);
+            color: white;
+
+            font-size: 17px;
+            font-weight: 800;
+        }
+
+        .logo span {
+            color: var(--blue);
+        }
+
+        .desktop-nav {
+            display: none;
+            align-items: center;
+            gap: 28px;
+
+            color: #555a61;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .desktop-nav a {
+            transition: color 0.2s ease;
+        }
+
+        .desktop-nav a:hover {
+            color: var(--black);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .icon-button {
+            width: 40px;
+            height: 40px;
+
+            display: grid;
+            place-items: center;
+
+            border: 0;
+            border-radius: 50%;
+
+            background: transparent;
+            color: var(--black);
+
+            transition:
+                background 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .icon-button:hover {
+            background: var(--surface-soft);
+        }
+
+        .icon-button:active {
+            transform: scale(0.94);
+        }
+
+        .icon {
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .login-button {
+            display: none;
+
+            padding: 10px 16px;
+
+            border-radius: 12px;
+            border: 1px solid var(--border);
+
+            background: white;
+
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+.footer {
+            border-top: 1px solid var(--border);
+
+            background: white;
+        }
+
+        .footer-inner {
+            padding: 38px 0 25px;
+        }
+
+        .footer-top {
+            display: grid;
+            gap: 30px;
+        }
+
+        .footer-brand {
+            max-width: 320px;
+        }
+
+        .footer-brand p {
+            margin-top: 10px;
+
+            color: var(--text-secondary);
+
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        .footer-column h4 {
+            margin-bottom: 11px;
+
+            font-size: 12px;
+            font-weight: 750;
+        }
+
+        .footer-links {
+            display: grid;
+            gap: 7px;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+
+            font-size: 12px;
+        }
+
+        .footer-links a:hover {
+            color: var(--black);
+        }
+
+        .footer-bottom {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+
+            margin-top: 35px;
+            padding-top: 20px;
+
+            border-top: 1px solid var(--border);
+
+            color: var(--text-light);
+
+            font-size: 11px;
+        }
+
+        .footer-credit a {
+            color: var(--blue);
+            font-weight: 700;
+        }
+
+/* Publish page navigation */
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: var(--text-secondary);
+    font-size: 13px;
+    font-weight: 650;
 }
 
-/* ==========================================
-   RESET CSS & REGLAS BASE
-   ========================================== */
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  font-size: 16px;
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: var(--font-sans);
-  background-color: var(--bg-main);
-  color: var(--text-main);
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-}
-
-a {
-  color: var(--primary);
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-a:hover {
-  color: var(--primary-hover);
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-hr {
-  border: none;
-  border-top: 1px solid var(--border-subtle);
-  margin: 8px 0;
-}
-
-/* Utilitarios */
-.hidden {
-  display: none !important;
-}
-
-.btn-block {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-/* ==========================================
-   ESTILOS DE BOTONES
-   ========================================== */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 10px 20px;
-  font-size: 0.95rem;
-  font-weight: 500;
-  border-radius: var(--radius-md);
-  border: 1px solid transparent;
-  cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  user-select: none;
-}
-
-.btn-sm {
-  padding: 6px 14px;
-  font-size: 0.85rem;
-  border-radius: var(--radius-sm);
-}
-
-.btn-primary {
-  background-color: var(--primary);
-  color: var(--text-inverse);
-}
-
-.btn-primary:hover {
-  background-color: var(--primary-hover);
-  color: var(--text-inverse);
-  transform: translateY(-1px);
-}
-
-.btn-secondary {
-  background-color: var(--bg-subtle);
-  color: var(--text-main);
-}
-
-.btn-secondary:hover {
-  background-color: var(--border-subtle);
-}
-
-.btn-outline {
-  background-color: transparent;
-  border-color: var(--primary);
-  color: var(--primary);
-}
-
-.btn-outline:hover {
-  background-color: var(--primary);
-  color: var(--text-inverse);
-}
-
-.btn-link-danger {
-  background: none;
-  border: none;
-  color: var(--error);
-  font-size: 0.9rem;
-  cursor: pointer;
-  padding: 6px 0;
-  text-align: left;
-}
-
-.btn-link-danger:hover {
-  text-decoration: underline;
-}
-
-.icon-btn {
-  background: none;
-  border: none;
-  color: var(--text-main);
-  cursor: pointer;
-  padding: 8px;
-  border-radius: var(--radius-full);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.2s ease;
-}
-
-.icon-btn:hover {
-  background-color: var(--bg-subtle);
+.back-link:hover {
+    color: var(--black);
 }
