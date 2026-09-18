@@ -1,176 +1,31 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buscar iPhone | iMarket Cuba</title>
-    <meta name="description" content="Busca iPhones publicados por vendedores verificados en La Habana.">
-    <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/components.css">
-    <link rel="stylesheet" href="css/pages.css">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Busca iPhones en iMarket Cuba."><title>Buscar iPhones | iMarket Cuba</title>
+<link rel="stylesheet" href="css/buscar.css">
 </head>
 <body>
-<header class="header">
-    <div class="container header-inner">
-        <a class="logo" href="index.html">
-            <span class="logo-icon">i</span>
-            iMarket <span>Cuba</span>
-        </a>
-        <nav class="desktop-nav">
-            <a href="buscar.html">Buscar</a>
-            <a href="como-funciona.html">Cómo funciona</a>
-            <a href="seguridad.html">Seguridad</a>
-        </nav>
-        <div class="header-actions">
-            <a class="icon-button" href="favoritos.html" aria-label="Favoritos">
-                <svg class="icon" viewBox="0 0 24 24"><path d="M20.8 8.9c0 5.5-8.8 10.3-8.8 10.3S3.2 14.4 3.2 8.9A4.7 4.7 0 0 1 8 4.2c1.6 0 3.1.8 4 2 0.9-1.2 2.4-2 4-2a4.7 4.7 0 0 1 4.8 4.7Z"/></svg>
-            </a>
-            <a class="login-button" href="login.html">Iniciar sesión</a>
-            <button class="mobile-menu-button" type="button" aria-label="Abrir menú">☰</button>
-        </div>
-    </div>
-</header>
-
-<main class="search-page">
-    <div class="container">
-        <div class="page-header">
-            <div class="eyebrow">iMarket Cuba</div>
-            <h1 class="page-title">Buscar iPhone</h1>
-            <p class="page-description">Encuentra anuncios activos en La Habana y filtra por las características que realmente importan.</p>
-        </div>
-
-        <div class="search-box">
-            <svg class="search-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 5 5"></path></svg>
-            <input id="searchInput" class="search-input" type="search" placeholder="Busca por modelo, color o características...">
-            <button id="searchButton" class="search-submit" type="button">Buscar</button>
-        </div>
-
-        <div class="search-layout">
-            <aside class="search-filters">
-                <h2 class="search-filters-title">Filtros</h2>
-                <div class="field">
-                    <label class="field-label" for="modelFilter">Modelo</label>
-                    <select id="modelFilter" class="select">
-                        <option value="">Todos los modelos</option>
-                        <option>iPhone 18</option><option>iPhone 17 Pro</option><option>iPhone 17</option>
-                        <option>iPhone 16 Pro</option><option>iPhone 16</option><option>iPhone 15 Pro</option>
-                        <option>iPhone 15</option><option>iPhone 14 Pro</option><option>iPhone 14</option>
-                        <option>iPhone 13 Pro</option><option>iPhone 13</option><option>iPhone 12 Pro</option>
-                        <option>iPhone 12</option><option>iPhone 11 Pro</option><option>iPhone 11</option>
-                        <option>iPhone X</option><option>iPhone 8</option><option>iPhone 7</option><option>iPhone 6s</option><option>iPhone 6</option>
-                    </select>
-                </div>
-                <div class="field">
-                    <label class="field-label" for="conditionFilter">Condición</label>
-                    <select id="conditionFilter" class="select">
-                        <option value="">Cualquiera</option>
-                        <option value="new">Nuevo</option>
-                        <option value="like_new">Como nuevo</option>
-                        <option value="excellent">Excelente</option>
-                        <option value="good">Bueno</option>
-                        <option value="acceptable">Aceptable</option>
-                    </select>
-                </div>
-                <div class="field-grid">
-                    <div class="field">
-                        <label class="field-label" for="minPrice">Precio mín.</label>
-                        <input id="minPrice" class="input" type="number" min="0" placeholder="USD">
-                    </div>
-                    <div class="field">
-                        <label class="field-label" for="maxPrice">Precio máx.</label>
-                        <input id="maxPrice" class="input" type="number" min="0" placeholder="USD">
-                    </div>
-                </div>
-                <div class="field">
-                    <label class="field-label" for="municipalityFilter">Municipio</label>
-                    <select id="municipalityFilter" class="select">
-                        <option value="">Todos</option>
-                        <option>Playa</option><option>Plaza</option><option>Centro Habana</option>
-                        <option>Habana Vieja</option><option>10 de Octubre</option><option>Marianao</option>
-                        <option>La Lisa</option><option>Boyeros</option><option>Habana del Este</option>
-                    </select>
-                </div>
-                <div class="filter-actions">
-                    <button id="applyFilters" class="button button-primary" type="button">Aplicar</button>
-                    <button id="clearFilters" class="button button-secondary" type="button">Limpiar</button>
-                </div>
-            </aside>
-
-            <section>
-                <div class="search-results-header">
-                    <div id="resultsCount" class="search-results-count">Anuncios destacados</div>
-                    <select id="sortFilter" class="select search-sort">
-                        <option value="recent">Más recientes</option>
-                        <option value="price-low">Precio: menor a mayor</option>
-                        <option value="price-high">Precio: mayor a menor</option>
-                    </select>
-                </div>
-                <div id="resultsGrid" class="listings-grid"></div>
-                <div id="emptyState" class="search-empty hidden">
-                    <strong>No encontramos anuncios</strong>
-                    Prueba quitando algún filtro. La humanidad sobrevivirá a otro clic.
-                </div>
-            </section>
-        </div>
-    </div>
-</main>
-
-<footer class="footer">
-    <div class="container footer-inner">
-        <div class="footer-top">
-            <div class="footer-brand">
-                <a class="logo" href="index.html"><span class="logo-icon">i</span>iMarket <span>Cuba</span></a>
-                <p>Marketplace de iPhones entre particulares en La Habana.</p>
-            </div>
-            <div class="footer-links">
-                <div class="footer-column"><strong>iMarket</strong><a href="como-funciona.html">Cómo funciona</a><a href="seguridad.html">Seguridad</a><a href="terminos.html">Términos</a></div>
-                <div class="footer-column"><strong>Cuenta</strong><a href="login.html">Iniciar sesión</a><a href="registro.html">Crear cuenta</a><a href="publicar.html">Publicar iPhone</a></div>
-            </div>
-        </div>
-        <div class="footer-bottom"><span>© 2026 iMarket Cuba</span><span class="footer-credit">By <a href="https://alfanegocios.github.io/">ALFA NEGOCIOS</a></span></div>
-    </div>
-</footer>
-
+<header class="header"><div class="container header-inner">
+<a href="index.html" class="logo"><span class="logo-icon">i</span>iMarket <b>Cuba</b></a>
+<nav><a class="active" href="buscar.html">Buscar</a><a href="como-funciona.html">Cómo funciona</a><a href="seguridad.html">Seguridad</a></nav>
+<div class="actions"><a href="favoritos.html" aria-label="Favoritos">♡</a><a class="login" href="login.html">Iniciar sesión</a><button class="menu">☰</button></div>
+</div></header>
+<main><div class="container">
+<section class="page-head"><span>MARKETPLACE DE IPHONES</span><h1>Encuentra tu iPhone.</h1><p>Filtra las publicaciones y encuentra un equipo que se ajuste a lo que buscas.</p></section>
+<section class="search-area"><div class="search-row"><input id="search" type="search" placeholder="Modelo, capacidad, color..." autocomplete="off"><button id="searchBtn">Buscar</button></div>
+<div class="filters"><select id="model"><option value="">Todos los modelos</option><option>iPhone 11</option><option>iPhone 12</option><option>iPhone 13</option><option>iPhone 14</option><option>iPhone 15</option><option>iPhone 16</option><option>iPhone 17</option><option>iPhone 18</option></select><select id="condition"><option value="">Cualquier condición</option><option>Como nuevo</option><option>Buen estado</option><option>Con detalles</option></select><select id="storage"><option value="">Cualquier capacidad</option><option>64 GB</option><option>128 GB</option><option>256 GB</option><option>512 GB</option><option>1 TB</option></select><select id="municipality"><option value="">Toda La Habana</option><option>Playa</option><option>Plaza</option><option>Centro Habana</option><option>La Habana Vieja</option><option>10 de Octubre</option><option>La Lisa</option><option>Boyeros</option></select></div></section>
+<div class="results-head"><div><h2>Publicaciones</h2><p id="count">Mostrando publicaciones de ejemplo</p></div><select id="sort"><option>Más recientes</option><option>Precio: menor a mayor</option><option>Precio: mayor a menor</option></select></div>
+<section id="grid" class="grid"></section>
+</div></main>
+<footer class="footer"><div class="container foot"><div><a class="logo" href="index.html"><span class="logo-icon">i</span>iMarket <b>Cuba</b></a><p>Marketplace para comprar y vender iPhones entre particulares en Cuba.</p></div><div><h4>Comprar</h4><a href="buscar.html">Buscar iPhones</a><a href="favoritos.html">Favoritos</a></div><div><h4>Vender</h4><a href="publicar.html">Publicar iPhone</a><a href="registro.html">Crear cuenta</a></div></div><div class="bottom">© 2026 iMarket Cuba · By <a href="https://alfanegocios.github.io/" target="_blank">ALFA NEGOCIOS</a></div></footer>
 <script>
-const demoListings = [
-    {id:'demo-17-pro', model:'iPhone 17 Pro', storage:'256 GB', color:'Negro', price:850, condition:'Excelente', battery:96, municipality:'Plaza', verified:true, image:'https://images.unsplash.com/photo-1592286927505-2fd0b1e0c7c1?auto=format&fit=crop&w=900&q=85'},
-    {id:'demo-16-pro', model:'iPhone 16 Pro', storage:'256 GB', color:'Titanio Natural', price:760, condition:'Como nuevo', battery:98, municipality:'Playa', verified:true, image:'https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=900&q=85'},
-    {id:'demo-15', model:'iPhone 15', storage:'128 GB', color:'Azul', price:560, condition:'Excelente', battery:92, municipality:'10 de Octubre', verified:true, image:'https://images.unsplash.com/photo-1696446701796-da61225697cc?auto=format&fit=crop&w=900&q=85'},
-    {id:'demo-13', model:'iPhone 13', storage:'128 GB', color:'Medianoche', price:420, condition:'Bueno', battery:87, municipality:'Centro Habana', verified:true, image:'https://images.unsplash.com/photo-1632661674596-df8be070a5c5?auto=format&fit=crop&w=900&q=85'}
-];
-
-const conditionLabels = {new:'Nuevo', like_new:'Como nuevo', excellent:'Excelente', good:'Bueno', acceptable:'Aceptable'};
-const $ = id => document.getElementById(id);
-function card(item){
-    return `<article class="iphone-card">
-        <a href="iphone.html?id=${encodeURIComponent(item.id)}">
-            <div class="card-image">
-                <img src="${item.image}" alt="${item.model}">
-                <span class="condition-badge">${item.condition}</span>
-                <button class="favorite-button" type="button" data-favorite="${item.id}" aria-label="Añadir a favoritos"><svg class="icon" viewBox="0 0 24 24"><path d="M20.8 8.9c0 5.5-8.8 10.3-8.8 10.3S3.2 14.4 3.2 8.9A4.7 4.7 0 0 1 8 4.2c1.6 0 3.1.8 4 2 0.9-1.2 2.4-2 4-2a4.7 4.7 0 0 1 4.8 4.7Z"/></svg></button>
-            </div>
-            <div class="card-content">
-                <h2 class="card-title">${item.model}</h2>
-                <div class="card-specs">${item.storage} · ${item.color}</div>
-                <div class="card-info"><span class="spec-badge">Batería ${item.battery}%</span>${item.verified ? '<span class="spec-badge green">Verificado</span>' : ''}</div>
-                <div class="card-footer"><div><div class="card-price">$${item.price.toLocaleString('en-US')}</div><div class="card-location">${item.municipality}, La Habana</div></div></div>
-            </div>
-        </a>
-    </article>`;
-}
-function render(){
-    const q=$('searchInput').value.trim().toLowerCase(), model=$('modelFilter').value, cond=$('conditionFilter').value, min=Number($('minPrice').value)||0, max=Number($('maxPrice').value)||Infinity, mun=$('municipalityFilter').value, sort=$('sortFilter').value;
-    let data=demoListings.filter(x=>(!q || `${x.model} ${x.color} ${x.storage}`.toLowerCase().includes(q))&&(!model||x.model===model)&&(!cond||Object.entries(conditionLabels).find(([k,v])=>k===cond)?.[1]===x.condition)&&x.price>=min&&x.price<=max&&(!mun||x.municipality===mun));
-    if(sort==='price-low') data.sort((a,b)=>a.price-b.price); else if(sort==='price-high') data.sort((a,b)=>b.price-a.price);
-    $('resultsGrid').innerHTML=data.map(card).join('');
-    $('emptyState').classList.toggle('hidden',data.length>0);
-    $('resultsCount').textContent=`${data.length} ${data.length===1?'anuncio':'anuncios'}`;
-}
-$('searchButton').onclick=render; $('applyFilters').onclick=render; $('sortFilter').onchange=render;
-$('clearFilters').onclick=()=>{['searchInput','minPrice','maxPrice'].forEach(id=>$(id).value=''); ['modelFilter','conditionFilter','municipalityFilter'].forEach(id=>$(id).value=''); render();};
-$('searchInput').addEventListener('keydown',e=>{if(e.key==='Enter')render();});
-$('resultsGrid').addEventListener('click',e=>{const b=e.target.closest('[data-favorite]'); if(b){e.preventDefault();e.stopPropagation();b.classList.toggle('active');}});
-render();
-</script>
-</body>
-</html>
+const data=[
+{name:'iPhone 15 Pro',storage:'256 GB',condition:'Como nuevo',color:'Titanio natural',price:850,location:'Playa',battery:96,img:'https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=900&q=80'},
+{name:'iPhone 14 Pro Max',storage:'256 GB',condition:'Buen estado',color:'Morado oscuro',price:720,location:'Plaza',battery:91,img:'https://images.unsplash.com/photo-1678685888221-cda773a3dcdb?auto=format&fit=crop&w=900&q=80'},
+{name:'iPhone 13',storage:'128 GB',condition:'Como nuevo',color:'Azul',price:540,location:'Centro Habana',battery:94,img:'https://images.unsplash.com/photo-1632661674596-df8be070a5c5?auto=format&fit=crop&w=900&q=80'},
+{name:'iPhone 12 Pro',storage:'256 GB',condition:'Buen estado',color:'Grafito',price:470,location:'La Lisa',battery:87,img:'https://images.unsplash.com/photo-1603921326210-6edd2d60ca68?auto=format&fit=crop&w=900&q=80'}];
+const grid=document.getElementById('grid');
+function render(){let q=document.getElementById('search').value.toLowerCase(),m=document.getElementById('model').value,c=document.getElementById('condition').value,s=document.getElementById('storage').value,mu=document.getElementById('municipality').value;let a=data.filter(x=>(!q||Object.values(x).join(' ').toLowerCase().includes(q))&&(!m||x.name===m)&&(!c||x.condition===c)&&(!s||x.storage===s)&&(!mu||x.location===mu));grid.innerHTML=a.length?a.map((x,i)=>`<article class="card"><a href="iphone.html?id=demo-${i+1}"><div class="photo"><img src="${x.img}" alt="${x.name}"><span>${x.condition}</span><button class="heart" onclick="event.preventDefault()">♡</button></div><div class="content"><h3>${x.name}</h3><p>${x.storage} · ${x.color}</p><div class="tags"><b>${x.battery}% batería</b><b>✓ Verificado</b></div><div class="footcard"><strong>$${x.price}</strong><small>📍 ${x.location}</small></div></div></a></article>`).join(''):'<div class="empty">No encontramos publicaciones con esos filtros.</div>';document.getElementById('count').textContent=`${a.length} publicación${a.length===1?'':'es'}`}
+document.querySelectorAll('select,#search').forEach(e=>e.addEventListener('input',render));document.getElementById('searchBtn').onclick=render;render();
+</script></body></html>
