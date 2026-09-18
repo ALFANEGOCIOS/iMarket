@@ -809,532 +809,329 @@
         }
 
 /* =========================================================
-   VENDEDOR
+   BUSCAR / IPHONE - PAGE SPECIFIC
    ========================================================= */
 
-.seller-page {
-    padding: 28px 0 80px;
+.search-page {
+    padding: 34px 0 70px;
 }
 
-.seller-back {
-    margin-bottom: 24px;
+.search-layout {
+    display: grid;
+    gap: 20px;
 }
 
-.seller-profile-header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 25px;
-
-    padding: 28px;
-
+.search-filters {
+    background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
-
-    background: var(--surface);
+    padding: 18px;
 }
 
-.seller-profile-main {
+.search-filters-title {
+    font-size: 17px;
+    font-weight: 800;
+    margin-bottom: 18px;
+}
+
+.search-results-header {
     display: flex;
     align-items: center;
-    gap: 18px;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 16px;
 }
 
-.seller-avatar-large {
-    flex-shrink: 0;
+.search-results-count {
+    color: var(--text-secondary);
+    font-size: 13px;
+}
 
-    width: 86px;
-    height: 86px;
+.search-sort {
+    width: auto;
+    min-width: 150px;
+}
 
+.filter-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.filter-actions .button {
+    flex: 1;
+}
+
+.search-empty {
+    padding: 45px 20px;
+    text-align: center;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    color: var(--text-secondary);
+}
+
+.search-empty strong {
+    display: block;
+    color: var(--text);
+    font-size: 17px;
+    margin-bottom: 6px;
+}
+
+.detail-page {
+    padding: 28px 0 70px;
+}
+
+.detail-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-secondary);
+    font-size: 13px;
+    font-weight: 650;
+    margin-bottom: 18px;
+}
+
+.detail-back:hover {
+    color: var(--text);
+}
+
+.detail-layout {
+    display: grid;
+    gap: 20px;
+}
+
+.detail-gallery,
+.detail-panel,
+.detail-seller,
+.detail-description {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+}
+
+.detail-gallery {
     overflow: hidden;
-
-    border-radius: 50%;
-
-    background: var(--surface-soft);
 }
 
-.seller-avatar-large img {
+.detail-main-image {
+    aspect-ratio: 1 / 1;
+    background: var(--surface-soft);
+    overflow: hidden;
+}
+
+.detail-main-image img {
     width: 100%;
     height: 100%;
-
     object-fit: cover;
 }
 
-.seller-profile-info h1 {
-    font-size: 30px;
-    line-height: 1.05;
-    letter-spacing: -1px;
-    font-weight: 800;
+.detail-thumbnails {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    padding: 10px;
 }
 
-.seller-name-row {
+.detail-thumbnail {
+    aspect-ratio: 1;
+    border: 2px solid transparent;
+    border-radius: 9px;
+    overflow: hidden;
+    background: var(--surface-soft);
+    padding: 0;
+}
+
+.detail-thumbnail.selected {
+    border-color: var(--blue);
+}
+
+.detail-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.detail-panel {
+    padding: 22px;
+}
+
+.detail-badges {
     display: flex;
-    align-items: center;
     flex-wrap: wrap;
-    gap: 10px;
-}
-
-.seller-verified-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-
-    padding: 5px 9px;
-
-    border-radius: 999px;
-
-    background: var(--blue-soft);
-    color: var(--blue);
-
-    font-size: 11px;
-    font-weight: 700;
-}
-
-.seller-verified-badge span {
-    width: 15px;
-    height: 15px;
-
-    display: grid;
-    place-items: center;
-
-    border-radius: 50%;
-
-    background: var(--blue);
-    color: white;
-
-    font-size: 9px;
-}
-
-.seller-username {
-    margin-top: 3px;
-
-    color: var(--text-secondary);
-
-    font-size: 13px;
-}
-
-.seller-location {
-    margin-top: 9px;
-
-    color: #555a61;
-
-    font-size: 12px;
-    font-weight: 600;
-}
-
-.seller-member {
-    margin-top: 4px;
-
-    color: var(--text-light);
-
-    font-size: 11px;
-}
-
-.seller-report-button {
-    flex-shrink: 0;
-
-    display: inline-flex;
-    align-items: center;
     gap: 7px;
-
-    padding: 9px 12px;
-
-    border: 1px solid var(--border);
-    border-radius: 10px;
-
-    background: white;
-    color: var(--text-secondary);
-
-    font-size: 11px;
-    font-weight: 650;
+    margin-bottom: 12px;
 }
 
-.seller-report-button:hover {
-    border-color: #c8ccd1;
-    color: var(--black);
+.detail-title {
+    font-size: clamp(25px, 5vw, 38px);
+    line-height: 1.08;
+    letter-spacing: -1px;
+    font-weight: 850;
 }
 
-
-/* SELLER STATS */
-
-.seller-stats-card {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-
+.detail-price {
     margin-top: 14px;
-
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-
-    background: var(--surface);
+    font-size: 30px;
+    font-weight: 850;
+    letter-spacing: -1px;
 }
 
-.seller-stat {
-    min-height: 105px;
-
+.detail-meta {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    padding: 15px;
-
-    text-align: center;
-
-    border-right: 1px solid var(--border);
-}
-
-.seller-stat:last-child {
-    border-right: 0;
-}
-
-.seller-stat strong {
-    font-size: 24px;
-    line-height: 1;
-
-    font-weight: 800;
-    letter-spacing: -0.8px;
-}
-
-.seller-stat > span {
+    flex-wrap: wrap;
+    gap: 8px 14px;
     margin-top: 7px;
-
     color: var(--text-secondary);
-
-    font-size: 11px;
+    font-size: 12px;
 }
 
-.seller-rating {
-    color: #e3a300 !important;
-}
-
-.seller-rating span {
-    color: var(--text-secondary);
-}
-
-
-/* ABOUT */
-
-.card-section {
-    margin-top: 14px;
-
-    padding: 25px;
-
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-
-    background: var(--surface);
-}
-
-.seller-section-header {
-    margin-bottom: 15px;
-}
-
-.seller-section-header h2 {
-    margin-top: 4px;
-
-    font-size: 20px;
-    letter-spacing: -0.5px;
-    font-weight: 800;
-}
-
-.seller-about p {
-    max-width: 760px;
-
-    margin-top: 10px;
-
-    color: var(--text-secondary);
-
-    font-size: 13px;
-    line-height: 1.7;
-}
-
-
-/* CONTENT */
-
-.seller-content-grid {
+.detail-actions {
     display: grid;
-
-    grid-template-columns:
-        minmax(0, 1fr)
-        290px;
-
-    gap: 20px;
-
+    gap: 9px;
     margin-top: 20px;
 }
 
-.seller-main-column {
+.detail-actions .button {
+    width: 100%;
+}
+
+.detail-specs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-top: 1px solid var(--border);
+    margin-top: 20px;
+    padding-top: 17px;
+    gap: 15px 18px;
+}
+
+.detail-spec {
     min-width: 0;
 }
 
-.seller-listings,
-.seller-reviews {
-    margin-bottom: 45px;
+.detail-spec-label {
+    color: var(--text-light);
+    font-size: 10px;
+    margin-bottom: 2px;
 }
 
-
-/* REVIEWS */
-
-.reviews-list {
-    display: grid;
-    gap: 12px;
+.detail-spec-value {
+    font-size: 13px;
+    font-weight: 700;
 }
 
-.review-card {
+.detail-seller,
+.detail-description {
     padding: 20px;
-
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-
-    background: var(--surface);
 }
 
-.review-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    gap: 15px;
-}
-
-.review-user {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.review-avatar {
-    width: 38px;
-    height: 38px;
-
-    display: grid;
-    place-items: center;
-
-    border-radius: 50%;
-
-    background: var(--surface-soft);
-
-    color: var(--black);
-
-    font-size: 13px;
+.detail-section-title {
+    font-size: 17px;
     font-weight: 800;
+    margin-bottom: 14px;
 }
 
-.review-user strong {
-    display: block;
-
-    font-size: 13px;
-}
-
-.review-user span {
-    display: block;
-
-    margin-top: 2px;
-
-    color: var(--text-light);
-
-    font-size: 10px;
-}
-
-.review-rating {
-    color: #e3a300;
-
-    font-size: 12px;
-    letter-spacing: 1px;
-}
-
-.review-comment {
-    margin-top: 14px;
-
-    color: var(--text-secondary);
-
-    font-size: 13px;
-    line-height: 1.65;
-}
-
-.review-date {
-    display: block;
-
-    margin-top: 12px;
-
-    color: var(--text-light);
-
-    font-size: 10px;
-}
-
-
-/* SIDEBAR */
-
-.seller-sidebar {
-    display: grid;
-    align-content: start;
+.seller-summary {
+    display: flex;
+    align-items: center;
     gap: 12px;
 }
 
-.seller-trust-card,
-.seller-safety-card {
-    padding: 22px;
-
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-
-    background: var(--surface);
-}
-
-.seller-trust-icon {
-    width: 42px;
-    height: 42px;
-
+.seller-avatar {
+    width: 48px;
+    height: 48px;
+    flex: 0 0 48px;
+    border-radius: 50%;
     display: grid;
     place-items: center;
-
-    margin-bottom: 14px;
-
-    border-radius: 12px;
-
-    background: var(--green-soft);
-    color: var(--green);
-
-    font-size: 18px;
-    font-weight: 800;
-}
-
-.seller-trust-card h2 {
-    font-size: 16px;
-    font-weight: 800;
-}
-
-.seller-trust-card p {
-    margin-top: 7px;
-
+    background: var(--surface-soft);
     color: var(--text-secondary);
-
-    font-size: 12px;
-    line-height: 1.6;
+    font-weight: 800;
+    overflow: hidden;
 }
 
-.seller-safety-card h3 {
+.seller-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.seller-name {
     font-size: 15px;
     font-weight: 800;
 }
 
-.seller-safety-card ul {
-    display: grid;
-    gap: 9px;
-
-    margin-top: 14px;
-    padding-left: 18px;
-}
-
-.seller-safety-card li {
+.seller-stats {
+    margin-top: 2px;
     color: var(--text-secondary);
-
     font-size: 12px;
-    line-height: 1.5;
 }
 
-.seller-safety-card a {
-    display: inline-block;
-
-    margin-top: 15px;
-
+.seller-link {
+    margin-left: auto;
     color: var(--blue);
-
     font-size: 12px;
-    font-weight: 700;
+    font-weight: 750;
 }
 
-
-/* RESPONSIVE */
-
-@media (max-width: 850px) {
-
-    .seller-content-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .seller-sidebar {
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr));
-    }
-
+.detail-description-text {
+    color: #454950;
+    white-space: pre-line;
+    font-size: 14px;
+    line-height: 1.7;
 }
 
+.detail-location {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-top: 17px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border);
+    color: var(--text-secondary);
+    font-size: 12px;
+}
 
-@media (max-width: 700px) {
+@media (min-width: 800px) {
+    .search-layout {
+        grid-template-columns: 260px minmax(0, 1fr);
+        align-items: start;
+    }
 
-    .seller-profile-header {
+    .search-filters {
+        position: sticky;
+        top: 88px;
+    }
+
+    .detail-layout {
+        grid-template-columns: minmax(0, 1.08fr) minmax(380px, .92fr);
+        align-items: start;
+    }
+
+    .detail-panel {
+        position: sticky;
+        top: 88px;
+    }
+}
+
+@media (min-width: 1000px) {
+    .detail-main-image {
+        aspect-ratio: 1.05 / 1;
+    }
+}
+
+@media (max-width: 599px) {
+    .search-page,
+    .detail-page {
+        padding-top: 22px;
+    }
+
+    .search-results-header {
+        align-items: flex-start;
         flex-direction: column;
     }
 
-    .seller-report-button {
+    .search-sort {
         width: 100%;
-
-        justify-content: center;
     }
-
-    .seller-stats-card {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .seller-stat:nth-child(2) {
-        border-right: 0;
-    }
-
-    .seller-stat:nth-child(-n + 2) {
-        border-bottom: 1px solid var(--border);
-    }
-
-    .seller-profile-main {
-        align-items: flex-start;
-    }
-
-}
-
-
-@media (max-width: 520px) {
-
-    .seller-page {
-        padding-top: 20px;
-    }
-
-    .seller-profile-header {
-        padding: 20px;
-    }
-
-    .seller-profile-main {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .seller-avatar-large {
-        width: 72px;
-        height: 72px;
-    }
-
-    .seller-profile-info h1 {
-        font-size: 26px;
-    }
-
-    .seller-stats-card {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .seller-stat {
-        min-height: 95px;
-    }
-
-    .seller-stat strong {
-        font-size: 20px;
-    }
-
-    .seller-sidebar {
-        grid-template-columns: 1fr;
-    }
-
-    .card-section {
-        padding: 20px;
-    }
-
 }
