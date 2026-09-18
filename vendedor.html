@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
     <meta charset="UTF-8">
 
     <meta
@@ -10,85 +8,36 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Perfil del vendedor | iMarket Cuba</title>
-
     <meta
         name="description"
-        content="Consulta el perfil, reputación, reseñas y publicaciones de un vendedor en iMarket Cuba."
+        content="Perfil público del vendedor en iMarket Cuba."
     >
 
-    <link
-        rel="stylesheet"
-        href="css/global.css"
-    >
+    <title>Vendedor | iMarket Cuba</title>
 
-    <link
-        rel="stylesheet"
-        href="css/components.css"
-    >
-
-    <link
-        rel="stylesheet"
-        href="css/pages.css"
-    >
-
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/pages.css">
 </head>
-
 
 <body>
 
-
-    <!-- =====================================================
-         HEADER
-    ====================================================== -->
-
+    <!-- HEADER -->
     <header class="header">
+        <div class="header-inner">
 
-        <div class="container header-inner">
-
-
-            <a
-                href="index.html"
-                class="logo"
-                aria-label="iMarket Cuba"
-            >
-
-                <div class="logo-icon">
-                    i
-                </div>
-
-                <span>
-                    iMarket
-                </span>
-
-                Cuba
-
+            <a href="index.html" class="logo">
+                <span class="logo-icon">i</span>
+                <span>Market Cuba</span>
             </a>
 
-
             <nav class="desktop-nav">
-
-                <a href="index.html">
-                    Inicio
-                </a>
-
-                <a href="buscar.html">
-                    Buscar
-                </a>
-
-                <a href="como-funciona.html">
-                    Cómo funciona
-                </a>
-
-                <a href="seguridad.html">
-                    Seguridad
-                </a>
-
+                <a href="buscar.html">Buscar</a>
+                <a href="como-funciona.html">Cómo funciona</a>
+                <a href="seguridad.html">Seguridad</a>
             </nav>
 
-
             <div class="header-actions">
-
 
                 <a
                     href="favoritos.html"
@@ -96,964 +45,341 @@
                     aria-label="Favoritos"
                     title="Favoritos"
                 >
-
-                    <svg
-                        class="icon"
-                        viewBox="0 0 24 24"
-                    >
-
-                        <path
-                            d="M20.8 8.6c0 5.4-8.8 10.2-8.8 10.2S3.2 14 3.2 8.6A4.6 4.6 0 0 1 12 6.1a4.6 4.6 0 0 1 8.8 2.5Z"
-                        />
-
-                    </svg>
-
+                    ♡
                 </a>
-
-
-                <a
-                    href="publicar.html"
-                    class="sell-button"
-                >
-                    Vender iPhone
-                </a>
-
 
                 <a
                     href="login.html"
                     class="login-button"
                 >
-                    Entrar
+                    Iniciar sesión
                 </a>
 
             </div>
 
         </div>
-
     </header>
 
 
-    <!-- =====================================================
-         MAIN
-    ====================================================== -->
-
+    <!-- MAIN -->
     <main class="seller-page">
 
+        <!-- BACK -->
         <div class="container">
 
+            <a href="buscar.html" class="back-link">
+                ← Volver a buscar
+            </a>
 
-            <!-- =================================================
-                 BACK
-            ================================================== -->
+        </div>
 
-            <div class="seller-back">
 
-                <a
-                    href="buscar.html"
-                    class="back-link"
-                >
-                    ← Volver a buscar
-                </a>
+        <!-- PROFILE HEADER -->
+        <section class="seller-profile-section">
+
+            <div class="container">
+
+                <div class="seller-profile-card">
+
+                    <div class="seller-profile-main">
+
+                        <div class="seller-avatar">
+                            <span id="sellerAvatarLetter">U</span>
+                        </div>
+
+                        <div class="seller-profile-info">
+
+                            <div class="seller-name-row">
+
+                                <h1 id="sellerName">
+                                    Usuario
+                                </h1>
+
+                                <span
+                                    id="sellerVerified"
+                                    class="verified-badge"
+                                    hidden
+                                >
+                                    ✓ Verificado
+                                </span>
+
+                            </div>
+
+                            <p
+                                id="sellerUsername"
+                                class="seller-username"
+                            >
+                                @usuario
+                            </p>
+
+                            <p
+                                id="sellerLocation"
+                                class="seller-location"
+                            >
+                                La Habana
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="seller-actions">
+
+                        <button
+                            type="button"
+                            class="primary-button"
+                            id="contactSellerButton"
+                        >
+                            Contactar
+                        </button>
+
+                        <button
+                            type="button"
+                            class="secondary-button"
+                            id="reportSellerButton"
+                        >
+                            Reportar
+                        </button>
+
+                    </div>
+
+                </div>
 
             </div>
 
-
-            <!-- =================================================
-                 PROFILE HEADER
-            ================================================== -->
-
-            <section class="seller-profile-header">
+        </section>
 
 
-                <div class="seller-profile-main">
+        <!-- SELLER STATS -->
+        <section class="seller-stats-section">
 
+            <div class="container">
 
-                    <div class="seller-avatar-large">
+                <div class="seller-stats">
 
-                        <img
-                            src="assets/images/avatar-demo.webp"
-                            alt="Foto de Carlos"
-                        >
+                    <div class="seller-stat">
 
-                    </div>
-
-
-                    <div class="seller-profile-info">
-
-
-                        <div class="seller-name-row">
-
-                            <h1>
-                                Carlos
-                            </h1>
-
-
-                            <span class="seller-verified-badge">
-
-                                <span>
-                                    ✓
-                                </span>
-
-                                Identidad verificada
-
-                            </span>
-
-                        </div>
-
-
-                        <p class="seller-username">
-                            @carlosiphone
-                        </p>
-
-
-                        <div class="seller-location">
-                            📍 Playa, La Habana
-                        </div>
-
-
-                        <p class="seller-member">
-
-                            Miembro desde enero de 2026
-
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <button
-                    type="button"
-                    class="seller-report-button"
-                    id="reportSeller"
-                >
-
-                    ⚑
-
-                    Reportar vendedor
-
-                </button>
-
-            </section>
-
-
-            <!-- =================================================
-                 SELLER STATS
-            ================================================== -->
-
-            <section class="seller-stats-card">
-
-
-                <div class="seller-stat">
-
-                    <strong>
-                        4.9
-                    </strong>
-
-                    <span class="seller-rating">
-
-                        ★
+                        <strong id="sellerSales">
+                            0
+                        </strong>
 
                         <span>
-                            23 reseñas
+                            Ventas
                         </span>
 
-                    </span>
+                    </div>
+
+
+                    <div class="seller-stat">
+
+                        <strong id="sellerRating">
+                            0.0
+                        </strong>
+
+                        <span>
+                            Valoración
+                        </span>
+
+                    </div>
+
+
+                    <div class="seller-stat">
+
+                        <strong id="sellerReviews">
+                            0
+                        </strong>
+
+                        <span>
+                            Reseñas
+                        </span>
+
+                    </div>
+
+
+                    <div class="seller-stat">
+
+                        <strong id="sellerSince">
+                            --
+                        </strong>
+
+                        <span>
+                            En iMarket
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- REPUTATION -->
+        <section class="seller-reputation-section">
+
+            <div class="container">
+
+                <div class="seller-section-header">
+
+                    <div>
+                        <span class="section-eyebrow">
+                            Reputación
+                        </span>
+
+                        <h2>
+                            Opiniones de compradores
+                        </h2>
+                    </div>
 
                 </div>
 
 
-                <div class="seller-stat">
+                <div
+                    id="reviewsContainer"
+                    class="reviews-list"
+                >
 
-                    <strong>
-                        18
-                    </strong>
+                    <div class="empty-state">
 
-                    <span>
-                        ventas confirmadas
-                    </span>
+                        <div class="empty-state-icon">
+                            ★
+                        </div>
 
-                </div>
+                        <h3>
+                            Todavía no hay reseñas
+                        </h3>
 
+                        <p>
+                            Este vendedor aún no tiene valoraciones
+                            publicadas en iMarket Cuba.
+                        </p>
 
-                <div class="seller-stat">
-
-                    <strong>
-                        8 meses
-                    </strong>
-
-                    <span>
-                        en iMarket
-                    </span>
-
-                </div>
-
-
-                <div class="seller-stat">
-
-                    <strong>
-                        100%
-                    </strong>
-
-                    <span>
-                        ventas completadas
-                    </span>
+                    </div>
 
                 </div>
 
-            </section>
+            </div>
+
+        </section>
 
 
-            <!-- =================================================
-                 ABOUT
-            ================================================== -->
+        <!-- SELLER LISTINGS -->
+        <section class="seller-listings-section">
 
-            <section class="seller-about card-section">
-
+            <div class="container">
 
                 <div class="seller-section-header">
 
                     <div>
 
-                        <span class="eyebrow">
-                            Sobre el vendedor
+                        <span class="section-eyebrow">
+                            Publicaciones
                         </span>
 
                         <h2>
-                            Conoce a Carlos
+                            iPhone disponibles
                         </h2>
 
                     </div>
 
-                </div>
-
-
-                <p>
-
-                    Vendedor particular de iPhones en La Habana.
-                    Publica equipos de uso personal y proporciona
-                    información detallada sobre el estado de cada
-                    dispositivo.
-
-                </p>
-
-
-                <p>
-
-                    Sus ventas y reseñas mostradas en este perfil
-                    corresponden a operaciones registradas y
-                    confirmadas dentro de iMarket.
-
-                </p>
-
-            </section>
-
-
-            <!-- =================================================
-                 CONTENT GRID
-            ================================================== -->
-
-            <div class="seller-content-grid">
-
-
-                <!-- =============================================
-                     LEFT
-                ============================================== -->
-
-                <div class="seller-main-column">
-
-
-                    <!-- =================================================
-                         LISTINGS
-                    ================================================== -->
-
-                    <section class="seller-listings">
-
-
-                        <div class="section-header">
-
-                            <div>
-
-                                <span class="section-eyebrow">
-                                    Publicaciones
-                                </span>
-
-                                <h2 class="section-title">
-                                    iPhones de Carlos
-                                </h2>
-
-                                <p class="section-subtitle">
-                                    3 publicaciones activas
-                                </p>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="listings-grid">
-
-
-                            <!-- CARD 1 -->
-
-                            <article class="iphone-card">
-
-
-                                <a
-                                    href="iphone.html?id=demo-1"
-                                    class="card-image"
-                                >
-
-                                    <span class="condition-badge">
-                                        Excelente
-                                    </span>
-
-
-                                    <button
-                                        type="button"
-                                        class="favorite-button"
-                                        aria-label="Añadir a favoritos"
-                                    >
-
-                                        <svg
-                                            class="icon"
-                                            viewBox="0 0 24 24"
-                                        >
-
-                                            <path
-                                                d="M20.8 8.6c0 5.4-8.8 10.2-8.8 10.2S3.2 14 3.2 8.6A4.6 4.6 0 0 1 12 6.1a4.6 4.6 0 0 1 8.8 2.5Z"
-                                            />
-
-                                        </svg>
-
-                                    </button>
-
-
-                                    <img
-                                        src="assets/images/iphone-demo-1.webp"
-                                        alt="iPhone 15 Pro"
-                                        loading="lazy"
-                                    >
-
-                                </a>
-
-
-                                <div class="card-content">
-
-
-                                    <h3 class="card-title">
-                                        iPhone 15 Pro 256 GB
-                                    </h3>
-
-
-                                    <p class="card-specs">
-                                        Titanio natural · Batería 92%
-                                    </p>
-
-
-                                    <div class="card-info">
-
-                                        <span class="spec-badge">
-                                            256 GB
-                                        </span>
-
-                                        <span class="spec-badge green">
-                                            Libre
-                                        </span>
-
-                                        <span class="spec-badge green">
-                                            Face ID
-                                        </span>
-
-                                    </div>
-
-
-                                    <div class="card-footer">
-
-                                        <div>
-
-                                            <strong class="card-price">
-                                                $780
-                                            </strong>
-
-                                            <div class="card-location">
-                                                📍 Playa
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                            </article>
-
-
-                            <!-- CARD 2 -->
-
-                            <article class="iphone-card">
-
-
-                                <a
-                                    href="iphone.html?id=demo-2"
-                                    class="card-image"
-                                >
-
-                                    <span class="condition-badge">
-                                        Como nuevo
-                                    </span>
-
-
-                                    <button
-                                        type="button"
-                                        class="favorite-button"
-                                        aria-label="Añadir a favoritos"
-                                    >
-
-                                        <svg
-                                            class="icon"
-                                            viewBox="0 0 24 24"
-                                        >
-
-                                            <path
-                                                d="M20.8 8.6c0 5.4-8.8 10.2-8.8 10.2S3.2 14 3.2 8.6A4.6 4.6 0 0 1 12 6.1a4.6 4.6 0 0 1 8.8 2.5Z"
-                                            />
-
-                                        </svg>
-
-                                    </button>
-
-
-                                    <img
-                                        src="assets/images/iphone-demo-2.webp"
-                                        alt="iPhone 14 Pro Max"
-                                        loading="lazy"
-                                    >
-
-                                </a>
-
-
-                                <div class="card-content">
-
-
-                                    <h3 class="card-title">
-                                        iPhone 14 Pro Max 256 GB
-                                    </h3>
-
-
-                                    <p class="card-specs">
-                                        Morado profundo · Batería 89%
-                                    </p>
-
-
-                                    <div class="card-info">
-
-                                        <span class="spec-badge">
-                                            256 GB
-                                        </span>
-
-                                        <span class="spec-badge green">
-                                            Libre
-                                        </span>
-
-                                        <span class="spec-badge green">
-                                            True Tone
-                                        </span>
-
-                                    </div>
-
-
-                                    <div class="card-footer">
-
-                                        <div>
-
-                                            <strong class="card-price">
-                                                $690
-                                            </strong>
-
-                                            <div class="card-location">
-                                                📍 Playa
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                            </article>
-
-
-                            <!-- CARD 3 -->
-
-                            <article class="iphone-card">
-
-
-                                <a
-                                    href="iphone.html?id=demo-3"
-                                    class="card-image"
-                                >
-
-                                    <span class="condition-badge">
-                                        Excelente
-                                    </span>
-
-
-                                    <button
-                                        type="button"
-                                        class="favorite-button"
-                                        aria-label="Añadir a favoritos"
-                                    >
-
-                                        <svg
-                                            class="icon"
-                                            viewBox="0 0 24 24"
-                                        >
-
-                                            <path
-                                                d="M20.8 8.6c0 5.4-8.8 10.2-8.8 10.2S3.2 14 3.2 8.6A4.6 4.6 0 0 1 12 6.1a4.6 4.6 0 0 1 8.8 2.5Z"
-                                            />
-
-                                        </svg>
-
-                                    </button>
-
-
-                                    <img
-                                        src="assets/images/iphone-demo-3.webp"
-                                        alt="iPhone 13"
-                                        loading="lazy"
-                                    >
-
-                                </a>
-
-
-                                <div class="card-content">
-
-
-                                    <h3 class="card-title">
-                                        iPhone 13 128 GB
-                                    </h3>
-
-
-                                    <p class="card-specs">
-                                        Azul · Batería 87%
-                                    </p>
-
-
-                                    <div class="card-info">
-
-                                        <span class="spec-badge">
-                                            128 GB
-                                        </span>
-
-                                        <span class="spec-badge green">
-                                            Libre
-                                        </span>
-
-                                    </div>
-
-
-                                    <div class="card-footer">
-
-                                        <div>
-
-                                            <strong class="card-price">
-                                                $480
-                                            </strong>
-
-                                            <div class="card-location">
-                                                📍 Playa
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                            </article>
-
-
-                        </div>
-
-                    </section>
-
-
-                    <!-- =================================================
-                         REVIEWS
-                    ================================================== -->
-
-                    <section class="seller-reviews">
-
-
-                        <div class="section-header">
-
-                            <div>
-
-                                <span class="section-eyebrow">
-                                    Reputación
-                                </span>
-
-                                <h2 class="section-title">
-                                    Reseñas
-                                </h2>
-
-                                <p class="section-subtitle">
-                                    Opiniones de compradores
-                                    después de ventas confirmadas.
-                                </p>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="reviews-list">
-
-
-                            <!-- REVIEW 1 -->
-
-                            <article class="review-card">
-
-
-                                <div class="review-header">
-
-
-                                    <div class="review-user">
-
-
-                                        <div class="review-avatar">
-                                            M
-                                        </div>
-
-
-                                        <div>
-
-                                            <strong>
-                                                Miguel
-                                            </strong>
-
-                                            <span>
-                                                Compra confirmada
-                                            </span>
-
-                                        </div>
-
-                                    </div>
-
-
-                                    <div class="review-rating">
-
-                                        ★★★★★
-
-                                    </div>
-
-                                </div>
-
-
-                                <p class="review-comment">
-
-                                    Todo correcto. El equipo estaba
-                                    tal como aparecía en la publicación.
-                                    Hicimos la comprobación antes del
-                                    pago y no hubo problemas.
-
-                                </p>
-
-
-                                <span class="review-date">
-                                    Hace 12 días
-                                </span>
-
-                            </article>
-
-
-                            <!-- REVIEW 2 -->
-
-                            <article class="review-card">
-
-
-                                <div class="review-header">
-
-
-                                    <div class="review-user">
-
-
-                                        <div class="review-avatar">
-                                            A
-                                        </div>
-
-
-                                        <div>
-
-                                            <strong>
-                                                Alejandro
-                                            </strong>
-
-                                            <span>
-                                                Compra confirmada
-                                            </span>
-
-                                        </div>
-
-                                    </div>
-
-
-                                    <div class="review-rating">
-
-                                        ★★★★★
-
-                                    </div>
-
-                                </div>
-
-
-                                <p class="review-comment">
-
-                                    Buena comunicación y descripción
-                                    precisa del teléfono. La entrega
-                                    se coordinó sin problemas.
-
-                                </p>
-
-
-                                <span class="review-date">
-                                    Hace 1 mes
-                                </span>
-
-                            </article>
-
-
-                            <!-- REVIEW 3 -->
-
-                            <article class="review-card">
-
-
-                                <div class="review-header">
-
-
-                                    <div class="review-user">
-
-
-                                        <div class="review-avatar">
-                                            J
-                                        </div>
-
-
-                                        <div>
-
-                                            <strong>
-                                                Javier
-                                            </strong>
-
-                                            <span>
-                                                Compra confirmada
-                                            </span>
-
-                                        </div>
-
-                                    </div>
-
-
-                                    <div class="review-rating">
-
-                                        ★★★★☆
-
-                                    </div>
-
-                                </div>
-
-
-                                <p class="review-comment">
-
-                                    Vendedor serio. El teléfono coincidía
-                                    con las fotos y la información
-                                    publicada.
-
-                                </p>
-
-
-                                <span class="review-date">
-                                    Hace 2 meses
-                                </span>
-
-                            </article>
-
-
-                        </div>
-
-                    </section>
+                    <span
+                        id="listingCount"
+                        class="results-count"
+                    >
+                        0 anuncios
+                    </span>
 
                 </div>
 
 
-                <!-- =============================================
-                     SIDEBAR
-                ============================================== -->
+                <div
+                    id="sellerListings"
+                    class="iphone-grid"
+                >
 
-                <aside class="seller-sidebar">
+                    <!--
+                        Las publicaciones se cargarán
+                        dinámicamente aquí.
+                    -->
 
-
-                    <div class="seller-trust-card">
-
-
-                        <div class="seller-trust-icon">
-                            ✓
-                        </div>
+                </div>
 
 
-                        <h2>
-                            Vendedor verificado
-                        </h2>
+                <!-- EMPTY LISTINGS -->
+                <div
+                    id="emptyListings"
+                    class="empty-state"
+                    hidden
+                >
 
-
-                        <p>
-
-                            La identidad de este vendedor fue
-                            comprobada mediante el proceso de
-                            verificación de iMarket.
-
-                        </p>
-
+                    <div class="empty-state-icon">
+                        📱
                     </div>
 
+                    <h3>
+                        No hay publicaciones activas
+                    </h3>
 
-                    <div class="seller-safety-card">
+                    <p>
+                        Este vendedor no tiene iPhone disponibles
+                        actualmente.
+                    </p>
 
-
-                        <h3>
-                            Compra de forma segura
-                        </h3>
-
-
-                        <ul>
-
-                            <li>
-                                Comprueba el equipo físicamente.
-                            </li>
-
-                            <li>
-                                Verifica IMEI y funciones.
-                            </li>
-
-                            <li>
-                                No adelantes dinero sin comprobar
-                                el dispositivo.
-                            </li>
-
-                            <li>
-                                Acuerda un lugar seguro para la
-                                entrega.
-                            </li>
-
-                        </ul>
-
-
-                        <a href="seguridad.html">
-                            Ver todos los consejos →
-                        </a>
-
-                    </div>
-
-                </aside>
+                </div>
 
             </div>
 
-        </div>
+        </section>
 
     </main>
 
 
-    <!-- =====================================================
-         FOOTER
-    ====================================================== -->
-
+    <!-- FOOTER -->
     <footer class="footer">
 
-        <div class="container footer-inner">
+        <div class="container">
 
-
-            <div class="footer-top">
-
+            <div class="footer-inner">
 
                 <div class="footer-brand">
 
-                    <a
-                        href="index.html"
-                        class="logo"
-                    >
+                    <a href="index.html" class="logo">
 
-                        <div class="logo-icon">
+                        <span class="logo-icon">
                             i
-                        </div>
-
-                        <span>
-                            iMarket
                         </span>
 
-                        Cuba
+                        <span>
+                            Market Cuba
+                        </span>
 
                     </a>
 
-
                     <p>
-                        El marketplace de iPhones entre
-                        particulares en La Habana.
+                        Marketplace de iPhone entre particulares
+                        en La Habana.
                     </p>
 
                 </div>
 
 
-                <div class="footer-column">
+                <div class="footer-links">
 
-                    <h4>
-                        iMarket
-                    </h4>
+                    <a href="como-funciona.html">
+                        Cómo funciona
+                    </a>
 
-                    <div class="footer-links">
+                    <a href="seguridad.html">
+                        Seguridad
+                    </a>
 
-                        <a href="como-funciona.html">
-                            Cómo funciona
-                        </a>
-
-                        <a href="seguridad.html">
-                            Seguridad
-                        </a>
-
-                        <a href="terminos.html">
-                            Términos
-                        </a>
-
-                    </div>
+                    <a href="terminos.html">
+                        Términos
+                    </a>
 
                 </div>
-
-
-                <div class="footer-column">
-
-                    <h4>
-                        Cuenta
-                    </h4>
-
-                    <div class="footer-links">
-
-                        <a href="login.html">
-                            Iniciar sesión
-                        </a>
-
-                        <a href="registro.html">
-                            Crear cuenta
-                        </a>
-
-                        <a href="publicar.html">
-                            Vender iPhone
-                        </a>
-
-                    </div>
-
-                </div>
-
 
             </div>
 
@@ -1064,20 +390,13 @@
                     © 2026 iMarket Cuba
                 </span>
 
-
-                <span class="footer-credit">
-
-                    By
-
-                    <a
-                        href="https://alfanegocios.github.io/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        ALFA NEGOCIOS
-                    </a>
-
-                </span>
+                <a
+                    href="https://alfanegocios.github.io/"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    By ALFA NEGOCIOS
+                </a>
 
             </div>
 
@@ -1086,54 +405,318 @@
     </footer>
 
 
-    <!-- =====================================================
-         JAVASCRIPT
-    ====================================================== -->
-
+    <!-- PAGE SCRIPT -->
     <script>
 
-        const params =
-            new URLSearchParams(
-                window.location.search
-            );
+        /*
+         * Obtener ID del vendedor desde la URL.
+         *
+         * Ejemplo:
+         * vendedor.html?id=UUID
+         */
 
+        const params = new URLSearchParams(
+            window.location.search
+        );
 
-        const sellerId =
-            params.get("id");
+        const sellerId = params.get("id");
 
 
         /*
-         * Favorite buttons
+         * Elementos principales.
          */
 
-        document
-            .querySelectorAll(".favorite-button")
-            .forEach(button => {
+        const sellerName =
+            document.getElementById("sellerName");
 
-                button.addEventListener(
-                    "click",
-                    event => {
+        const sellerUsername =
+            document.getElementById("sellerUsername");
 
-                        event.preventDefault();
+        const sellerLocation =
+            document.getElementById("sellerLocation");
 
-                        event.stopPropagation();
+        const sellerAvatarLetter =
+            document.getElementById("sellerAvatarLetter");
 
-                        button.classList.toggle(
-                            "active"
-                        );
+        const sellerVerified =
+            document.getElementById("sellerVerified");
 
-                    }
-                );
+        const sellerSales =
+            document.getElementById("sellerSales");
+
+        const sellerRating =
+            document.getElementById("sellerRating");
+
+        const sellerReviews =
+            document.getElementById("sellerReviews");
+
+        const sellerSince =
+            document.getElementById("sellerSince");
+
+        const sellerListings =
+            document.getElementById("sellerListings");
+
+        const emptyListings =
+            document.getElementById("emptyListings");
+
+        const listingCount =
+            document.getElementById("listingCount");
+
+
+        /*
+         * Estado inicial.
+         *
+         * Posteriormente estos datos serán sustituidos
+         * por información real obtenida desde Supabase.
+         */
+
+        const seller = {
+            display_name: "Usuario",
+            username: "usuario",
+            municipality: "La Habana",
+            verification_status: "pending",
+            total_sales: 0,
+            total_reviews: 0,
+            rating: 0,
+            created_at: null
+        };
+
+
+        /*
+         * Renderizar perfil.
+         */
+
+        function renderSellerProfile(data) {
+
+            const name =
+                data.display_name || "Usuario";
+
+            sellerName.textContent = name;
+
+            sellerUsername.textContent =
+                data.username
+                    ? `@${data.username}`
+                    : "@usuario";
+
+            sellerLocation.textContent =
+                data.municipality ||
+                data.city ||
+                "La Habana";
+
+            sellerAvatarLetter.textContent =
+                name.charAt(0).toUpperCase();
+
+
+            /*
+             * Verificación.
+             */
+
+            if (
+                data.verification_status === "approved"
+            ) {
+
+                sellerVerified.hidden = false;
+
+            } else {
+
+                sellerVerified.hidden = true;
+
+            }
+
+
+            /*
+             * Estadísticas.
+             */
+
+            sellerSales.textContent =
+                Number(data.total_sales || 0);
+
+            sellerReviews.textContent =
+                Number(data.total_reviews || 0);
+
+            sellerRating.textContent =
+                Number(data.rating || 0).toFixed(1);
+
+
+            /*
+             * Fecha de registro.
+             */
+
+            if (data.created_at) {
+
+                const date =
+                    new Date(data.created_at);
+
+                sellerSince.textContent =
+                    date.toLocaleDateString(
+                        "es-ES",
+                        {
+                            month: "short",
+                            year: "numeric"
+                        }
+                    );
+
+            } else {
+
+                sellerSince.textContent =
+                    "--";
+
+            }
+
+        }
+
+
+        /*
+         * Renderizar publicaciones.
+         *
+         * Esta función ya utiliza las clases de las tarjetas
+         * existentes en components.css.
+         */
+
+        function renderListings(listings) {
+
+            sellerListings.innerHTML = "";
+
+            if (!listings || listings.length === 0) {
+
+                emptyListings.hidden = false;
+
+                listingCount.textContent =
+                    "0 anuncios";
+
+                return;
+
+            }
+
+
+            emptyListings.hidden = true;
+
+            listingCount.textContent =
+                `${listings.length} ${
+                    listings.length === 1
+                        ? "anuncio"
+                        : "anuncios"
+                }`;
+
+
+            listings.forEach(listing => {
+
+                const card =
+                    document.createElement("a");
+
+                card.href =
+                    `iphone.html?id=${listing.id}`;
+
+                card.className =
+                    "iphone-card";
+
+
+                card.innerHTML = `
+
+                    <div class="card-image">
+
+                        ${
+                            listing.image_url
+                                ? `
+                                    <img
+                                        src="${escapeHtml(
+                                            listing.image_url
+                                        )}"
+                                        alt="${escapeHtml(
+                                            listing.model
+                                        )}"
+                                        loading="lazy"
+                                    >
+                                `
+                                : `
+                                    <div
+                                        class="card-image-placeholder"
+                                    >
+                                        📱
+                                    </div>
+                                `
+                        }
+
+                    </div>
+
+
+                    <div class="card-content">
+
+                        <h3 class="card-title">
+                            ${escapeHtml(
+                                listing.title ||
+                                listing.model ||
+                                "iPhone"
+                            )}
+                        </h3>
+
+                        <div class="card-price">
+                            $${Number(
+                                listing.price_usd || 0
+                            ).toLocaleString(
+                                "en-US",
+                                {
+                                    minimumFractionDigits: 2
+                                }
+                            )}
+                        </div>
+
+                        <div class="card-meta">
+
+                            <span>
+                                ${escapeHtml(
+                                    listing.storage_gb
+                                        ? `${listing.storage_gb} GB`
+                                        : ""
+                                )}
+                            </span>
+
+                            <span>
+                                ${escapeHtml(
+                                    listing.color || ""
+                                )}
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                `;
+
+
+                sellerListings.appendChild(card);
 
             });
 
+        }
+
 
         /*
-         * Report seller
+         * Protección básica para contenido dinámico.
+         */
+
+        function escapeHtml(value) {
+
+            return String(value ?? "")
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+
+        }
+
+
+        /*
+         * Contactar vendedor.
+         *
+         * La integración real con WhatsApp,
+         * Telegram o mensajes internos se hará
+         * posteriormente.
          */
 
         document
-            .getElementById("reportSeller")
+            .getElementById("contactSellerButton")
             .addEventListener(
                 "click",
                 () => {
@@ -1141,25 +724,77 @@
                     if (!sellerId) {
 
                         alert(
-                            "No se pudo identificar al vendedor."
+                            "No se encontró el vendedor."
                         );
 
                         return;
 
                     }
 
-
-                    window.location.href =
-                        "login.html?redirect=" +
-                        encodeURIComponent(
-                            window.location.href
-                        );
+                    alert(
+                        "La función de contacto se conectará próximamente."
+                    );
 
                 }
             );
 
+
+        /*
+         * Reportar vendedor.
+         */
+
+        document
+            .getElementById("reportSellerButton")
+            .addEventListener(
+                "click",
+                () => {
+
+                    if (!sellerId) {
+
+                        alert(
+                            "No se encontró el vendedor."
+                        );
+
+                        return;
+
+                    }
+
+                    alert(
+                        "La función de reportar se conectará próximamente."
+                    );
+
+                }
+            );
+
+
+        /*
+         * Datos de prueba.
+         *
+         * Se mantienen solamente para comprobar visualmente
+         * la página antes de conectar Supabase.
+         */
+
+        renderSellerProfile(seller);
+
+        renderListings([]);
+
+
+        /*
+         * Cuando conectemos Supabase:
+         *
+         * 1. Obtener profiles por sellerId.
+         * 2. Obtener listings activas del vendedor.
+         * 3. Obtener platform_reviews.
+         * 4. Renderizar todo sin confiar en datos enviados
+         *    directamente desde el navegador.
+         */
+
+        console.log(
+            "Seller ID:",
+            sellerId
+        );
+
     </script>
 
 </body>
-
 </html>
