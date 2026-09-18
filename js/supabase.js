@@ -1,9 +1,17 @@
-import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+// ============================================================
+// iMarket Cuba - Supabase Client
+// ============================================================
 
-// Tu URL del proyecto (Project URL)
-const SUPABASE_URL = 'https://jlolyhglduixwjjngcuk.supabase.co'; 
+const SUPABASE_URL = "https://tvlabyorkrelsqxzbjth.supabase.co";
 
-// Tu clave pública cliente (Publishable Key / Anon Key)
-const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_Tby5rC8Eap2YANn859wggg_5yjFLdMZ'; 
+const SUPABASE_PUBLISHABLE_KEY =
+  "sb_publishable_Tby5rC8Eap2YANn859wggg_5yjFLdMZ";
 
-export const supabase = createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+// Crear cliente de Supabase
+const supabaseClient = window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_PUBLISHABLE_KEY
+);
+
+// Exponerlo globalmente para los demás archivos JS
+window.supabaseClient = supabaseClient;
