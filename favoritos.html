@@ -1,32 +1,773 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mis Favoritos - iMarket Cuba</title>
-  
-  <link rel="stylesheet" href="css/global.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/pages.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Favoritos | iMarket Cuba</title>
+
+    <meta
+        name="description"
+        content="Tus iPhones favoritos en iMarket Cuba."
+    >
+
+    <link rel="stylesheet" href="css/favoritos.css">
 </head>
+
 <body>
 
-  <header class="navbar">
-    <div class="navbar-container">
-      <a href="index.html" class="brand-logo">iMarket <span>Cuba</span></a>
-      <a href="index.html" class="btn btn-secondary">Inicio</a>
-    </div>
-  </header>
+    <!-- =========================
+         HEADER
+    ========================== -->
+    <header class="site-header">
 
-  <main class="container main-content">
-    <h2 class="page-title">Mis Favoritos</h2>
-    
-    <div id="favorites-grid" class="grid-products">
-      <!-- Carga de favoritos vía JS -->
-    </div>
-  </main>
+        <div class="header-inner">
 
-  <script type="module" src="js/app.js"></script>
-  <script type="module" src="js/favorites.js"></script>
+            <a href="index.html" class="brand" aria-label="iMarket Cuba">
+                <span class="brand-icon">i</span>
+
+                <span class="brand-name">
+                    iMarket <strong>Cuba</strong>
+                </span>
+            </a>
+
+
+            <nav class="desktop-nav">
+                <a href="buscar.html">Buscar</a>
+                <a href="como-funciona.html">Cómo funciona</a>
+                <a href="seguridad.html">Seguridad</a>
+            </nav>
+
+
+            <div class="header-actions">
+
+                <a href="favoritos.html" class="header-link active">
+                    <span class="header-icon">♡</span>
+                    <span>Favoritos</span>
+                </a>
+
+                <a href="login.html" class="login-button">
+                    Iniciar sesión
+                </a>
+
+                <button
+                    type="button"
+                    class="mobile-menu-button"
+                    id="mobileMenuButton"
+                    aria-label="Abrir menú"
+                    aria-expanded="false"
+                >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- MENÚ MÓVIL -->
+
+        <div class="mobile-menu" id="mobileMenu">
+
+            <a href="buscar.html">
+                Buscar iPhones
+            </a>
+
+            <a href="como-funciona.html">
+                Cómo funciona
+            </a>
+
+            <a href="seguridad.html">
+                Seguridad
+            </a>
+
+            <a href="favoritos.html">
+                Favoritos
+            </a>
+
+            <a href="login.html">
+                Iniciar sesión
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         MAIN
+    ========================== -->
+
+    <main>
+
+        <section class="favorites-section">
+
+            <div class="container">
+
+                <!-- ENCABEZADO -->
+
+                <div class="page-heading">
+
+                    <div>
+
+                        <span class="eyebrow">
+                            Tus selecciones
+                        </span>
+
+                        <h1>
+                            Favoritos
+                        </h1>
+
+                        <p>
+                            Guarda los iPhones que te interesen para
+                            encontrarlos fácilmente después.
+                        </p>
+
+                    </div>
+
+                    <div class="favorites-counter">
+                        <strong id="favoritesCount">3</strong>
+                        <span>guardados</span>
+                    </div>
+
+                </div>
+
+
+                <!-- =========================
+                     FAVORITOS
+                ========================== -->
+
+                <div
+                    class="favorites-grid"
+                    id="favoritesGrid"
+                >
+
+                    <!-- =====================
+                         CARD 1
+                    ====================== -->
+
+                    <article
+                        class="listing-card"
+                        data-id="1"
+                    >
+
+                        <div class="listing-image">
+
+                            <img
+                                src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=900&q=85"
+                                alt="iPhone 15 Pro"
+                            >
+
+                            <span class="condition-badge">
+                                Como nuevo
+                            </span>
+
+                            <button
+                                type="button"
+                                class="favorite-button is-favorite"
+                                data-id="1"
+                                aria-label="Quitar de favoritos"
+                            >
+                                ♥
+                            </button>
+
+                        </div>
+
+
+                        <div class="listing-body">
+
+                            <div class="listing-title-row">
+
+                                <h2>
+                                    iPhone 15 Pro
+                                </h2>
+
+                                <strong class="listing-price">
+                                    $850
+                                </strong>
+
+                            </div>
+
+
+                            <p class="listing-specs">
+                                256 GB · Titanio natural
+                            </p>
+
+
+                            <div class="listing-info">
+
+                                <span>
+                                    🔋 96%
+                                </span>
+
+                                <span>
+                                    ⌖ Playa
+                                </span>
+
+                            </div>
+
+
+                            <div class="seller-row">
+
+                                <div class="seller-avatar">
+                                    J
+                                </div>
+
+                                <div>
+                                    <strong>
+                                        José
+                                    </strong>
+
+                                    <span>
+                                        Vendedor verificado
+                                    </span>
+                                </div>
+
+                            </div>
+
+
+                            <a
+                                href="iphone.html?id=1"
+                                class="view-button"
+                            >
+                                Ver publicación
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- =====================
+                         CARD 2
+                    ====================== -->
+
+                    <article
+                        class="listing-card"
+                        data-id="2"
+                    >
+
+                        <div class="listing-image">
+
+                            <img
+                                src="https://images.unsplash.com/photo-1591337676887-a217a6970a8a?auto=format&fit=crop&w=900&q=85"
+                                alt="iPhone 14 Pro"
+                            >
+
+                            <span class="condition-badge">
+                                Muy bueno
+                            </span>
+
+                            <button
+                                type="button"
+                                class="favorite-button is-favorite"
+                                data-id="2"
+                                aria-label="Quitar de favoritos"
+                            >
+                                ♥
+                            </button>
+
+                        </div>
+
+
+                        <div class="listing-body">
+
+                            <div class="listing-title-row">
+
+                                <h2>
+                                    iPhone 14 Pro
+                                </h2>
+
+                                <strong class="listing-price">
+                                    $720
+                                </strong>
+
+                            </div>
+
+
+                            <p class="listing-specs">
+                                128 GB · Morado oscuro
+                            </p>
+
+
+                            <div class="listing-info">
+
+                                <span>
+                                    🔋 91%
+                                </span>
+
+                                <span>
+                                    ⌖ Playa
+                                </span>
+
+                            </div>
+
+
+                            <div class="seller-row">
+
+                                <div class="seller-avatar">
+                                    J
+                                </div>
+
+                                <div>
+                                    <strong>
+                                        José
+                                    </strong>
+
+                                    <span>
+                                        Vendedor verificado
+                                    </span>
+                                </div>
+
+                            </div>
+
+
+                            <a
+                                href="iphone.html?id=2"
+                                class="view-button"
+                            >
+                                Ver publicación
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- =====================
+                         CARD 3
+                    ====================== -->
+
+                    <article
+                        class="listing-card"
+                        data-id="3"
+                    >
+
+                        <div class="listing-image">
+
+                            <img
+                                src="https://images.unsplash.com/photo-1556656793-08538906a9f8?auto=format&fit=crop&w=900&q=85"
+                                alt="iPhone 13 Pro"
+                            >
+
+                            <span class="condition-badge">
+                                Muy bueno
+                            </span>
+
+                            <button
+                                type="button"
+                                class="favorite-button is-favorite"
+                                data-id="3"
+                                aria-label="Quitar de favoritos"
+                            >
+                                ♥
+                            </button>
+
+                        </div>
+
+
+                        <div class="listing-body">
+
+                            <div class="listing-title-row">
+
+                                <h2>
+                                    iPhone 13 Pro
+                                </h2>
+
+                                <strong class="listing-price">
+                                    $590
+                                </strong>
+
+                            </div>
+
+
+                            <p class="listing-specs">
+                                256 GB · Azul sierra
+                            </p>
+
+
+                            <div class="listing-info">
+
+                                <span>
+                                    🔋 88%
+                                </span>
+
+                                <span>
+                                    ⌖ Playa
+                                </span>
+
+                            </div>
+
+
+                            <div class="seller-row">
+
+                                <div class="seller-avatar">
+                                    J
+                                </div>
+
+                                <div>
+                                    <strong>
+                                        José
+                                    </strong>
+
+                                    <span>
+                                        Vendedor verificado
+                                    </span>
+                                </div>
+
+                            </div>
+
+
+                            <a
+                                href="iphone.html?id=3"
+                                class="view-button"
+                            >
+                                Ver publicación
+                            </a>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+                <!-- =========================
+                     ESTADO VACÍO
+                ========================== -->
+
+                <div
+                    class="empty-state"
+                    id="emptyState"
+                    hidden
+                >
+
+                    <div class="empty-icon">
+                        ♡
+                    </div>
+
+                    <h2>
+                        Todavía no tienes favoritos
+                    </h2>
+
+                    <p>
+                        Cuando encuentres un iPhone que te interese,
+                        toca el corazón para guardarlo aquí.
+                    </p>
+
+                    <a
+                        href="buscar.html"
+                        class="primary-button"
+                    >
+                        Buscar iPhones
+                    </a>
+
+                </div>
+
+
+                <!-- =========================
+                     INFO
+                ========================== -->
+
+                <div class="favorites-note">
+
+                    <div class="note-icon">
+                        ✓
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Tus favoritos se guardan en este dispositivo
+                        </strong>
+
+                        <p>
+                            En la versión conectada a tu cuenta,
+                            tus favoritos estarán disponibles desde
+                            cualquier dispositivo.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="site-footer">
+
+        <div class="footer-inner">
+
+            <div class="footer-brand">
+
+                <a href="index.html" class="brand">
+
+                    <span class="brand-icon">
+                        i
+                    </span>
+
+                    <span class="brand-name">
+                        iMarket <strong>Cuba</strong>
+                    </span>
+
+                </a>
+
+                <p>
+                    Compra y vende iPhones entre particulares.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <div>
+
+                    <strong>
+                        iMarket Cuba
+                    </strong>
+
+                    <a href="como-funciona.html">
+                        Cómo funciona
+                    </a>
+
+                    <a href="seguridad.html">
+                        Seguridad
+                    </a>
+
+                    <a href="terminos.html">
+                        Términos
+                    </a>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        Cuenta
+                    </strong>
+
+                    <a href="login.html">
+                        Iniciar sesión
+                    </a>
+
+                    <a href="registro.html">
+                        Crear cuenta
+                    </a>
+
+                    <a href="favoritos.html">
+                        Favoritos
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 iMarket Cuba
+            </span>
+
+            <a
+                href="https://alfanegocios.github.io/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                By ALFA NEGOCIOS
+            </a>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", () => {
+
+            /* =========================
+               MENÚ MÓVIL
+            ========================== */
+
+            const menuButton =
+                document.getElementById("mobileMenuButton");
+
+            const mobileMenu =
+                document.getElementById("mobileMenu");
+
+
+            if (menuButton && mobileMenu) {
+
+                menuButton.addEventListener("click", () => {
+
+                    const isOpen =
+                        mobileMenu.classList.toggle("is-open");
+
+                    menuButton.classList.toggle(
+                        "is-open",
+                        isOpen
+                    );
+
+                    menuButton.setAttribute(
+                        "aria-expanded",
+                        isOpen ? "true" : "false"
+                    );
+
+                });
+
+            }
+
+
+            /* =========================
+               FAVORITOS
+            ========================== */
+
+            const favoriteButtons =
+                document.querySelectorAll(".favorite-button");
+
+            const favoritesGrid =
+                document.getElementById("favoritesGrid");
+
+            const emptyState =
+                document.getElementById("emptyState");
+
+            const favoritesCount =
+                document.getElementById("favoritesCount");
+
+
+            let favorites;
+
+
+            try {
+
+                favorites = JSON.parse(
+                    localStorage.getItem(
+                        "imarket_favorites"
+                    ) || '["1","2","3"]'
+                );
+
+            } catch {
+
+                favorites = ["1", "2", "3"];
+
+            }
+
+
+            /*
+             * Convertimos los IDs a string para
+             * evitar problemas de comparación.
+             */
+
+            favorites =
+                favorites.map(String);
+
+
+            function updateFavorites() {
+
+                const cards =
+                    document.querySelectorAll(".listing-card");
+
+                let visibleCount = 0;
+
+
+                cards.forEach(card => {
+
+                    const id =
+                        String(card.dataset.id);
+
+                    if (favorites.includes(id)) {
+
+                        card.style.display = "";
+
+                        visibleCount++;
+
+                    } else {
+
+                        card.style.display = "none";
+
+                    }
+
+                });
+
+
+                favoritesCount.textContent =
+                    visibleCount;
+
+
+                if (visibleCount === 0) {
+
+                    emptyState.hidden = false;
+
+                    favoritesGrid.style.display =
+                        "none";
+
+                } else {
+
+                    emptyState.hidden = true;
+
+                    favoritesGrid.style.display =
+                        "grid";
+
+                }
+
+            }
+
+
+            favoriteButtons.forEach(button => {
+
+                button.addEventListener(
+                    "click",
+                    () => {
+
+                        const id =
+                            String(button.dataset.id);
+
+
+                        favorites =
+                            favorites.filter(
+                                favoriteId =>
+                                    favoriteId !== id
+                            );
+
+
+                        localStorage.setItem(
+                            "imarket_favorites",
+                            JSON.stringify(favorites)
+                        );
+
+
+                        updateFavorites();
+
+                    }
+                );
+
+            });
+
+
+            updateFavorites();
+
+        });
+
+    </script>
+
 </body>
 </html>
