@@ -1,1 +1,1392 @@
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mis publicaciones | iMarket Cuba</title>
+
+    <meta
+        name="description"
+        content="Gestiona tus publicaciones de iPhone en iMarket Cuba."
+    >
+
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/mis-publicaciones.css">
+</head>
+
+<body>
+
+<header class="site-header">
+
+    <div class="header-inner">
+
+        <a href="index.html" class="brand">
+
+            <div class="brand-mark">
+                <span>i</span>
+            </div>
+
+            <div class="brand-text">
+                <strong>iMarket</strong>
+                <span>Cuba</span>
+            </div>
+
+        </a>
+
+
+        <nav class="desktop-nav">
+
+            <a href="buscar.html">
+                Buscar iPhones
+            </a>
+
+            <a href="favoritos.html">
+                Favoritos
+            </a>
+
+            <a
+                href="mis-publicaciones.html"
+                class="nav-active"
+            >
+                Mis publicaciones
+            </a>
+
+        </nav>
+
+
+        <div class="header-actions">
+
+            <a
+                href="publicar.html"
+                class="publish-btn"
+            >
+                + Publicar
+            </a>
+
+            <button
+                type="button"
+                class="mobile-menu-btn"
+                id="mobileMenuBtn"
+                aria-label="Abrir menú"
+                aria-expanded="false"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div
+        class="mobile-nav"
+        id="mobileNav"
+    >
+
+        <a href="buscar.html">
+            Buscar iPhones
+        </a>
+
+        <a href="favoritos.html">
+            Favoritos
+        </a>
+
+        <a href="mis-publicaciones.html">
+            Mis publicaciones
+        </a>
+
+        <a href="publicar.html">
+            + Publicar iPhone
+        </a>
+
+        <a href="perfil.html">
+            Mi perfil
+        </a>
+
+    </div>
+
+</header>
+
+
+<main class="listings-page">
+
+    <div class="listings-container">
+
+
+        <!-- =================================
+             PAGE HEADER
+        ================================== -->
+
+        <section class="page-header">
+
+            <div class="page-header-content">
+
+                <span class="page-badge">
+                    Panel del vendedor
+                </span>
+
+                <h1>
+                    Mis publicaciones
+                </h1>
+
+                <p>
+                    Gestiona tus iPhones publicados, revisa su estado
+                    y actualiza la información cuando sea necesario.
+                </p>
+
+            </div>
+
+
+            <a
+                href="publicar.html"
+                class="main-publish-btn"
+            >
+                <span>+</span>
+                Publicar iPhone
+            </a>
+
+        </section>
+
+
+        <!-- =================================
+             STATS
+        ================================== -->
+
+        <section class="stats-grid">
+
+            <div class="stat-card">
+
+                <div class="stat-icon blue">
+                    ▣
+                </div>
+
+                <div class="stat-info">
+
+                    <strong id="activeCount">
+                        2
+                    </strong>
+
+                    <span>
+                        Activas
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon orange">
+                    ◷
+                </div>
+
+                <div class="stat-info">
+
+                    <strong id="pendingCount">
+                        1
+                    </strong>
+
+                    <span>
+                        En revisión
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon green">
+                    ✓
+                </div>
+
+                <div class="stat-info">
+
+                    <strong id="soldCount">
+                        4
+                    </strong>
+
+                    <span>
+                        Vendidas
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon gray">
+                    ♡
+                </div>
+
+                <div class="stat-info">
+
+                    <strong id="favoritesCount">
+                        13
+                    </strong>
+
+                    <span>
+                        Favoritos recibidos
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================
+             TABS
+        ================================== -->
+
+        <section class="listings-section">
+
+            <div class="tabs">
+
+                <button
+                    type="button"
+                    class="tab active"
+                    data-filter="all"
+                >
+                    Todas
+                    <span>7</span>
+                </button>
+
+                <button
+                    type="button"
+                    class="tab"
+                    data-filter="active"
+                >
+                    Activas
+                    <span>2</span>
+                </button>
+
+                <button
+                    type="button"
+                    class="tab"
+                    data-filter="pending"
+                >
+                    En revisión
+                    <span>1</span>
+                </button>
+
+                <button
+                    type="button"
+                    class="tab"
+                    data-filter="sold"
+                >
+                    Vendidas
+                    <span>4</span>
+                </button>
+
+            </div>
+
+
+            <!-- =================================
+                 LISTINGS
+            ================================== -->
+
+            <div
+                class="listings-list"
+                id="listingsList"
+            >
+
+
+                <!-- ACTIVE -->
+                <article
+                    class="listing-card"
+                    data-status="active"
+                >
+
+                    <div class="listing-image">
+
+                        <img
+                            src="assets/images/iphone-placeholder.webp"
+                            alt="iPhone 15 Pro"
+                            onerror="this.src='https://placehold.co/400x400/f6f7f9/111111?text=iPhone'"
+                        >
+
+                        <span class="status-badge active">
+                            Activa
+                        </span>
+
+                    </div>
+
+
+                    <div class="listing-content">
+
+                        <div class="listing-main">
+
+                            <div class="listing-title-row">
+
+                                <h2>
+                                    iPhone 15 Pro
+                                </h2>
+
+                                <span class="condition">
+                                    Muy buena
+                                </span>
+
+                            </div>
+
+                            <p class="listing-details">
+                                256 GB · Titanio natural · 92% batería
+                            </p>
+
+                            <div class="listing-location">
+                                <span>⌖</span>
+                                Playa, La Habana
+                            </div>
+
+                        </div>
+
+
+                        <div class="listing-price">
+                            <strong>
+                                $650
+                            </strong>
+
+                            <span>
+                                USD
+                            </span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="listing-meta">
+
+                        <span>
+                            Publicada hace 3 días
+                        </span>
+
+                        <span>
+                            8 favoritos
+                        </span>
+
+                        <span>
+                            47 visitas
+                        </span>
+
+                    </div>
+
+
+                    <div class="listing-actions">
+
+                        <a
+                            href="iphone.html?id=demo-1"
+                            class="secondary-action"
+                        >
+                            Ver
+                        </a>
+
+                        <a
+                            href="editar-publicacion.html?id=demo-1"
+                            class="secondary-action"
+                        >
+                            Editar
+                        </a>
+
+                        <button
+                            type="button"
+                            class="secondary-action sold-action"
+                            data-id="demo-1"
+                        >
+                            Marcar vendida
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <!-- ACTIVE -->
+                <article
+                    class="listing-card"
+                    data-status="active"
+                >
+
+                    <div class="listing-image">
+
+                        <img
+                            src="assets/images/iphone-placeholder.webp"
+                            alt="iPhone 13"
+                            onerror="this.src='https://placehold.co/400x400/f6f7f9/111111?text=iPhone'"
+                        >
+
+                        <span class="status-badge active">
+                            Activa
+                        </span>
+
+                    </div>
+
+
+                    <div class="listing-content">
+
+                        <div class="listing-main">
+
+                            <div class="listing-title-row">
+
+                                <h2>
+                                    iPhone 13
+                                </h2>
+
+                                <span class="condition">
+                                    Buena
+                                </span>
+
+                            </div>
+
+                            <p class="listing-details">
+                                128 GB · Medianoche · 86% batería
+                            </p>
+
+                            <div class="listing-location">
+                                <span>⌖</span>
+                                Centro Habana, La Habana
+                            </div>
+
+                        </div>
+
+
+                        <div class="listing-price">
+                            <strong>
+                                $390
+                            </strong>
+
+                            <span>
+                                USD
+                            </span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="listing-meta">
+
+                        <span>
+                            Publicada hace 8 días
+                        </span>
+
+                        <span>
+                            5 favoritos
+                        </span>
+
+                        <span>
+                            31 visitas
+                        </span>
+
+                    </div>
+
+
+                    <div class="listing-actions">
+
+                        <a
+                            href="iphone.html?id=demo-2"
+                            class="secondary-action"
+                        >
+                            Ver
+                        </a>
+
+                        <a
+                            href="editar-publicacion.html?id=demo-2"
+                            class="secondary-action"
+                        >
+                            Editar
+                        </a>
+
+                        <button
+                            type="button"
+                            class="secondary-action sold-action"
+                            data-id="demo-2"
+                        >
+                            Marcar vendida
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <!-- PENDING -->
+                <article
+                    class="listing-card"
+                    data-status="pending"
+                >
+
+                    <div class="listing-image">
+
+                        <img
+                            src="assets/images/iphone-placeholder.webp"
+                            alt="iPhone 14 Pro"
+                            onerror="this.src='https://placehold.co/400x400/f6f7f9/111111?text=iPhone'"
+                        >
+
+                        <span class="status-badge pending">
+                            En revisión
+                        </span>
+
+                    </div>
+
+
+                    <div class="listing-content">
+
+                        <div class="listing-main">
+
+                            <div class="listing-title-row">
+
+                                <h2>
+                                    iPhone 14 Pro
+                                </h2>
+
+                                <span class="condition">
+                                    Excelente
+                                </span>
+
+                            </div>
+
+                            <p class="listing-details">
+                                256 GB · Morado oscuro · 95% batería
+                            </p>
+
+                            <div class="listing-location">
+                                <span>⌖</span>
+                                Marianao, La Habana
+                            </div>
+
+                        </div>
+
+
+                        <div class="listing-price">
+                            <strong>
+                                $720
+                            </strong>
+
+                            <span>
+                                USD
+                            </span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="listing-meta">
+
+                        <span>
+                            Enviada hace 2 horas
+                        </span>
+
+                        <span>
+                            Pendiente de revisión
+                        </span>
+
+                    </div>
+
+
+                    <div class="listing-actions">
+
+                        <a
+                            href="editar-publicacion.html?id=demo-3"
+                            class="secondary-action"
+                        >
+                            Editar
+                        </a>
+
+                        <button
+                            type="button"
+                            class="secondary-action delete-action"
+                            data-id="demo-3"
+                        >
+                            Retirar publicación
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <!-- SOLD -->
+                <article
+                    class="listing-card sold"
+                    data-status="sold"
+                >
+
+                    <div class="listing-image">
+
+                        <img
+                            src="assets/images/iphone-placeholder.webp"
+                            alt="iPhone 12 Pro"
+                            onerror="this.src='https://placehold.co/400x400/f6f7f9/111111?text=iPhone'"
+                        >
+
+                        <span class="status-badge sold">
+                            Vendida
+                        </span>
+
+                    </div>
+
+
+                    <div class="listing-content">
+
+                        <div class="listing-main">
+
+                            <div class="listing-title-row">
+
+                                <h2>
+                                    iPhone 12 Pro
+                                </h2>
+
+                                <span class="condition">
+                                    Muy buena
+                                </span>
+
+                            </div>
+
+                            <p class="listing-details">
+                                128 GB · Grafito · 89% batería
+                            </p>
+
+                            <div class="listing-location">
+                                <span>⌖</span>
+                                La Lisa, La Habana
+                            </div>
+
+                        </div>
+
+
+                        <div class="listing-price">
+                            <strong>
+                                $430
+                            </strong>
+
+                            <span>
+                                USD
+                            </span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="listing-meta">
+
+                        <span>
+                            Vendida hace 12 días
+                        </span>
+
+                        <span>
+                            Venta registrada
+                        </span>
+
+                    </div>
+
+
+                    <div class="listing-actions">
+
+                        <a
+                            href="iphone.html?id=demo-4"
+                            class="secondary-action"
+                        >
+                            Ver detalles
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- SOLD -->
+                <article
+                    class="listing-card sold"
+                    data-status="sold"
+                >
+
+                    <div class="listing-image">
+
+                        <img
+                            src="assets/images/iphone-placeholder.webp"
+                            alt="iPhone 11"
+                            onerror="this.src='https://placehold.co/400x400/f6f7f9/111111?text=iPhone'"
+                        >
+
+                        <span class="status-badge sold">
+                            Vendida
+                        </span>
+
+                    </div>
+
+
+                    <div class="listing-content">
+
+                        <div class="listing-main">
+
+                            <div class="listing-title-row">
+
+                                <h2>
+                                    iPhone 11
+                                </h2>
+
+                                <span class="condition">
+                                    Buena
+                                </span>
+
+                            </div>
+
+                            <p class="listing-details">
+                                128 GB · Negro · 84% batería
+                            </p>
+
+                            <div class="listing-location">
+                                <span>⌖</span>
+                                Arroyo Naranjo, La Habana
+                            </div>
+
+                        </div>
+
+
+                        <div class="listing-price">
+                            <strong>
+                                $310
+                            </strong>
+
+                            <span>
+                                USD
+                            </span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="listing-meta">
+
+                        <span>
+                            Vendida hace 1 mes
+                        </span>
+
+                        <span>
+                            Venta registrada
+                        </span>
+
+                    </div>
+
+
+                    <div class="listing-actions">
+
+                        <a
+                            href="iphone.html?id=demo-5"
+                            class="secondary-action"
+                        >
+                            Ver detalles
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- SOLD -->
+                <article
+                    class="listing-card sold"
+                    data-status="sold"
+                >
+
+                    <div class="listing-image">
+
+                        <img
+                            src="assets/images/iphone-placeholder.webp"
+                            alt="iPhone XR"
+                            onerror="this.src='https://placehold.co/400x400/f6f7f9/111111?text=iPhone'"
+                        >
+
+                        <span class="status-badge sold">
+                            Vendida
+                        </span>
+
+                    </div>
+
+
+                    <div class="listing-content">
+
+                        <div class="listing-main">
+
+                            <div class="listing-title-row">
+
+                                <h2>
+                                    iPhone XR
+                                </h2>
+
+                                <span class="condition">
+                                    Buena
+                                </span>
+
+                            </div>
+
+                            <p class="listing-details">
+                                64 GB · Azul · 81% batería
+                            </p>
+
+                            <div class="listing-location">
+                                <span>⌖</span>
+                                Boyeros, La Habana
+                            </div>
+
+                        </div>
+
+
+                        <div class="listing-price">
+                            <strong>
+                                $240
+                            </strong>
+
+                            <span>
+                                USD
+                            </span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="listing-meta">
+
+                        <span>
+                            Vendida hace 2 meses
+                        </span>
+
+                        <span>
+                            Venta registrada
+                        </span>
+
+                    </div>
+
+
+                    <div class="listing-actions">
+
+                        <a
+                            href="iphone.html?id=demo-6"
+                            class="secondary-action"
+                        >
+                            Ver detalles
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- SOLD -->
+                <article
+                    class="listing-card sold"
+                    data-status="sold"
+                >
+
+                    <div class="listing-image">
+
+                        <img
+                            src="assets/images/iphone-placeholder.webp"
+                            alt="iPhone 8"
+                            onerror="this.src='https://placehold.co/400x400/f6f7f9/111111?text=iPhone'"
+                        >
+
+                        <span class="status-badge sold">
+                            Vendida
+                        </span>
+
+                    </div>
+
+
+                    <div class="listing-content">
+
+                        <div class="listing-main">
+
+                            <div class="listing-title-row">
+
+                                <h2>
+                                    iPhone 8
+                                </h2>
+
+                                <span class="condition">
+                                    Aceptable
+                                </span>
+
+                            </div>
+
+                            <p class="listing-details">
+                                64 GB · Gris espacial · 78% batería
+                            </p>
+
+                            <div class="listing-location">
+                                <span>⌖</span>
+                                Cerro, La Habana
+                            </div>
+
+                        </div>
+
+
+                        <div class="listing-price">
+                            <strong>
+                                $170
+                            </strong>
+
+                            <span>
+                                USD
+                            </span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="listing-meta">
+
+                        <span>
+                            Vendida hace 3 meses
+                        </span>
+
+                        <span>
+                            Venta registrada
+                        </span>
+
+                    </div>
+
+
+                    <div class="listing-actions">
+
+                        <a
+                            href="iphone.html?id=demo-7"
+                            class="secondary-action"
+                        >
+                            Ver detalles
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+
+            <!-- EMPTY -->
+            <div
+                class="empty-state"
+                id="emptyState"
+                hidden
+            >
+
+                <div class="empty-icon">
+                    ♡
+                </div>
+
+                <h2>
+                    No hay publicaciones aquí
+                </h2>
+
+                <p>
+                    Cuando publiques un iPhone, aparecerá en esta sección.
+                </p>
+
+                <a href="publicar.html">
+                    Publicar mi primer iPhone
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================
+             SELLING INFO
+        ================================== -->
+
+        <section class="seller-tip">
+
+            <div class="tip-icon">
+                ✓
+            </div>
+
+            <div>
+
+                <strong>
+                    Mantén tu publicación actualizada
+                </strong>
+
+                <p>
+                    Si el precio cambia o el iPhone ya fue vendido,
+                    actualiza su estado para ofrecer información
+                    correcta a los compradores.
+                </p>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</main>
+
+
+<footer class="site-footer">
+
+    <div class="footer-inner">
+
+        <p>
+            © 2026 iMarket Cuba. Todos los derechos reservados.
+        </p>
+
+        <a
+            href="https://alfanegocios.github.io/"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            By ALFA NEGOCIOS
+        </a>
+
+    </div>
+
+</footer>
+
+
+<!-- =================================
+     CONFIRM MODAL
+================================== -->
+
+<div
+    class="modal-overlay"
+    id="confirmModal"
+    hidden
+>
+
+    <div
+        class="confirm-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+    >
+
+        <button
+            type="button"
+            class="modal-close"
+            id="modalClose"
+            aria-label="Cerrar"
+        >
+            ×
+        </button>
+
+        <div class="modal-icon">
+            ✓
+        </div>
+
+        <h2 id="modalTitle">
+            ¿Marcar como vendida?
+        </h2>
+
+        <p id="modalText">
+            La publicación dejará de aparecer entre los iPhones disponibles.
+        </p>
+
+        <div class="modal-actions">
+
+            <button
+                type="button"
+                class="modal-cancel"
+                id="modalCancel"
+            >
+                Cancelar
+            </button>
+
+            <button
+                type="button"
+                class="modal-confirm"
+                id="modalConfirm"
+            >
+                Marcar vendida
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    /* =========================================
+       MOBILE MENU
+    ========================================= */
+
+    const mobileMenuBtn =
+        document.getElementById("mobileMenuBtn");
+
+    const mobileNav =
+        document.getElementById("mobileNav");
+
+
+    mobileMenuBtn.addEventListener("click", () => {
+
+        const open =
+            mobileNav.classList.toggle("open");
+
+        mobileMenuBtn.classList.toggle(
+            "open",
+            open
+        );
+
+        mobileMenuBtn.setAttribute(
+            "aria-expanded",
+            open ? "true" : "false"
+        );
+
+    });
+
+
+    /* =========================================
+       TABS
+    ========================================= */
+
+    const tabs =
+        document.querySelectorAll(".tab");
+
+    const listingCards =
+        document.querySelectorAll(".listing-card");
+
+    const emptyState =
+        document.getElementById("emptyState");
+
+
+    tabs.forEach(tab => {
+
+        tab.addEventListener("click", () => {
+
+            tabs.forEach(item =>
+                item.classList.remove("active")
+            );
+
+            tab.classList.add("active");
+
+            const filter =
+                tab.dataset.filter;
+
+            let visible = 0;
+
+
+            listingCards.forEach(card => {
+
+                const status =
+                    card.dataset.status;
+
+                const show =
+                    filter === "all" ||
+                    status === filter;
+
+                card.style.display =
+                    show ? "" : "grid";
+
+                if (show) {
+                    visible++;
+                }
+
+            });
+
+
+            emptyState.hidden =
+                visible !== 0;
+
+        });
+
+    });
+
+
+    /* =========================================
+       MODAL
+    ========================================= */
+
+    const confirmModal =
+        document.getElementById("confirmModal");
+
+    const modalClose =
+        document.getElementById("modalClose");
+
+    const modalCancel =
+        document.getElementById("modalCancel");
+
+    const modalConfirm =
+        document.getElementById("modalConfirm");
+
+    let selectedListing = null;
+
+
+    function openModal(card) {
+
+        selectedListing = card;
+
+        confirmModal.hidden = false;
+
+        document.body.classList.add(
+            "modal-open"
+        );
+
+    }
+
+
+    function closeModal() {
+
+        confirmModal.hidden = true;
+
+        document.body.classList.remove(
+            "modal-open"
+        );
+
+        selectedListing = null;
+
+    }
+
+
+    modalClose.addEventListener(
+        "click",
+        closeModal
+    );
+
+
+    modalCancel.addEventListener(
+        "click",
+        closeModal
+    );
+
+
+    confirmModal.addEventListener(
+        "click",
+        event => {
+
+            if (
+                event.target === confirmModal
+            ) {
+                closeModal();
+            }
+
+        }
+    );
+
+
+    /* =========================================
+       MARK AS SOLD
+    ========================================= */
+
+    document
+        .querySelectorAll(".sold-action")
+        .forEach(button => {
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    const card =
+                        button.closest(".listing-card");
+
+                    openModal(card);
+
+                }
+            );
+
+        });
+
+
+    modalConfirm.addEventListener(
+        "click",
+        () => {
+
+            if (!selectedListing) {
+                return;
+            }
+
+
+            selectedListing.dataset.status =
+                "sold";
+
+            selectedListing.classList.add(
+                "sold"
+            );
+
+
+            const badge =
+                selectedListing.querySelector(
+                    ".status-badge"
+                );
+
+            if (badge) {
+
+                badge.textContent =
+                    "Vendida";
+
+                badge.className =
+                    "status-badge sold";
+
+            }
+
+
+            const soldButton =
+                selectedListing.querySelector(
+                    ".sold-action"
+                );
+
+            if (soldButton) {
+                soldButton.remove();
+            }
+
+
+            const meta =
+                selectedListing.querySelector(
+                    ".listing-meta"
+                );
+
+            if (meta) {
+
+                const status =
+                    document.createElement("span");
+
+                status.textContent =
+                    "Venta registrada";
+
+                meta.appendChild(status);
+
+            }
+
+
+            closeModal();
+
+        }
+    );
+
+
+    /* =========================================
+       ESCAPE
+    ========================================= */
+
+    document.addEventListener(
+        "keydown",
+        event => {
+
+            if (
+                event.key === "Escape" &&
+                !confirmModal.hidden
+            ) {
+
+                closeModal();
+
+            }
+
+        }
+    );
+
+</script>
+
+</body>
+</html>
