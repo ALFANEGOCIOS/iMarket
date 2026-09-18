@@ -1,1 +1,1012 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Mensajes | iMarket Cuba</title>
+  <meta
+    name="description"
+    content="Consulta tus conversaciones en iMarket Cuba."
+  >
+
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/mensajes.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+
+      <a href="index.html" class="brand">
+        <span class="brand-mark">i</span>
+        <span class="brand-name">iMarket <strong>Cuba</strong></span>
+      </a>
+
+      <nav class="desktop-nav">
+        <a href="buscar.html">Buscar iPhones</a>
+        <a href="favoritos.html">Favoritos</a>
+        <a href="mis-publicaciones.html">Mis publicaciones</a>
+        <a href="mensajes.html" class="active">
+          Mensajes
+          <span class="nav-badge">2</span>
+        </a>
+      </nav>
+
+      <div class="header-actions">
+
+        <a href="publicar.html" class="btn btn-primary">
+          + Publicar
+        </a>
+
+        <button
+          class="menu-toggle"
+          id="menuToggle"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+      </div>
+
+    </div>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+
+      <a href="buscar.html">Buscar iPhones</a>
+
+      <a href="favoritos.html">Favoritos</a>
+
+      <a href="mis-publicaciones.html">
+        Mis publicaciones
+      </a>
+
+      <a href="ventas.html">Mis ventas</a>
+
+      <a href="mensajes.html" class="active">
+        Mensajes
+        <span class="mobile-nav-badge">2</span>
+      </a>
+
+      <a href="perfil.html">Mi perfil</a>
+
+      <a href="publicar.html" class="mobile-publish">
+        + Publicar iPhone
+      </a>
+
+    </div>
+  </header>
+
+
+  <!-- MAIN -->
+  <main class="messages-page">
+
+    <section class="messages-container">
+
+      <!-- PAGE HEADER -->
+      <div class="messages-heading">
+
+        <div>
+          <span class="eyebrow">COMUNICACIÓN</span>
+
+          <h1>Mensajes</h1>
+
+          <p>
+            Habla directamente con otros usuarios interesados
+            en tus publicaciones.
+          </p>
+        </div>
+
+      </div>
+
+
+      <!-- MESSAGES APP -->
+      <section class="messages-app" id="messagesApp">
+
+
+        <!-- CONVERSATIONS -->
+        <aside class="conversations-panel">
+
+          <div class="conversations-header">
+
+            <div>
+              <h2>Conversaciones</h2>
+              <span id="conversationCount">
+                3 conversaciones
+              </span>
+            </div>
+
+            <button
+              class="new-message-btn"
+              id="newMessageBtn"
+              title="Nueva conversación"
+              aria-label="Nueva conversación"
+            >
+              +
+            </button>
+
+          </div>
+
+
+          <!-- SEARCH -->
+          <div class="conversation-search">
+
+            <span class="search-icon">⌕</span>
+
+            <input
+              type="search"
+              id="conversationSearch"
+              placeholder="Buscar conversaciones..."
+              autocomplete="off"
+            >
+
+          </div>
+
+
+          <!-- CONVERSATION LIST -->
+          <div class="conversation-list" id="conversationList">
+
+
+            <!-- CONVERSATION 1 -->
+            <button
+              class="conversation active"
+              data-conversation="juan"
+              data-name="Juan Pérez"
+            >
+
+              <div class="avatar">
+                JP
+              </div>
+
+              <div class="conversation-content">
+
+                <div class="conversation-top">
+
+                  <strong>Juan Pérez</strong>
+
+                  <time>10:42</time>
+
+                </div>
+
+                <div class="conversation-bottom">
+
+                  <span>
+                    ¿Todavía tienes disponible el...
+                  </span>
+
+                  <b class="unread-count">2</b>
+
+                </div>
+
+                <div class="conversation-product">
+                  iPhone 15 Pro · $650
+                </div>
+
+              </div>
+
+            </button>
+
+
+            <!-- CONVERSATION 2 -->
+            <button
+              class="conversation"
+              data-conversation="maria"
+              data-name="María González"
+            >
+
+              <div class="avatar avatar-purple">
+                MG
+              </div>
+
+              <div class="conversation-content">
+
+                <div class="conversation-top">
+
+                  <strong>María González</strong>
+
+                  <time>Ayer</time>
+
+                </div>
+
+                <div class="conversation-bottom">
+
+                  <span>
+                    Perfecto, ¿en qué zona de Playa?
+                  </span>
+
+                </div>
+
+                <div class="conversation-product">
+                  iPhone 13 · $390
+                </div>
+
+              </div>
+
+            </button>
+
+
+            <!-- CONVERSATION 3 -->
+            <button
+              class="conversation"
+              data-conversation="carlos"
+              data-name="Carlos Rodríguez"
+            >
+
+              <div class="avatar avatar-green">
+                CR
+              </div>
+
+              <div class="conversation-content">
+
+                <div class="conversation-top">
+
+                  <strong>Carlos Rodríguez</strong>
+
+                  <time>12 sep.</time>
+
+                </div>
+
+                <div class="conversation-bottom">
+
+                  <span>
+                    Gracias por la información.
+                  </span>
+
+                </div>
+
+                <div class="conversation-product">
+                  iPhone 12 Pro · $430
+                </div>
+
+              </div>
+
+            </button>
+
+
+          </div>
+
+
+          <!-- EMPTY SEARCH -->
+          <div
+            class="conversation-empty"
+            id="conversationEmpty"
+            hidden
+          >
+            <div>⌕</div>
+            <p>No encontramos conversaciones.</p>
+          </div>
+
+        </aside>
+
+
+        <!-- CHAT -->
+        <section class="chat-panel" id="chatPanel">
+
+
+          <!-- CHAT HEADER -->
+          <header class="chat-header">
+
+            <button
+              class="back-to-conversations"
+              id="backToConversations"
+              aria-label="Volver a conversaciones"
+            >
+              ‹
+            </button>
+
+            <div class="chat-user-avatar avatar">
+              JP
+            </div>
+
+            <div class="chat-user-info">
+
+              <strong id="chatUserName">
+                Juan Pérez
+              </strong>
+
+              <span>
+                Interesado en tu publicación
+              </span>
+
+            </div>
+
+            <button
+              class="chat-menu-btn"
+              id="chatMenuBtn"
+              aria-label="Opciones de conversación"
+            >
+              ⋯
+            </button>
+
+          </header>
+
+
+          <!-- PRODUCT REFERENCE -->
+          <div class="chat-product">
+
+            <div class="chat-product-image">
+
+              <img
+                src="assets/images/iphone-placeholder.webp"
+                alt="iPhone 15 Pro"
+                onerror="this.src='https://placehold.co/100x100/f0f1f3/111111?text=iPhone'"
+              >
+
+            </div>
+
+            <div class="chat-product-info">
+
+              <span>Publicación</span>
+
+              <strong>iPhone 15 Pro · 256 GB</strong>
+
+              <b>$650</b>
+
+            </div>
+
+            <a
+              href="iphone.html?id=demo15"
+              class="view-product"
+            >
+              Ver
+            </a>
+
+          </div>
+
+
+          <!-- MESSAGES -->
+          <div class="chat-messages" id="chatMessages">
+
+
+            <div class="date-divider">
+              <span>Hoy</span>
+            </div>
+
+
+            <!-- RECEIVED -->
+            <div class="message-row received">
+
+              <div class="message-avatar avatar">
+                JP
+              </div>
+
+              <div class="message-bubble-wrapper">
+
+                <div class="message-bubble">
+                  Hola, ¿todavía tienes disponible el
+                  iPhone 15 Pro?
+                </div>
+
+                <time>10:38</time>
+
+              </div>
+
+            </div>
+
+
+            <!-- SENT -->
+            <div class="message-row sent">
+
+              <div class="message-bubble-wrapper">
+
+                <div class="message-bubble">
+                  Hola Juan. Sí, todavía está disponible.
+                </div>
+
+                <time>10:40 · ✓✓</time>
+
+              </div>
+
+            </div>
+
+
+            <!-- RECEIVED -->
+            <div class="message-row received">
+
+              <div class="message-avatar avatar">
+                JP
+              </div>
+
+              <div class="message-bubble-wrapper">
+
+                <div class="message-bubble">
+                  ¿La batería está en 92% como aparece
+                  en la publicación?
+                </div>
+
+                <time>10:41</time>
+
+              </div>
+
+            </div>
+
+
+            <!-- SENT -->
+            <div class="message-row sent">
+
+              <div class="message-bubble-wrapper">
+
+                <div class="message-bubble">
+                  Sí, 92%. También funciona Face ID y
+                  True Tone correctamente.
+                </div>
+
+                <time>10:41 · ✓✓</time>
+
+              </div>
+
+            </div>
+
+
+            <!-- RECEIVED -->
+            <div class="message-row received">
+
+              <div class="message-avatar avatar">
+                JP
+              </div>
+
+              <div class="message-bubble-wrapper">
+
+                <div class="message-bubble">
+                  Perfecto. ¿Todavía podemos vernos
+                  en Playa?
+                </div>
+
+                <time>10:42</time>
+
+              </div>
+
+            </div>
+
+
+          </div>
+
+
+          <!-- MESSAGE INPUT -->
+          <form
+            class="message-composer"
+            id="messageComposer"
+          >
+
+            <button
+              type="button"
+              class="composer-action"
+              title="Adjuntar imagen"
+              aria-label="Adjuntar imagen"
+            >
+              +
+            </button>
+
+            <input
+              type="text"
+              id="messageInput"
+              placeholder="Escribe un mensaje..."
+              autocomplete="off"
+              maxlength="1000"
+            >
+
+            <button
+              type="submit"
+              class="send-message"
+              aria-label="Enviar mensaje"
+            >
+              ↑
+            </button>
+
+          </form>
+
+
+        </section>
+
+
+        <!-- NO CHAT SELECTED -->
+        <section
+          class="chat-empty"
+          id="chatEmpty"
+          hidden
+        >
+
+          <div class="chat-empty-icon">
+            💬
+          </div>
+
+          <h2>Selecciona una conversación</h2>
+
+          <p>
+            Aquí podrás hablar con compradores y vendedores
+            sobre las publicaciones.
+          </p>
+
+        </section>
+
+
+      </section>
+
+
+      <!-- SAFETY NOTICE -->
+      <div class="messages-safety">
+
+        <div class="safety-icon">
+          ✓
+        </div>
+
+        <div>
+
+          <strong>Consejo de seguridad</strong>
+
+          <p>
+            No compartas contraseñas, códigos de verificación
+            ni datos bancarios por el chat. Mantén la conversación
+            dentro de iMarket mientras coordinas la operación.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- NEW MESSAGE MODAL -->
+  <div
+    class="modal-overlay"
+    id="newMessageModal"
+    hidden
+  >
+
+    <div class="message-modal">
+
+      <button
+        class="modal-close"
+        id="newMessageClose"
+        aria-label="Cerrar"
+      >
+        ×
+      </button>
+
+      <div class="modal-icon">
+        +
+      </div>
+
+      <h2>Nueva conversación</h2>
+
+      <p>
+        Las conversaciones normalmente se inician desde
+        una publicación.
+      </p>
+
+      <a
+        href="buscar.html"
+        class="btn btn-primary"
+      >
+        Buscar un iPhone
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <!-- CHAT OPTIONS -->
+  <div
+    class="chat-options"
+    id="chatOptions"
+    hidden
+  >
+
+    <button id="reportConversation">
+      ⚑ Reportar conversación
+    </button>
+
+    <button id="blockUser">
+      ⊘ Bloquear usuario
+    </button>
+
+  </div>
+
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+
+    <div class="footer-inner">
+
+      <div class="footer-brand">
+
+        <strong>iMarket Cuba</strong>
+
+        <span>
+          Marketplace de iPhones entre particulares.
+        </span>
+
+      </div>
+
+      <div class="footer-links">
+
+        <a href="seguridad.html">Seguridad</a>
+        <a href="terminos.html">Términos</a>
+        <a href="como-funciona.html">Cómo funciona</a>
+
+      </div>
+
+      <div class="footer-credit">
+
+        By
+        <a
+          href="https://alfanegocios.github.io/"
+          target="_blank"
+          rel="noopener"
+        >
+          ALFA NEGOCIOS
+        </a>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <script>
+
+    document.addEventListener("DOMContentLoaded", () => {
+
+      /* =====================================================
+         MOBILE MENU
+      ===================================================== */
+
+      const menuToggle =
+        document.getElementById("menuToggle");
+
+      const mobileMenu =
+        document.getElementById("mobileMenu");
+
+      menuToggle?.addEventListener("click", () => {
+
+        const open =
+          menuToggle.classList.toggle("open");
+
+        mobileMenu.classList.toggle("open");
+
+        menuToggle.setAttribute(
+          "aria-expanded",
+          open ? "true" : "false"
+        );
+
+      });
+
+
+      /* =====================================================
+         ELEMENTS
+      ===================================================== */
+
+      const messagesApp =
+        document.getElementById("messagesApp");
+
+      const conversations =
+        document.querySelectorAll(".conversation");
+
+      const chatUserName =
+        document.getElementById("chatUserName");
+
+      const chatPanel =
+        document.getElementById("chatPanel");
+
+      const backButton =
+        document.getElementById("backToConversations");
+
+      const searchInput =
+        document.getElementById("conversationSearch");
+
+      const conversationEmpty =
+        document.getElementById("conversationEmpty");
+
+      const messageComposer =
+        document.getElementById("messageComposer");
+
+      const messageInput =
+        document.getElementById("messageInput");
+
+      const chatMessages =
+        document.getElementById("chatMessages");
+
+
+      /* =====================================================
+         CONVERSATION SELECTION
+      ===================================================== */
+
+      conversations.forEach(conversation => {
+
+        conversation.addEventListener("click", () => {
+
+          conversations.forEach(item => {
+            item.classList.remove("active");
+          });
+
+          conversation.classList.add("active");
+
+          const name =
+            conversation.dataset.name;
+
+          chatUserName.textContent = name;
+
+          const unread =
+            conversation.querySelector(".unread-count");
+
+          if (unread) {
+            unread.remove();
+          }
+
+          messagesApp.classList.add("conversation-open");
+
+          chatMessages.scrollTop =
+            chatMessages.scrollHeight;
+
+        });
+
+      });
+
+
+      /* =====================================================
+         MOBILE BACK
+      ===================================================== */
+
+      backButton?.addEventListener("click", () => {
+
+        messagesApp.classList.remove(
+          "conversation-open"
+        );
+
+      });
+
+
+      /* =====================================================
+         SEARCH CONVERSATIONS
+      ===================================================== */
+
+      searchInput?.addEventListener("input", () => {
+
+        const term =
+          searchInput.value
+            .trim()
+            .toLowerCase();
+
+        let visible = 0;
+
+        conversations.forEach(conversation => {
+
+          const name =
+            conversation.dataset.name
+              .toLowerCase();
+
+          const text =
+            conversation.textContent
+              .toLowerCase();
+
+          const matches =
+            !term ||
+            name.includes(term) ||
+            text.includes(term);
+
+          conversation.style.display =
+            matches ? "" : "none";
+
+          if (matches) {
+            visible++;
+          }
+
+        });
+
+        conversationEmpty.hidden =
+          visible !== 0;
+
+      });
+
+
+      /* =====================================================
+         SEND MESSAGE
+      ===================================================== */
+
+      messageComposer?.addEventListener(
+        "submit",
+        event => {
+
+          event.preventDefault();
+
+          const text =
+            messageInput.value.trim();
+
+          if (!text) return;
+
+          const row =
+            document.createElement("div");
+
+          row.className =
+            "message-row sent";
+
+          const wrapper =
+            document.createElement("div");
+
+          wrapper.className =
+            "message-bubble-wrapper";
+
+          const bubble =
+            document.createElement("div");
+
+          bubble.className =
+            "message-bubble";
+
+          bubble.textContent =
+            text;
+
+          const time =
+            document.createElement("time");
+
+          const now =
+            new Date();
+
+          time.textContent =
+            now.toLocaleTimeString(
+              "es-ES",
+              {
+                hour: "2-digit",
+                minute: "2-digit"
+              }
+            ) + " · ✓";
+
+          wrapper.appendChild(bubble);
+          wrapper.appendChild(time);
+
+          row.appendChild(wrapper);
+
+          chatMessages.appendChild(row);
+
+          messageInput.value = "";
+
+          chatMessages.scrollTop =
+            chatMessages.scrollHeight;
+
+        }
+      );
+
+
+      /* =====================================================
+         NEW MESSAGE MODAL
+      ===================================================== */
+
+      const newMessageBtn =
+        document.getElementById("newMessageBtn");
+
+      const newMessageModal =
+        document.getElementById("newMessageModal");
+
+      const newMessageClose =
+        document.getElementById("newMessageClose");
+
+      newMessageBtn?.addEventListener(
+        "click",
+        () => {
+
+          newMessageModal.hidden = false;
+
+        }
+      );
+
+      newMessageClose?.addEventListener(
+        "click",
+        () => {
+
+          newMessageModal.hidden = true;
+
+        }
+      );
+
+      newMessageModal?.addEventListener(
+        "click",
+        event => {
+
+          if (event.target === newMessageModal) {
+            newMessageModal.hidden = true;
+          }
+
+        }
+      );
+
+
+      /* =====================================================
+         CHAT OPTIONS
+      ===================================================== */
+
+      const chatMenuBtn =
+        document.getElementById("chatMenuBtn");
+
+      const chatOptions =
+        document.getElementById("chatOptions");
+
+      chatMenuBtn?.addEventListener(
+        "click",
+        event => {
+
+          event.stopPropagation();
+
+          chatOptions.hidden =
+            !chatOptions.hidden;
+
+        }
+      );
+
+      document.addEventListener(
+        "click",
+        event => {
+
+          if (
+            !chatOptions.contains(event.target) &&
+            event.target !== chatMenuBtn
+          ) {
+            chatOptions.hidden = true;
+          }
+
+        }
+      );
+
+
+      /* =====================================================
+         DEMO ACTIONS
+      ===================================================== */
+
+      document
+        .getElementById("reportConversation")
+        ?.addEventListener("click", () => {
+
+          alert(
+            "En la versión conectada a Supabase, aquí se abrirá el formulario para reportar la conversación."
+          );
+
+          chatOptions.hidden = true;
+
+        });
+
+
+      document
+        .getElementById("blockUser")
+        ?.addEventListener("click", () => {
+
+          const confirmed =
+            confirm(
+              "¿Quieres bloquear a este usuario?"
+            );
+
+          if (confirmed) {
+
+            alert(
+              "En la versión conectada, el usuario será bloqueado."
+            );
+
+          }
+
+          chatOptions.hidden = true;
+
+        });
+
+
+      /* =====================================================
+         INITIAL SCROLL
+      ===================================================== */
+
+      chatMessages.scrollTop =
+        chatMessages.scrollHeight;
+
+    });
+
+  </script>
+
+</body>
+</html>
