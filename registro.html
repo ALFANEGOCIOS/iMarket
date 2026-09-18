@@ -1,1 +1,942 @@
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Crear cuenta | iMarket Cuba</title>
+    <meta
+        name="description"
+        content="Crea tu cuenta en iMarket Cuba y comienza a comprar o publicar iPhones."
+    >
+
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/registro.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="auth-header">
+        <div class="auth-header-inner">
+
+            <a href="index.html" class="auth-logo">
+                <span class="logo-mark">i</span>
+                <span class="logo-text">
+                    iMarket <strong>Cuba</strong>
+                </span>
+            </a>
+
+            <a href="login.html" class="back-link">
+                ← Ya tengo una cuenta
+            </a>
+
+        </div>
+    </header>
+
+
+    <!-- MAIN -->
+    <main class="register-page">
+
+        <section class="register-card">
+
+            <!-- INTRO -->
+            <div class="register-intro">
+
+                <div class="intro-icon">
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        aria-hidden="true"
+                    >
+                        <path
+                            d="M20 21a8 8 0 0 0-16 0"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                            stroke-linecap="round"
+                        />
+                        <circle
+                            cx="12"
+                            cy="7"
+                            r="4"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                        />
+                    </svg>
+                </div>
+
+                <h1>Crear una cuenta</h1>
+
+                <p>
+                    Regístrate gratis para comprar, publicar y gestionar
+                    tus anuncios en iMarket Cuba.
+                </p>
+
+            </div>
+
+
+            <!-- ALERTS -->
+            <div
+                id="registerError"
+                class="form-alert form-alert-error"
+                role="alert"
+                hidden
+            >
+                <span class="alert-icon">!</span>
+                <span id="registerErrorText"></span>
+            </div>
+
+            <div
+                id="registerSuccess"
+                class="form-alert form-alert-success"
+                role="status"
+                hidden
+            >
+                <span class="alert-icon">✓</span>
+                <span id="registerSuccessText"></span>
+            </div>
+
+
+            <!-- FORM -->
+            <form id="registerForm" class="register-form">
+
+                <!-- NAME -->
+                <div class="form-group">
+
+                    <label for="fullName">
+                        Nombre
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <svg
+                            class="input-icon"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            aria-hidden="true"
+                        >
+                            <circle
+                                cx="12"
+                                cy="8"
+                                r="4"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                            />
+
+                            <path
+                                d="M4 21a8 8 0 0 1 16 0"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                            />
+                        </svg>
+
+                        <input
+                            type="text"
+                            id="fullName"
+                            name="fullName"
+                            placeholder="Tu nombre"
+                            autocomplete="name"
+                            required
+                            maxlength="80"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- EMAIL -->
+                <div class="form-group">
+
+                    <label for="email">
+                        Correo electrónico
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <svg
+                            class="input-icon"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            aria-hidden="true"
+                        >
+                            <rect
+                                x="3"
+                                y="5"
+                                width="18"
+                                height="14"
+                                rx="2"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                            />
+
+                            <path
+                                d="m4 7 8 6 8-6"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                        </svg>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="tu@email.com"
+                            autocomplete="email"
+                            required
+                            maxlength="120"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- PASSWORD -->
+                <div class="form-group">
+
+                    <label for="password">
+                        Contraseña
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <svg
+                            class="input-icon"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            aria-hidden="true"
+                        >
+                            <rect
+                                x="5"
+                                y="10"
+                                width="14"
+                                height="10"
+                                rx="2"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                            />
+
+                            <path
+                                d="M8 10V7a4 4 0 0 1 8 0v3"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                            />
+                        </svg>
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Mínimo 8 caracteres"
+                            autocomplete="new-password"
+                            minlength="8"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            id="togglePassword"
+                            aria-label="Mostrar contraseña"
+                            aria-pressed="false"
+                        >
+                            <svg
+                                class="eye-icon"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                aria-hidden="true"
+                            >
+                                <path
+                                    d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"
+                                    stroke="currentColor"
+                                    stroke-width="1.7"
+                                    stroke-linejoin="round"
+                                />
+
+                                <circle
+                                    cx="12"
+                                    cy="12"
+                                    r="2.5"
+                                    stroke="currentColor"
+                                    stroke-width="1.7"
+                                />
+                            </svg>
+                        </button>
+
+                    </div>
+
+                    <!-- PASSWORD STRENGTH -->
+                    <div class="password-strength" id="passwordStrength">
+
+                        <div class="strength-bar">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                        <span
+                            class="strength-text"
+                            id="strengthText"
+                        >
+                            Usa al menos 8 caracteres
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CONFIRM PASSWORD -->
+                <div class="form-group">
+
+                    <label for="confirmPassword">
+                        Confirmar contraseña
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <svg
+                            class="input-icon"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            aria-hidden="true"
+                        >
+                            <rect
+                                x="5"
+                                y="10"
+                                width="14"
+                                height="10"
+                                rx="2"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                            />
+
+                            <path
+                                d="M8 10V7a4 4 0 0 1 8 0v3"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                            />
+                        </svg>
+
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            name="confirmPassword"
+                            placeholder="Repite tu contraseña"
+                            autocomplete="new-password"
+                            minlength="8"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            id="toggleConfirmPassword"
+                            aria-label="Mostrar contraseña"
+                            aria-pressed="false"
+                        >
+                            <svg
+                                class="eye-icon"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                aria-hidden="true"
+                            >
+                                <path
+                                    d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"
+                                    stroke="currentColor"
+                                    stroke-width="1.7"
+                                    stroke-linejoin="round"
+                                />
+
+                                <circle
+                                    cx="12"
+                                    cy="12"
+                                    r="2.5"
+                                    stroke="currentColor"
+                                    stroke-width="1.7"
+                                />
+                            </svg>
+                        </button>
+
+                    </div>
+
+                    <span
+                        class="field-message"
+                        id="passwordMatchMessage"
+                    ></span>
+
+                </div>
+
+
+                <!-- TERMS -->
+                <label class="terms-checkbox">
+
+                    <input
+                        type="checkbox"
+                        id="acceptTerms"
+                        name="acceptTerms"
+                        required
+                    >
+
+                    <span class="custom-checkbox"></span>
+
+                    <span class="terms-text">
+                        Acepto los
+                        <a href="terminos.html" target="_blank">
+                            Términos y condiciones
+                        </a>
+                        y la
+                        <a href="seguridad.html" target="_blank">
+                            Política de seguridad
+                        </a>
+                        de iMarket Cuba.
+                    </span>
+
+                </label>
+
+
+                <!-- SUBMIT -->
+                <button
+                    type="submit"
+                    class="register-button"
+                    id="registerButton"
+                >
+
+                    <span
+                        class="button-spinner"
+                        id="buttonSpinner"
+                    ></span>
+
+                    <span id="buttonText">
+                        Crear mi cuenta
+                    </span>
+
+                    <svg
+                        class="button-arrow"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        aria-hidden="true"
+                    >
+                        <path
+                            d="M5 12h14"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                            stroke-linecap="round"
+                        />
+
+                        <path
+                            d="m13 6 6 6-6 6"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+                    </svg>
+
+                </button>
+
+            </form>
+
+
+            <!-- LOGIN -->
+            <div class="login-link">
+
+                <span>¿Ya tienes una cuenta?</span>
+
+                <a href="login.html">
+                    Iniciar sesión
+                </a>
+
+            </div>
+
+
+            <!-- SECURITY -->
+            <div class="security-note">
+
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    aria-hidden="true"
+                >
+                    <path
+                        d="M12 3 20 6v5c0 5-3.2 8.5-8 10-4.8-1.5-8-5-8-10V6l8-3Z"
+                        stroke="currentColor"
+                        stroke-width="1.7"
+                        stroke-linejoin="round"
+                    />
+
+                    <path
+                        d="m9 12 2 2 4-4"
+                        stroke="currentColor"
+                        stroke-width="1.7"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                </svg>
+
+                <p>
+                    Tus datos se almacenan de forma segura.
+                    Nunca compartiremos tu contraseña.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="auth-footer">
+
+        <p>
+            © 2026 iMarket Cuba. Todos los derechos reservados.
+        </p>
+
+        <p>
+            By
+            <a
+                href="https://alfanegocios.github.io/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                ALFA NEGOCIOS
+            </a>
+        </p>
+
+    </footer>
+
+
+    <!-- UI ONLY -->
+    <script>
+        const registerForm = document.getElementById("registerForm");
+
+        const fullName = document.getElementById("fullName");
+        const email = document.getElementById("email");
+
+        const password = document.getElementById("password");
+        const confirmPassword = document.getElementById("confirmPassword");
+
+        const togglePassword = document.getElementById("togglePassword");
+        const toggleConfirmPassword =
+            document.getElementById("toggleConfirmPassword");
+
+        const passwordStrength =
+            document.getElementById("passwordStrength");
+
+        const strengthBars =
+            passwordStrength.querySelectorAll(".strength-bar span");
+
+        const strengthText =
+            document.getElementById("strengthText");
+
+        const passwordMatchMessage =
+            document.getElementById("passwordMatchMessage");
+
+        const acceptTerms =
+            document.getElementById("acceptTerms");
+
+        const registerButton =
+            document.getElementById("registerButton");
+
+        const buttonText =
+            document.getElementById("buttonText");
+
+        const buttonSpinner =
+            document.getElementById("buttonSpinner");
+
+        const registerError =
+            document.getElementById("registerError");
+
+        const registerErrorText =
+            document.getElementById("registerErrorText");
+
+        const registerSuccess =
+            document.getElementById("registerSuccess");
+
+        const registerSuccessText =
+            document.getElementById("registerSuccessText");
+
+
+        /* --------------------------------
+           PASSWORD VISIBILITY
+        -------------------------------- */
+
+        function setupPasswordToggle(button, input) {
+
+            button.addEventListener("click", () => {
+
+                const isPassword =
+                    input.type === "password";
+
+                input.type =
+                    isPassword ? "text" : "password";
+
+                button.setAttribute(
+                    "aria-pressed",
+                    String(isPassword)
+                );
+
+                button.setAttribute(
+                    "aria-label",
+                    isPassword
+                        ? "Ocultar contraseña"
+                        : "Mostrar contraseña"
+                );
+
+            });
+
+        }
+
+        setupPasswordToggle(
+            togglePassword,
+            password
+        );
+
+        setupPasswordToggle(
+            toggleConfirmPassword,
+            confirmPassword
+        );
+
+
+        /* --------------------------------
+           PASSWORD STRENGTH
+        -------------------------------- */
+
+        function updatePasswordStrength(value) {
+
+            let score = 0;
+
+            if (value.length >= 8) {
+                score++;
+            }
+
+            if (/[a-z]/.test(value) &&
+                /[A-Z]/.test(value)) {
+                score++;
+            }
+
+            if (/\d/.test(value)) {
+                score++;
+            }
+
+            if (/[^A-Za-z0-9]/.test(value)) {
+                score++;
+            }
+
+            strengthBars.forEach((bar, index) => {
+                bar.classList.toggle(
+                    "active",
+                    index < score
+                );
+            });
+
+            if (!value) {
+
+                strengthText.textContent =
+                    "Usa al menos 8 caracteres";
+
+            } else if (score <= 1) {
+
+                strengthText.textContent =
+                    "Contraseña débil";
+
+            } else if (score === 2) {
+
+                strengthText.textContent =
+                    "Contraseña aceptable";
+
+            } else if (score === 3) {
+
+                strengthText.textContent =
+                    "Contraseña segura";
+
+            } else {
+
+                strengthText.textContent =
+                    "Contraseña muy segura";
+
+            }
+
+        }
+
+        password.addEventListener(
+            "input",
+            () => updatePasswordStrength(password.value)
+        );
+
+
+        /* --------------------------------
+           PASSWORD MATCH
+        -------------------------------- */
+
+        function checkPasswordMatch() {
+
+            if (!confirmPassword.value) {
+
+                passwordMatchMessage.textContent = "";
+                confirmPassword.classList.remove("input-valid");
+                confirmPassword.classList.remove("input-invalid");
+
+                return true;
+            }
+
+            if (
+                password.value ===
+                confirmPassword.value
+            ) {
+
+                passwordMatchMessage.textContent =
+                    "Las contraseñas coinciden.";
+
+                passwordMatchMessage.className =
+                    "field-message success";
+
+                confirmPassword.classList.add(
+                    "input-valid"
+                );
+
+                confirmPassword.classList.remove(
+                    "input-invalid"
+                );
+
+                return true;
+
+            } else {
+
+                passwordMatchMessage.textContent =
+                    "Las contraseñas no coinciden.";
+
+                passwordMatchMessage.className =
+                    "field-message error";
+
+                confirmPassword.classList.add(
+                    "input-invalid"
+                );
+
+                confirmPassword.classList.remove(
+                    "input-valid"
+                );
+
+                return false;
+            }
+        }
+
+        confirmPassword.addEventListener(
+            "input",
+            checkPasswordMatch
+        );
+
+        password.addEventListener(
+            "input",
+            () => {
+
+                if (confirmPassword.value) {
+                    checkPasswordMatch();
+                }
+
+            }
+        );
+
+
+        /* --------------------------------
+           ALERTS
+        -------------------------------- */
+
+        function showError(message) {
+
+            registerErrorText.textContent =
+                message;
+
+            registerError.hidden = false;
+            registerSuccess.hidden = true;
+
+        }
+
+        function showSuccess(message) {
+
+            registerSuccessText.textContent =
+                message;
+
+            registerSuccess.hidden = false;
+            registerError.hidden = true;
+
+        }
+
+        function clearAlerts() {
+
+            registerError.hidden = true;
+            registerSuccess.hidden = true;
+
+        }
+
+
+        /* --------------------------------
+           FORM
+        -------------------------------- */
+
+        registerForm.addEventListener(
+            "submit",
+            async (event) => {
+
+                event.preventDefault();
+
+                clearAlerts();
+
+                const name =
+                    fullName.value.trim();
+
+                const userEmail =
+                    email.value.trim();
+
+                const userPassword =
+                    password.value;
+
+                const confirmation =
+                    confirmPassword.value;
+
+
+                if (name.length < 2) {
+
+                    showError(
+                        "Introduce un nombre válido."
+                    );
+
+                    fullName.focus();
+
+                    return;
+                }
+
+
+                if (!userEmail) {
+
+                    showError(
+                        "Introduce tu correo electrónico."
+                    );
+
+                    email.focus();
+
+                    return;
+                }
+
+
+                if (userPassword.length < 8) {
+
+                    showError(
+                        "La contraseña debe tener al menos 8 caracteres."
+                    );
+
+                    password.focus();
+
+                    return;
+                }
+
+
+                if (
+                    userPassword !==
+                    confirmation
+                ) {
+
+                    showError(
+                        "Las contraseñas no coinciden."
+                    );
+
+                    confirmPassword.focus();
+
+                    return;
+                }
+
+
+                if (!acceptTerms.checked) {
+
+                    showError(
+                        "Debes aceptar los términos y condiciones para continuar."
+                    );
+
+                    return;
+                }
+
+
+                /*
+                 * AQUÍ SE CONECTARÁ SUPABASE.
+                 *
+                 * La lógica definitiva se moverá posteriormente
+                 * a js/auth.js.
+                 */
+
+                registerButton.disabled = true;
+
+                buttonText.textContent =
+                    "Creando cuenta...";
+
+                buttonSpinner.classList.add(
+                    "active"
+                );
+
+                try {
+
+                    /*
+                     * Simulación temporal.
+                     * Será reemplazada por:
+                     *
+                     * auth.js → supabase.auth.signUp(...)
+                     */
+
+                    await new Promise(
+                        resolve =>
+                            setTimeout(resolve, 900)
+                    );
+
+                    showSuccess(
+                        "Registro preparado correctamente. La conexión con Supabase se añadirá en la siguiente etapa."
+                    );
+
+                    registerForm.reset();
+
+                    strengthBars.forEach(bar => {
+                        bar.classList.remove("active");
+                    });
+
+                    strengthText.textContent =
+                        "Usa al menos 8 caracteres";
+
+                    passwordMatchMessage.textContent =
+                        "";
+
+                } catch (error) {
+
+                    console.error(error);
+
+                    showError(
+                        "No se pudo crear la cuenta. Inténtalo nuevamente."
+                    );
+
+                } finally {
+
+                    registerButton.disabled = false;
+
+                    buttonText.textContent =
+                        "Crear mi cuenta";
+
+                    buttonSpinner.classList.remove(
+                        "active"
+                    );
+
+                }
+
+            }
+        );
+
+    </script>
+
+</body>
+</html>
