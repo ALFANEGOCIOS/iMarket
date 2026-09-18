@@ -1,53 +1,1511 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Verificación de Identidad (KYC) - iMarket Cuba</title>
-  
-  <link rel="stylesheet" href="css/global.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/pages.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Verificación de identidad | iMarket Cuba</title>
+
+    <meta
+        name="description"
+        content="Verifica tu identidad para vender en iMarket Cuba."
+    >
+
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/verificacion.css">
 </head>
+
 <body>
 
-  <header class="navbar">
-    <div class="navbar-container">
-      <a href="index.html" class="brand-logo">iMarket <span>Cuba</span></a>
-      <a href="perfil.html" class="btn btn-secondary">Mi Perfil</a>
-    </div>
-  </header>
+    <!-- HEADER -->
+    <header class="verification-header">
 
-  <main class="container form-page-container">
-    <div class="card form-card">
-      <h2>Verificación de Cuenta (KYC)</h2>
-      <p class="subtitle">Sube tu documento para obtener la insignia de Vendedor Verificado y generar mayor confianza.</p>
+        <div class="verification-header-inner">
 
-      <form id="kyc-form" class="form-layout">
-        <div class="form-group">
-          <label for="doc-type">Tipo de Documento *</label>
-          <select id="doc-type" name="docType" required>
-            <option value="identity_card">Carné de Identidad (CI)</option>
-            <option value="passport">Pasaporte</option>
-          </select>
+            <a href="index.html" class="verification-logo">
+                <span class="logo-mark">i</span>
+
+                <span class="logo-text">
+                    iMarket <strong>Cuba</strong>
+                </span>
+            </a>
+
+            <a href="perfil.html" class="header-back">
+                ← Volver a mi perfil
+            </a>
+
         </div>
 
-        <div class="form-group">
-          <label for="doc-file">Foto Frontal del Documento *</label>
-          <input type="file" id="doc-file" accept="image/*" required>
+    </header>
+
+
+    <!-- MAIN -->
+    <main class="verification-page">
+
+        <div class="verification-container">
+
+            <!-- INTRO -->
+            <section class="verification-intro">
+
+                <div class="verification-icon">
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        aria-hidden="true"
+                    >
+                        <path
+                            d="M12 3 20 6v5c0 5-3.2 8.5-8 10-4.8-1.5-8-5-8-10V6l8-3Z"
+                            stroke="currentColor"
+                            stroke-width="1.7"
+                            stroke-linejoin="round"
+                        />
+
+                        <path
+                            d="m8.5 12 2.2 2.2 4.8-5"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+                    </svg>
+
+                </div>
+
+                <h1>Verifica tu identidad</h1>
+
+                <p>
+                    La verificación ayuda a mantener iMarket Cuba
+                    como un espacio más seguro para compradores y vendedores.
+                </p>
+
+            </section>
+
+
+            <!-- PROGRESS -->
+            <div class="verification-progress">
+
+                <div class="progress-step active">
+                    <span class="step-number">1</span>
+
+                    <span class="step-label">
+                        Información
+                    </span>
+                </div>
+
+                <div class="progress-line"></div>
+
+                <div class="progress-step">
+                    <span class="step-number">2</span>
+
+                    <span class="step-label">
+                        Documento
+                    </span>
+                </div>
+
+                <div class="progress-line"></div>
+
+                <div class="progress-step">
+                    <span class="step-number">3</span>
+
+                    <span class="step-label">
+                        Selfie
+                    </span>
+                </div>
+
+                <div class="progress-line"></div>
+
+                <div class="progress-step">
+                    <span class="step-number">4</span>
+
+                    <span class="step-label">
+                        Enviar
+                    </span>
+                </div>
+
+            </div>
+
+
+            <!-- ALERT -->
+            <div
+                id="verificationAlert"
+                class="verification-alert"
+                hidden
+            >
+                <span class="alert-symbol">!</span>
+
+                <span id="verificationAlertText"></span>
+            </div>
+
+
+            <!-- FORM -->
+            <form
+                id="verificationForm"
+                class="verification-form"
+            >
+
+                <!-- STEP 1 -->
+                <section
+                    class="verification-step-panel active"
+                    data-step="1"
+                >
+
+                    <div class="panel-heading">
+
+                        <span class="panel-number">
+                            01
+                        </span>
+
+                        <div>
+                            <h2>Información personal</h2>
+
+                            <p>
+                                Estos datos deben coincidir con
+                                tu documento de identidad.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-grid">
+
+                        <div class="form-group full-width">
+
+                            <label for="legalName">
+                                Nombre completo
+                            </label>
+
+                            <input
+                                type="text"
+                                id="legalName"
+                                name="legalName"
+                                placeholder="Nombre y apellidos"
+                                autocomplete="name"
+                                maxlength="120"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="documentType">
+                                Tipo de documento
+                            </label>
+
+                            <select
+                                id="documentType"
+                                name="documentType"
+                                required
+                            >
+                                <option value="">
+                                    Selecciona una opción
+                                </option>
+
+                                <option value="carnet_identidad">
+                                    Carné de identidad
+                                </option>
+
+                                <option value="pasaporte">
+                                    Pasaporte
+                                </option>
+
+                                <option value="residencia">
+                                    Documento de residencia
+                                </option>
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="documentNumber">
+                                Número de documento
+                            </label>
+
+                            <input
+                                type="text"
+                                id="documentNumber"
+                                name="documentNumber"
+                                placeholder="Número del documento"
+                                maxlength="40"
+                                autocomplete="off"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group full-width">
+
+                            <label for="municipality">
+                                Municipio
+                            </label>
+
+                            <select
+                                id="municipality"
+                                name="municipality"
+                                required
+                            >
+
+                                <option value="">
+                                    Selecciona tu municipio
+                                </option>
+
+                                <option value="plaza">
+                                    Plaza de la Revolución
+                                </option>
+
+                                <option value="playa">
+                                    Playa
+                                </option>
+
+                                <option value="centro_habana">
+                                    Centro Habana
+                                </option>
+
+                                <option value="habana_vieja">
+                                    Habana Vieja
+                                </option>
+
+                                <option value="regla">
+                                    Regla
+                                </option>
+
+                                <option value="habana_del_este">
+                                    Habana del Este
+                                </option>
+
+                                <option value="guanabacoa">
+                                    Guanabacoa
+                                </option>
+
+                                <option value="san_miguel_del_padron">
+                                    San Miguel del Padrón
+                                </option>
+
+                                <option value="diez_de_octubre">
+                                    Diez de Octubre
+                                </option>
+
+                                <option value="cerro">
+                                    Cerro
+                                </option>
+
+                                <option value="marianao">
+                                    Marianao
+                                </option>
+
+                                <option value="la_lisa">
+                                    La Lisa
+                                </option>
+
+                                <option value="boyeros">
+                                    Boyeros
+                                </option>
+
+                                <option value="arroyo_naranjo">
+                                    Arroyo Naranjo
+                                </option>
+
+                                <option value="cotorro">
+                                    Cotorro
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="privacy-box">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            aria-hidden="true"
+                        >
+                            <path
+                                d="M12 3 20 6v5c0 5-3.2 8.5-8 10-4.8-1.5-8-5-8-10V6l8-3Z"
+                                stroke="currentColor"
+                                stroke-width="1.7"
+                            />
+
+                            <path
+                                d="M12 8v4"
+                                stroke="currentColor"
+                                stroke-width="1.7"
+                                stroke-linecap="round"
+                            />
+
+                            <circle
+                                cx="12"
+                                cy="15.5"
+                                r=".8"
+                                fill="currentColor"
+                            />
+                        </svg>
+
+                        <p>
+                            La información de identidad se utiliza
+                            exclusivamente para el proceso de verificación
+                            y no se mostrará públicamente en tu perfil.
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="primary-button next-step"
+                        data-next="2"
+                    >
+                        Continuar
+
+                        <span>→</span>
+                    </button>
+
+                </section>
+
+
+                <!-- STEP 2 -->
+                <section
+                    class="verification-step-panel"
+                    data-step="2"
+                >
+
+                    <div class="panel-heading">
+
+                        <span class="panel-number">
+                            02
+                        </span>
+
+                        <div>
+                            <h2>Documento de identidad</h2>
+
+                            <p>
+                                Sube una fotografía clara de tu documento.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="upload-area"
+                        id="documentUploadArea"
+                    >
+
+                        <input
+                            type="file"
+                            id="documentFile"
+                            name="documentFile"
+                            accept="image/jpeg,image/png,image/webp"
+                            hidden
+                        >
+
+                        <label
+                            for="documentFile"
+                            class="upload-content"
+                        >
+
+                            <div class="upload-icon">
+
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    aria-hidden="true"
+                                >
+                                    <rect
+                                        x="3"
+                                        y="5"
+                                        width="18"
+                                        height="14"
+                                        rx="2"
+                                        stroke="currentColor"
+                                        stroke-width="1.7"
+                                    />
+
+                                    <circle
+                                        cx="8"
+                                        cy="11"
+                                        r="2"
+                                        stroke="currentColor"
+                                        stroke-width="1.7"
+                                    />
+
+                                    <path
+                                        d="M13 10h5M13 14h5M6 16h12"
+                                        stroke="currentColor"
+                                        stroke-width="1.7"
+                                        stroke-linecap="round"
+                                    />
+                                </svg>
+
+                            </div>
+
+                            <strong>
+                                Selecciona una foto del documento
+                            </strong>
+
+                            <span>
+                                JPG, PNG o WebP · Máximo 10 MB
+                            </span>
+
+                        </label>
+
+                        <div
+                            id="documentPreview"
+                            class="upload-preview"
+                            hidden
+                        >
+
+                            <img
+                                id="documentPreviewImage"
+                                src=""
+                                alt="Vista previa del documento"
+                            >
+
+                            <button
+                                type="button"
+                                id="removeDocument"
+                                class="remove-file"
+                            >
+                                ×
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="upload-guidelines">
+
+                        <h3>Para que sea aceptado:</h3>
+
+                        <ul>
+                            <li>El documento debe ser completamente visible.</li>
+                            <li>La fotografía debe estar enfocada y bien iluminada.</li>
+                            <li>No debe tener partes tapadas.</li>
+                            <li>Los datos deben poder leerse claramente.</li>
+                        </ul>
+
+                    </div>
+
+
+                    <div class="step-actions">
+
+                        <button
+                            type="button"
+                            class="secondary-button previous-step"
+                            data-previous="1"
+                        >
+                            ← Atrás
+                        </button>
+
+                        <button
+                            type="button"
+                            class="primary-button next-step"
+                            data-next="3"
+                        >
+                            Continuar
+                            <span>→</span>
+                        </button>
+
+                    </div>
+
+                </section>
+
+
+                <!-- STEP 3 -->
+                <section
+                    class="verification-step-panel"
+                    data-step="3"
+                >
+
+                    <div class="panel-heading">
+
+                        <span class="panel-number">
+                            03
+                        </span>
+
+                        <div>
+                            <h2>Selfie de verificación</h2>
+
+                            <p>
+                                Necesitamos comprobar que eres la persona
+                                que aparece en el documento.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="upload-area selfie-upload"
+                        id="selfieUploadArea"
+                    >
+
+                        <input
+                            type="file"
+                            id="selfieFile"
+                            name="selfieFile"
+                            accept="image/jpeg,image/png,image/webp"
+                            capture="user"
+                            hidden
+                        >
+
+                        <label
+                            for="selfieFile"
+                            class="upload-content"
+                        >
+
+                            <div class="upload-icon">
+
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    aria-hidden="true"
+                                >
+                                    <circle
+                                        cx="12"
+                                        cy="8"
+                                        r="4"
+                                        stroke="currentColor"
+                                        stroke-width="1.7"
+                                    />
+
+                                    <path
+                                        d="M4 21a8 8 0 0 1 16 0"
+                                        stroke="currentColor"
+                                        stroke-width="1.7"
+                                        stroke-linecap="round"
+                                    />
+
+                                </svg>
+
+                            </div>
+
+                            <strong>
+                                Toma o selecciona una selfie
+                            </strong>
+
+                            <span>
+                                Asegúrate de que tu rostro sea visible
+                            </span>
+
+                        </label>
+
+                        <div
+                            id="selfiePreview"
+                            class="upload-preview"
+                            hidden
+                        >
+
+                            <img
+                                id="selfiePreviewImage"
+                                src=""
+                                alt="Vista previa de la selfie"
+                            >
+
+                            <button
+                                type="button"
+                                id="removeSelfie"
+                                class="remove-file"
+                            >
+                                ×
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="selfie-tips">
+
+                        <div class="selfie-tip">
+
+                            <span>✓</span>
+
+                            <p>
+                                Mira directamente a la cámara.
+                            </p>
+
+                        </div>
+
+                        <div class="selfie-tip">
+
+                            <span>✓</span>
+
+                            <p>
+                                Busca un lugar con buena iluminación.
+                            </p>
+
+                        </div>
+
+                        <div class="selfie-tip">
+
+                            <span>✓</span>
+
+                            <p>
+                                No uses gafas oscuras ni cubras tu rostro.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="step-actions">
+
+                        <button
+                            type="button"
+                            class="secondary-button previous-step"
+                            data-previous="2"
+                        >
+                            ← Atrás
+                        </button>
+
+                        <button
+                            type="button"
+                            class="primary-button next-step"
+                            data-next="4"
+                        >
+                            Continuar
+                            <span>→</span>
+                        </button>
+
+                    </div>
+
+                </section>
+
+
+                <!-- STEP 4 -->
+                <section
+                    class="verification-step-panel"
+                    data-step="4"
+                >
+
+                    <div class="panel-heading">
+
+                        <span class="panel-number">
+                            04
+                        </span>
+
+                        <div>
+                            <h2>Revisar y enviar</h2>
+
+                            <p>
+                                Comprueba que toda la información sea correcta.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="review-card">
+
+                        <div class="review-row">
+
+                            <span>Nombre</span>
+
+                            <strong id="reviewName">
+                                -
+                            </strong>
+
+                        </div>
+
+                        <div class="review-row">
+
+                            <span>Documento</span>
+
+                            <strong id="reviewDocument">
+                                -
+                            </strong>
+
+                        </div>
+
+                        <div class="review-row">
+
+                            <span>Municipio</span>
+
+                            <strong id="reviewMunicipality">
+                                -
+                            </strong>
+
+                        </div>
+
+                        <div class="review-row">
+
+                            <span>Documento adjunto</span>
+
+                            <strong id="reviewDocumentFile">
+                                -
+                            </strong>
+
+                        </div>
+
+                        <div class="review-row">
+
+                            <span>Selfie adjunta</span>
+
+                            <strong id="reviewSelfieFile">
+                                -
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <label class="final-consent">
+
+                        <input
+                            type="checkbox"
+                            id="finalConsent"
+                            required
+                        >
+
+                        <span class="final-checkbox"></span>
+
+                        <span>
+                            Confirmo que la información proporcionada
+                            es verdadera y que el documento y la selfie
+                            corresponden a mi persona.
+                        </span>
+
+                    </label>
+
+
+                    <div class="review-security">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            aria-hidden="true"
+                        >
+                            <path
+                                d="M12 3 20 6v5c0 5-3.2 8.5-8 10-4.8-1.5-8-5-8-10V6l8-3Z"
+                                stroke="currentColor"
+                                stroke-width="1.7"
+                            />
+
+                            <path
+                                d="m8.5 12 2.2 2.2 4.8-5"
+                                stroke="currentColor"
+                                stroke-width="1.7"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                        </svg>
+
+                        <p>
+                            Tu solicitud será revisada antes de activar
+                            la insignia de vendedor verificado.
+                        </p>
+
+                    </div>
+
+
+                    <div class="step-actions">
+
+                        <button
+                            type="button"
+                            class="secondary-button previous-step"
+                            data-previous="3"
+                        >
+                            ← Atrás
+                        </button>
+
+                        <button
+                            type="submit"
+                            class="primary-button submit-button"
+                            id="submitVerification"
+                        >
+
+                            <span
+                                class="submit-spinner"
+                                id="submitSpinner"
+                            ></span>
+
+                            <span id="submitText">
+                                Enviar solicitud
+                            </span>
+
+                            <span class="submit-arrow">
+                                →
+                            </span>
+
+                        </button>
+
+                    </div>
+
+                </section>
+
+            </form>
+
+
+            <!-- BOTTOM NOTE -->
+            <div class="verification-bottom-note">
+
+                <span>🔒</span>
+
+                <p>
+                    La información enviada durante la verificación
+                    no se muestra públicamente en tu perfil.
+                </p>
+
+            </div>
+
         </div>
 
-        <div class="form-group">
-          <label for="selfie-file">Foto Selfie sosteniendo tu Documento *</label>
-          <input type="file" id="selfie-file" accept="image/*" required>
-        </div>
+    </main>
 
-        <button type="submit" class="btn btn-primary btn-block">Enviar para Revisión</button>
-      </form>
-    </div>
-  </main>
 
-  <script type="module" src="js/app.js"></script>
-  <script type="module" src="js/verification.js"></script>
+    <!-- FOOTER -->
+    <footer class="verification-footer">
+
+        <p>
+            © 2026 iMarket Cuba. Todos los derechos reservados.
+        </p>
+
+        <p>
+            By
+            <a
+                href="https://alfanegocios.github.io/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                ALFA NEGOCIOS
+            </a>
+        </p>
+
+    </footer>
+
+
+    <script>
+
+        const form =
+            document.getElementById("verificationForm");
+
+        const panels =
+            document.querySelectorAll(
+                ".verification-step-panel"
+            );
+
+        const progressSteps =
+            document.querySelectorAll(
+                ".progress-step"
+            );
+
+        const progressLines =
+            document.querySelectorAll(
+                ".progress-line"
+            );
+
+        const alertBox =
+            document.getElementById(
+                "verificationAlert"
+            );
+
+        const alertText =
+            document.getElementById(
+                "verificationAlertText"
+            );
+
+
+        let currentStep = 1;
+
+
+        /* =====================================================
+           ALERT
+        ===================================================== */
+
+        function showAlert(message) {
+
+            alertText.textContent = message;
+
+            alertBox.hidden = false;
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
+
+
+        function hideAlert() {
+
+            alertBox.hidden = true;
+
+        }
+
+
+        /* =====================================================
+           VALIDATION
+        ===================================================== */
+
+        function validateStep(step) {
+
+            hideAlert();
+
+            if (step === 1) {
+
+                const name =
+                    document.getElementById(
+                        "legalName"
+                    ).value.trim();
+
+                const documentType =
+                    document.getElementById(
+                        "documentType"
+                    ).value;
+
+                const documentNumber =
+                    document.getElementById(
+                        "documentNumber"
+                    ).value.trim();
+
+                const municipality =
+                    document.getElementById(
+                        "municipality"
+                    ).value;
+
+                if (name.length < 3) {
+
+                    showAlert(
+                        "Introduce tu nombre completo."
+                    );
+
+                    return false;
+                }
+
+                if (!documentType) {
+
+                    showAlert(
+                        "Selecciona el tipo de documento."
+                    );
+
+                    return false;
+                }
+
+                if (documentNumber.length < 4) {
+
+                    showAlert(
+                        "Introduce un número de documento válido."
+                    );
+
+                    return false;
+                }
+
+                if (!municipality) {
+
+                    showAlert(
+                        "Selecciona tu municipio."
+                    );
+
+                    return false;
+                }
+
+            }
+
+
+            if (step === 2) {
+
+                const file =
+                    document.getElementById(
+                        "documentFile"
+                    ).files[0];
+
+                if (!file) {
+
+                    showAlert(
+                        "Debes adjuntar una fotografía de tu documento."
+                    );
+
+                    return false;
+                }
+
+            }
+
+
+            if (step === 3) {
+
+                const file =
+                    document.getElementById(
+                        "selfieFile"
+                    ).files[0];
+
+                if (!file) {
+
+                    showAlert(
+                        "Debes adjuntar una selfie para continuar."
+                    );
+
+                    return false;
+                }
+
+            }
+
+
+            return true;
+        }
+
+
+        /* =====================================================
+           CHANGE STEP
+        ===================================================== */
+
+        function goToStep(step) {
+
+            currentStep = step;
+
+            panels.forEach(panel => {
+
+                panel.classList.toggle(
+                    "active",
+                    Number(panel.dataset.step) === step
+                );
+
+            });
+
+
+            progressSteps.forEach(
+                (item, index) => {
+
+                    item.classList.toggle(
+                        "active",
+                        index + 1 <= step
+                    );
+
+                    item.classList.toggle(
+                        "completed",
+                        index + 1 < step
+                    );
+
+                }
+            );
+
+
+            progressLines.forEach(
+                (line, index) => {
+
+                    line.classList.toggle(
+                        "active",
+                        index + 1 < step
+                    );
+
+                }
+            );
+
+
+            if (step === 4) {
+                updateReview();
+            }
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
+
+
+        /* =====================================================
+           NEXT / PREVIOUS
+        ===================================================== */
+
+        document.querySelectorAll(
+            ".next-step"
+        ).forEach(button => {
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    const nextStep =
+                        Number(button.dataset.next);
+
+                    if (
+                        validateStep(
+                            currentStep
+                        )
+                    ) {
+
+                        goToStep(nextStep);
+
+                    }
+
+                }
+            );
+
+        });
+
+
+        document.querySelectorAll(
+            ".previous-step"
+        ).forEach(button => {
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    goToStep(
+                        Number(
+                            button.dataset.previous
+                        )
+                    );
+
+                }
+            );
+
+        });
+
+
+        /* =====================================================
+           FILE UPLOAD
+        ===================================================== */
+
+        function setupFileUpload(
+            inputId,
+            areaId,
+            previewId,
+            previewImageId,
+            removeId
+        ) {
+
+            const input =
+                document.getElementById(inputId);
+
+            const area =
+                document.getElementById(areaId);
+
+            const preview =
+                document.getElementById(previewId);
+
+            const previewImage =
+                document.getElementById(
+                    previewImageId
+                );
+
+            const removeButton =
+                document.getElementById(removeId);
+
+
+            input.addEventListener(
+                "change",
+                () => {
+
+                    const file =
+                        input.files[0];
+
+                    if (!file) {
+                        return;
+                    }
+
+
+                    const maxSize =
+                        10 * 1024 * 1024;
+
+
+                    if (file.size > maxSize) {
+
+                        showAlert(
+                            "El archivo no puede superar los 10 MB."
+                        );
+
+                        input.value = "";
+
+                        return;
+                    }
+
+
+                    if (
+                        !file.type.startsWith(
+                            "image/"
+                        )
+                    ) {
+
+                        showAlert(
+                            "Selecciona un archivo de imagen válido."
+                        );
+
+                        input.value = "";
+
+                        return;
+                    }
+
+
+                    const reader =
+                        new FileReader();
+
+
+                    reader.onload = event => {
+
+                        previewImage.src =
+                            event.target.result;
+
+                        preview.hidden = false;
+
+                        area.classList.add(
+                            "has-file"
+                        );
+
+                    };
+
+
+                    reader.readAsDataURL(file);
+
+                }
+            );
+
+
+            removeButton.addEventListener(
+                "click",
+                event => {
+
+                    event.preventDefault();
+
+                    input.value = "";
+
+                    previewImage.src = "";
+
+                    preview.hidden = true;
+
+                    area.classList.remove(
+                        "has-file"
+                    );
+
+                }
+            );
+
+        }
+
+
+        setupFileUpload(
+            "documentFile",
+            "documentUploadArea",
+            "documentPreview",
+            "documentPreviewImage",
+            "removeDocument"
+        );
+
+
+        setupFileUpload(
+            "selfieFile",
+            "selfieUploadArea",
+            "selfiePreview",
+            "selfiePreviewImage",
+            "removeSelfie"
+        );
+
+
+        /* =====================================================
+           REVIEW
+        ===================================================== */
+
+        function updateReview() {
+
+            const name =
+                document.getElementById(
+                    "legalName"
+                ).value.trim();
+
+            const documentType =
+                document.getElementById(
+                    "documentType"
+                );
+
+            const documentNumber =
+                document.getElementById(
+                    "documentNumber"
+                ).value.trim();
+
+            const municipality =
+                document.getElementById(
+                    "municipality"
+                );
+
+            const documentFile =
+                document.getElementById(
+                    "documentFile"
+                ).files[0];
+
+            const selfieFile =
+                document.getElementById(
+                    "selfieFile"
+                ).files[0];
+
+
+            document.getElementById(
+                "reviewName"
+            ).textContent =
+                name || "-";
+
+
+            const documentLabel =
+                documentType.options[
+                    documentType.selectedIndex
+                ]?.text || "-";
+
+
+            document.getElementById(
+                "reviewDocument"
+            ).textContent =
+                documentLabel +
+                (
+                    documentNumber
+                        ? ` · ${documentNumber}`
+                        : ""
+                );
+
+
+            document.getElementById(
+                "reviewMunicipality"
+            ).textContent =
+                municipality.options[
+                    municipality.selectedIndex
+                ]?.text || "-";
+
+
+            document.getElementById(
+                "reviewDocumentFile"
+            ).textContent =
+                documentFile
+                    ? documentFile.name
+                    : "No adjunto";
+
+
+            document.getElementById(
+                "reviewSelfieFile"
+            ).textContent =
+                selfieFile
+                    ? selfieFile.name
+                    : "No adjunta";
+
+        }
+
+
+        /* =====================================================
+           SUBMIT
+        ===================================================== */
+
+        form.addEventListener(
+            "submit",
+            async event => {
+
+                event.preventDefault();
+
+                hideAlert();
+
+
+                if (!validateStep(4)) {
+                    return;
+                }
+
+
+                const consent =
+                    document.getElementById(
+                        "finalConsent"
+                    );
+
+
+                if (!consent.checked) {
+
+                    showAlert(
+                        "Debes confirmar que la información proporcionada es verdadera."
+                    );
+
+                    return;
+                }
+
+
+                const submitButton =
+                    document.getElementById(
+                        "submitVerification"
+                    );
+
+                const submitText =
+                    document.getElementById(
+                        "submitText"
+                    );
+
+                const spinner =
+                    document.getElementById(
+                        "submitSpinner"
+                    );
+
+
+                submitButton.disabled = true;
+
+                submitText.textContent =
+                    "Enviando...";
+
+                spinner.classList.add(
+                    "active"
+                );
+
+
+                try {
+
+                    /*
+                     * Conexión real pendiente.
+                     *
+                     * Aquí se integrará:
+                     *
+                     * 1. Supabase Auth
+                     * 2. Storage
+                     * 3. verification_requests
+                     * 4. función create_verification_request
+                     *
+                     * Los archivos NO se subirán mediante
+                     * este prototipo.
+                     */
+
+                    await new Promise(
+                        resolve =>
+                            setTimeout(
+                                resolve,
+                                1000
+                            )
+                    );
+
+
+                    alert(
+                        "Solicitud preparada correctamente. La conexión con Supabase se integrará posteriormente."
+                    );
+
+
+                } catch (error) {
+
+                    console.error(error);
+
+                    showAlert(
+                        "No se pudo enviar la solicitud. Inténtalo nuevamente."
+                    );
+
+                } finally {
+
+                    submitButton.disabled =
+                        false;
+
+                    submitText.textContent =
+                        "Enviar solicitud";
+
+                    spinner.classList.remove(
+                        "active"
+                    );
+
+                }
+
+            }
+        );
+
+    </script>
+
 </body>
 </html>
