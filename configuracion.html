@@ -1,1 +1,1199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Configuración | iMarket Cuba</title>
+  <meta
+    name="description"
+    content="Configura tu cuenta y preferencias en iMarket Cuba."
+  >
+
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/configuracion.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+
+      <a href="index.html" class="brand">
+        <span class="brand-mark">i</span>
+        <span class="brand-name">iMarket <strong>Cuba</strong></span>
+      </a>
+
+      <nav class="desktop-nav">
+        <a href="buscar.html">Buscar iPhones</a>
+        <a href="favoritos.html">Favoritos</a>
+        <a href="mis-publicaciones.html">Mis publicaciones</a>
+        <a href="mensajes.html">Mensajes</a>
+      </nav>
+
+      <div class="header-actions">
+
+        <a href="publicar.html" class="btn btn-primary">
+          + Publicar
+        </a>
+
+        <button
+          class="menu-toggle"
+          id="menuToggle"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+      </div>
+
+    </div>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+
+      <a href="buscar.html">Buscar iPhones</a>
+      <a href="favoritos.html">Favoritos</a>
+      <a href="mis-publicaciones.html">Mis publicaciones</a>
+      <a href="ventas.html">Mis ventas</a>
+      <a href="mensajes.html">Mensajes</a>
+      <a href="perfil.html">Mi perfil</a>
+
+      <a
+        href="configuracion.html"
+        class="active"
+      >
+        Configuración
+      </a>
+
+      <a href="publicar.html" class="mobile-publish">
+        + Publicar iPhone
+      </a>
+
+    </div>
+  </header>
+
+
+  <!-- MAIN -->
+  <main class="settings-page">
+
+    <div class="settings-container">
+
+      <!-- PAGE HEADER -->
+      <section class="settings-heading">
+
+        <span class="eyebrow">CUENTA</span>
+
+        <h1>Configuración</h1>
+
+        <p>
+          Administra tus datos, privacidad y preferencias
+          de iMarket Cuba.
+        </p>
+
+      </section>
+
+
+      <!-- SETTINGS LAYOUT -->
+      <div class="settings-layout">
+
+
+        <!-- SIDEBAR -->
+        <aside class="settings-sidebar">
+
+          <a
+            href="#cuenta"
+            class="settings-nav active"
+            data-section="cuenta"
+          >
+            <span class="settings-nav-icon">◉</span>
+            <span>Cuenta</span>
+          </a>
+
+          <a
+            href="#notificaciones"
+            class="settings-nav"
+            data-section="notificaciones"
+          >
+            <span class="settings-nav-icon">♢</span>
+            <span>Notificaciones</span>
+          </a>
+
+          <a
+            href="#privacidad"
+            class="settings-nav"
+            data-section="privacidad"
+          >
+            <span class="settings-nav-icon">⌑</span>
+            <span>Privacidad</span>
+          </a>
+
+          <a
+            href="#seguridad"
+            class="settings-nav"
+            data-section="seguridad"
+          >
+            <span class="settings-nav-icon">✓</span>
+            <span>Seguridad</span>
+          </a>
+
+          <a
+            href="#datos"
+            class="settings-nav"
+            data-section="datos"
+          >
+            <span class="settings-nav-icon">↕</span>
+            <span>Mis datos</span>
+          </a>
+
+        </aside>
+
+
+        <!-- CONTENT -->
+        <div class="settings-content">
+
+
+          <!-- =================================================
+               CUENTA
+          ================================================== -->
+
+          <section
+            class="settings-section"
+            id="cuenta"
+          >
+
+            <div class="section-heading">
+
+              <div>
+                <span class="section-kicker">PERFIL</span>
+                <h2>Información de la cuenta</h2>
+
+                <p>
+                  Consulta y administra la información básica
+                  asociada a tu cuenta.
+                </p>
+              </div>
+
+            </div>
+
+
+            <div class="profile-summary">
+
+              <div class="profile-avatar">
+                JP
+              </div>
+
+              <div class="profile-summary-info">
+
+                <strong>Juan Pérez</strong>
+
+                <span>
+                  Usuario desde septiembre de 2026
+                </span>
+
+                <a href="perfil.html">
+                  Ver mi perfil →
+                </a>
+
+              </div>
+
+            </div>
+
+
+            <div class="settings-list">
+
+              <div class="setting-row">
+
+                <div class="setting-info">
+
+                  <strong>Correo electrónico</strong>
+
+                  <span>
+                    juan.perez@example.com
+                  </span>
+
+                </div>
+
+                <button
+                  class="text-button"
+                  data-action="email"
+                >
+                  Cambiar
+                </button>
+
+              </div>
+
+
+              <div class="setting-row">
+
+                <div class="setting-info">
+
+                  <strong>Número de teléfono</strong>
+
+                  <span>
+                    +53 5 XXX XXXX
+                  </span>
+
+                </div>
+
+                <button
+                  class="text-button"
+                  data-action="phone"
+                >
+                  Cambiar
+                </button>
+
+              </div>
+
+
+              <div class="setting-row">
+
+                <div class="setting-info">
+
+                  <strong>Contraseña</strong>
+
+                  <span>
+                    Última actualización hace 30 días
+                  </span>
+
+                </div>
+
+                <button
+                  class="text-button"
+                  data-action="password"
+                >
+                  Cambiar
+                </button>
+
+              </div>
+
+            </div>
+
+          </section>
+
+
+          <!-- =================================================
+               NOTIFICACIONES
+          ================================================== -->
+
+          <section
+            class="settings-section"
+            id="notificaciones"
+          >
+
+            <div class="section-heading">
+
+              <span class="section-kicker">
+                PREFERENCIAS
+              </span>
+
+              <h2>Notificaciones</h2>
+
+              <p>
+                Elige qué avisos quieres recibir de iMarket Cuba.
+              </p>
+
+            </div>
+
+
+            <div class="settings-list">
+
+              <div class="setting-row toggle-row">
+
+                <div class="setting-info">
+
+                  <strong>Nuevos mensajes</strong>
+
+                  <span>
+                    Recibe avisos cuando alguien te escriba.
+                  </span>
+
+                </div>
+
+                <label class="switch">
+
+                  <input
+                    type="checkbox"
+                    id="notifyMessages"
+                    checked
+                  >
+
+                  <span class="switch-slider"></span>
+
+                </label>
+
+              </div>
+
+
+              <div class="setting-row toggle-row">
+
+                <div class="setting-info">
+
+                  <strong>Interacciones con publicaciones</strong>
+
+                  <span>
+                    Avisos cuando alguien guarde o interactúe
+                    con una publicación tuya.
+                  </span>
+
+                </div>
+
+                <label class="switch">
+
+                  <input
+                    type="checkbox"
+                    id="notifyListings"
+                    checked
+                  >
+
+                  <span class="switch-slider"></span>
+
+                </label>
+
+              </div>
+
+
+              <div class="setting-row toggle-row">
+
+                <div class="setting-info">
+
+                  <strong>Estado de ventas</strong>
+
+                  <span>
+                    Recibe avisos sobre cambios relacionados
+                    con tus ventas.
+                  </span>
+
+                </div>
+
+                <label class="switch">
+
+                  <input
+                    type="checkbox"
+                    id="notifySales"
+                    checked
+                  >
+
+                  <span class="switch-slider"></span>
+
+                </label>
+
+              </div>
+
+
+              <div class="setting-row toggle-row">
+
+                <div class="setting-info">
+
+                  <strong>Novedades de iMarket</strong>
+
+                  <span>
+                    Información sobre nuevas funciones
+                    y mejoras de la plataforma.
+                  </span>
+
+                </div>
+
+                <label class="switch">
+
+                  <input
+                    type="checkbox"
+                    id="notifyUpdates"
+                  >
+
+                  <span class="switch-slider"></span>
+
+                </label>
+
+              </div>
+
+            </div>
+
+          </section>
+
+
+          <!-- =================================================
+               PRIVACIDAD
+          ================================================== -->
+
+          <section
+            class="settings-section"
+            id="privacidad"
+          >
+
+            <div class="section-heading">
+
+              <span class="section-kicker">
+                PRIVACIDAD
+              </span>
+
+              <h2>Privacidad</h2>
+
+              <p>
+                Controla qué información pueden ver otros
+                usuarios.
+              </p>
+
+            </div>
+
+
+            <div class="settings-list">
+
+              <div class="setting-row toggle-row">
+
+                <div class="setting-info">
+
+                  <strong>Mostrar ubicación aproximada</strong>
+
+                  <span>
+                    Muestra tu municipio en las publicaciones,
+                    pero no tu dirección exacta.
+                  </span>
+
+                </div>
+
+                <label class="switch">
+
+                  <input
+                    type="checkbox"
+                    id="showLocation"
+                    checked
+                  >
+
+                  <span class="switch-slider"></span>
+
+                </label>
+
+              </div>
+
+
+              <div class="setting-row toggle-row">
+
+                <div class="setting-info">
+
+                  <strong>Permitir nuevos mensajes</strong>
+
+                  <span>
+                    Permite que otros usuarios contacten
+                    contigo desde tus publicaciones.
+                  </span>
+
+                </div>
+
+                <label class="switch">
+
+                  <input
+                    type="checkbox"
+                    id="allowMessages"
+                    checked
+                  >
+
+                  <span class="switch-slider"></span>
+
+                </label>
+
+              </div>
+
+
+              <div class="setting-row toggle-row">
+
+                <div class="setting-info">
+
+                  <strong>Mostrar teléfono en mi perfil</strong>
+
+                  <span>
+                    Tu número solo será visible si decides
+                    publicarlo.
+                  </span>
+
+                </div>
+
+                <label class="switch">
+
+                  <input
+                    type="checkbox"
+                    id="showPhone"
+                  >
+
+                  <span class="switch-slider"></span>
+
+                </label>
+
+              </div>
+
+            </div>
+
+
+            <div class="privacy-note">
+
+              <div class="privacy-note-icon">
+                i
+              </div>
+
+              <p>
+                La dirección utilizada para verificar una
+                publicación no se muestra públicamente.
+                iMarket utiliza esta información para mejorar
+                la seguridad del marketplace.
+              </p>
+
+            </div>
+
+          </section>
+
+
+          <!-- =================================================
+               SEGURIDAD
+          ================================================== -->
+
+          <section
+            class="settings-section"
+            id="seguridad"
+          >
+
+            <div class="section-heading">
+
+              <span class="section-kicker">
+                SEGURIDAD
+              </span>
+
+              <h2>Seguridad de la cuenta</h2>
+
+              <p>
+                Revisa las opciones relacionadas con el acceso
+                y protección de tu cuenta.
+              </p>
+
+            </div>
+
+
+            <div class="security-status">
+
+              <div class="security-status-icon">
+                ✓
+              </div>
+
+              <div>
+
+                <strong>Tu cuenta está protegida</strong>
+
+                <span>
+                  No se detectan problemas de seguridad.
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <div class="settings-list">
+
+              <div class="setting-row">
+
+                <div class="setting-info">
+
+                  <strong>Contraseña</strong>
+
+                  <span>
+                    Protege tu cuenta con una contraseña segura.
+                  </span>
+
+                </div>
+
+                <button
+                  class="text-button"
+                  data-action="password"
+                >
+                  Cambiar
+                </button>
+
+              </div>
+
+
+              <div class="setting-row">
+
+                <div class="setting-info">
+
+                  <strong>Sesiones activas</strong>
+
+                  <span>
+                    Revisa los dispositivos donde tienes
+                    iniciada la sesión.
+                  </span>
+
+                </div>
+
+                <button
+                  class="text-button"
+                  data-action="sessions"
+                >
+                  Revisar
+                </button>
+
+              </div>
+
+            </div>
+
+          </section>
+
+
+          <!-- =================================================
+               DATOS
+          ================================================== -->
+
+          <section
+            class="settings-section"
+            id="datos"
+          >
+
+            <div class="section-heading">
+
+              <span class="section-kicker">
+                INFORMACIÓN
+              </span>
+
+              <h2>Mis datos</h2>
+
+              <p>
+                Administra la información asociada a tu cuenta
+                en iMarket Cuba.
+              </p>
+
+            </div>
+
+
+            <div class="data-actions">
+
+              <div class="data-action">
+
+                <div class="data-action-icon">
+                  ↓
+                </div>
+
+                <div>
+
+                  <strong>Descargar mis datos</strong>
+
+                  <p>
+                    Solicita una copia de la información
+                    asociada a tu cuenta.
+                  </p>
+
+                </div>
+
+                <button
+                  class="text-button"
+                  id="downloadData"
+                >
+                  Solicitar
+                </button>
+
+              </div>
+
+
+              <div class="data-action danger">
+
+                <div class="data-action-icon">
+                  !
+                </div>
+
+                <div>
+
+                  <strong>Eliminar cuenta</strong>
+
+                  <p>
+                    Elimina tu cuenta y solicita la eliminación
+                    de tus datos según las condiciones de
+                    la plataforma.
+                  </p>
+
+                </div>
+
+                <button
+                  class="danger-button"
+                  id="deleteAccount"
+                >
+                  Eliminar
+                </button>
+
+              </div>
+
+            </div>
+
+          </section>
+
+
+          <!-- LOGOUT -->
+          <section class="logout-section">
+
+            <button
+              class="logout-button"
+              id="logoutButton"
+            >
+              Cerrar sesión
+            </button>
+
+          </section>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+
+  <!-- CONFIRMATION MODAL -->
+  <div
+    class="modal-overlay"
+    id="confirmationModal"
+    hidden
+  >
+
+    <div class="confirmation-modal">
+
+      <button
+        class="modal-close"
+        id="modalClose"
+        aria-label="Cerrar"
+      >
+        ×
+      </button>
+
+      <div
+        class="confirmation-icon"
+        id="confirmationIcon"
+      >
+        !
+      </div>
+
+      <h2 id="confirmationTitle">
+        Confirmar acción
+      </h2>
+
+      <p id="confirmationText">
+        ¿Quieres continuar?
+      </p>
+
+      <div class="modal-actions">
+
+        <button
+          class="btn btn-secondary"
+          id="modalCancel"
+        >
+          Cancelar
+        </button>
+
+        <button
+          class="btn btn-primary"
+          id="modalConfirm"
+        >
+          Confirmar
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+
+    <div class="footer-inner">
+
+      <div class="footer-brand">
+
+        <strong>iMarket Cuba</strong>
+
+        <span>
+          Marketplace de iPhones entre particulares.
+        </span>
+
+      </div>
+
+      <div class="footer-links">
+
+        <a href="seguridad.html">Seguridad</a>
+        <a href="terminos.html">Términos</a>
+        <a href="como-funciona.html">Cómo funciona</a>
+
+      </div>
+
+      <div class="footer-credit">
+
+        By
+        <a
+          href="https://alfanegocios.github.io/"
+          target="_blank"
+          rel="noopener"
+        >
+          ALFA NEGOCIOS
+        </a>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <script>
+
+    document.addEventListener("DOMContentLoaded", () => {
+
+      /* =====================================================
+         MOBILE MENU
+      ===================================================== */
+
+      const menuToggle =
+        document.getElementById("menuToggle");
+
+      const mobileMenu =
+        document.getElementById("mobileMenu");
+
+      menuToggle?.addEventListener("click", () => {
+
+        const isOpen =
+          menuToggle.classList.toggle("open");
+
+        mobileMenu.classList.toggle("open");
+
+        menuToggle.setAttribute(
+          "aria-expanded",
+          isOpen ? "true" : "false"
+        );
+
+      });
+
+
+      /* =====================================================
+         SECTION NAVIGATION
+      ===================================================== */
+
+      const navItems =
+        document.querySelectorAll(".settings-nav");
+
+      navItems.forEach(item => {
+
+        item.addEventListener("click", () => {
+
+          navItems.forEach(nav => {
+            nav.classList.remove("active");
+          });
+
+          item.classList.add("active");
+
+        });
+
+      });
+
+
+      /* =====================================================
+         NOTIFICATION / PRIVACY SETTINGS
+      ===================================================== */
+
+      const toggles =
+        document.querySelectorAll(
+          ".switch input"
+        );
+
+      toggles.forEach(toggle => {
+
+        toggle.addEventListener("change", () => {
+
+          console.log(
+            "Preferencia:",
+            toggle.id,
+            toggle.checked
+          );
+
+        });
+
+      });
+
+
+      /* =====================================================
+         MODAL
+      ===================================================== */
+
+      const modal =
+        document.getElementById(
+          "confirmationModal"
+        );
+
+      const modalTitle =
+        document.getElementById(
+          "confirmationTitle"
+        );
+
+      const modalText =
+        document.getElementById(
+          "confirmationText"
+        );
+
+      const modalConfirm =
+        document.getElementById(
+          "modalConfirm"
+        );
+
+      const modalCancel =
+        document.getElementById(
+          "modalCancel"
+        );
+
+      const modalClose =
+        document.getElementById(
+          "modalClose"
+        );
+
+      let currentAction = null;
+
+
+      function openModal(
+        title,
+        text,
+        action,
+        danger = false
+      ) {
+
+        modalTitle.textContent = title;
+        modalText.textContent = text;
+
+        currentAction = action;
+
+        modalConfirm.textContent =
+          danger ? "Eliminar" : "Confirmar";
+
+        modalConfirm.classList.toggle(
+          "danger-confirm",
+          danger
+        );
+
+        modal.hidden = false;
+
+        document.body.classList.add(
+          "modal-open"
+        );
+
+      }
+
+
+      function closeModal() {
+
+        modal.hidden = true;
+
+        document.body.classList.remove(
+          "modal-open"
+        );
+
+        currentAction = null;
+
+        modalConfirm.classList.remove(
+          "danger-confirm"
+        );
+
+      }
+
+
+      modalCancel.addEventListener(
+        "click",
+        closeModal
+      );
+
+      modalClose.addEventListener(
+        "click",
+        closeModal
+      );
+
+
+      modal.addEventListener(
+        "click",
+        event => {
+
+          if (event.target === modal) {
+            closeModal();
+          }
+
+        }
+      );
+
+
+      /* =====================================================
+         ACCOUNT ACTIONS
+      ===================================================== */
+
+      document
+        .querySelectorAll(
+          "[data-action]"
+        )
+        .forEach(button => {
+
+          button.addEventListener(
+            "click",
+            () => {
+
+              const action =
+                button.dataset.action;
+
+              if (action === "email") {
+
+                openModal(
+                  "Cambiar correo",
+                  "En la versión conectada se abrirá el formulario para actualizar tu correo electrónico.",
+                  "email"
+                );
+
+              }
+
+              if (action === "phone") {
+
+                openModal(
+                  "Cambiar teléfono",
+                  "En la versión conectada podrás actualizar y verificar tu número.",
+                  "phone"
+                );
+
+              }
+
+              if (action === "password") {
+
+                openModal(
+                  "Cambiar contraseña",
+                  "En la versión conectada se abrirá el proceso seguro para cambiar tu contraseña.",
+                  "password"
+                );
+
+              }
+
+              if (action === "sessions") {
+
+                openModal(
+                  "Sesiones activas",
+                  "Aquí podrás revisar y cerrar sesiones abiertas en otros dispositivos.",
+                  "sessions"
+                );
+
+              }
+
+            }
+          );
+
+        });
+
+
+      /* =====================================================
+         DATA
+      ===================================================== */
+
+      document
+        .getElementById("downloadData")
+        ?.addEventListener(
+          "click",
+          () => {
+
+            openModal(
+              "Solicitar mis datos",
+              "Se preparará una copia de los datos asociados a tu cuenta.",
+              "download"
+            );
+
+          }
+        );
+
+
+      /* =====================================================
+         DELETE ACCOUNT
+      ===================================================== */
+
+      document
+        .getElementById("deleteAccount")
+        ?.addEventListener(
+          "click",
+          () => {
+
+            openModal(
+              "Eliminar cuenta",
+              "Esta acción es sensible. La versión conectada solicitará una confirmación adicional antes de eliminar la cuenta.",
+              "delete",
+              true
+            );
+
+          }
+        );
+
+
+      /* =====================================================
+         LOGOUT
+      ===================================================== */
+
+      document
+        .getElementById("logoutButton")
+        ?.addEventListener(
+          "click",
+          () => {
+
+            openModal(
+              "Cerrar sesión",
+              "¿Quieres cerrar la sesión en este dispositivo?",
+              "logout"
+            );
+
+          }
+        );
+
+
+      /* =====================================================
+         CONFIRM
+      ===================================================== */
+
+      modalConfirm.addEventListener(
+        "click",
+        () => {
+
+          if (!currentAction) return;
+
+          if (currentAction === "logout") {
+
+            window.location.href =
+              "index.html";
+
+            return;
+
+          }
+
+          if (currentAction === "delete") {
+
+            alert(
+              "La eliminación de cuenta se conectará posteriormente con Supabase."
+            );
+
+          }
+
+          if (currentAction === "download") {
+
+            alert(
+              "La solicitud de datos se conectará posteriormente con Supabase."
+            );
+
+          }
+
+          closeModal();
+
+        }
+      );
+
+    });
+
+  </script>
+
+</body>
+</html>
