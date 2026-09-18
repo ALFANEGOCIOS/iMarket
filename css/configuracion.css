@@ -1,0 +1,733 @@
+/* =========================================================
+   IMARKET CUBA
+   CONFIGURACIÓN
+========================================================= */
+
+:root {
+  --settings-blue: #147ef5;
+  --settings-blue-dark: #0865d8;
+  --settings-blue-soft: #eaf3ff;
+
+  --settings-green: #20a464;
+  --settings-green-soft: #e9f8f0;
+
+  --settings-red: #e5484d;
+  --settings-red-soft: #fff0f1;
+
+  --settings-bg: #f6f7f9;
+  --settings-surface: #ffffff;
+
+  --settings-text: #111111;
+  --settings-secondary: #6b6f76;
+  --settings-light: #92969d;
+
+  --settings-border: #e5e7eb;
+
+  --settings-radius-sm: 10px;
+  --settings-radius-md: 16px;
+  --settings-radius-lg: 22px;
+
+  --settings-shadow-sm: 0 2px 8px rgba(0, 0, 0, .05);
+  --settings-shadow-md: 0 8px 30px rgba(0, 0, 0, .08);
+}
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.settings-page {
+  min-height: calc(100vh - 160px);
+  padding: 45px 20px 80px;
+  background: var(--settings-bg);
+}
+
+.settings-container {
+  width: min(1100px, 100%);
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.settings-heading {
+  margin-bottom: 32px;
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 8px;
+  color: var(--settings-blue);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .12em;
+}
+
+.settings-heading h1 {
+  margin: 0 0 8px;
+  color: var(--settings-text);
+  font-size: clamp(32px, 4vw, 42px);
+  line-height: 1.05;
+  letter-spacing: -.04em;
+}
+
+.settings-heading p {
+  max-width: 600px;
+  margin: 0;
+  color: var(--settings-secondary);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   LAYOUT
+========================================================= */
+
+.settings-layout {
+  display: grid;
+  grid-template-columns: 210px minmax(0, 1fr);
+  align-items: start;
+  gap: 28px;
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.settings-sidebar {
+  position: sticky;
+  top: 90px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px;
+  background: #fff;
+  border: 1px solid var(--settings-border);
+  border-radius: var(--settings-radius-md);
+  box-shadow: var(--settings-shadow-sm);
+}
+
+.settings-nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 42px;
+  padding: 0 11px;
+  border-radius: 10px;
+  color: var(--settings-secondary);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    background .18s ease,
+    color .18s ease;
+}
+
+.settings-nav:hover {
+  background: #f5f6f8;
+  color: var(--settings-text);
+}
+
+.settings-nav.active {
+  background: var(--settings-blue-soft);
+  color: var(--settings-blue);
+}
+
+.settings-nav-icon {
+  width: 22px;
+  text-align: center;
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.settings-content {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.settings-section {
+  scroll-margin-top: 90px;
+  padding: 26px;
+  background: var(--settings-surface);
+  border: 1px solid var(--settings-border);
+  border-radius: var(--settings-radius-lg);
+  box-shadow: var(--settings-shadow-sm);
+}
+
+.section-heading {
+  margin-bottom: 22px;
+}
+
+.section-kicker {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--settings-blue);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+}
+
+.section-heading h2 {
+  margin: 0 0 6px;
+  color: var(--settings-text);
+  font-size: 20px;
+  letter-spacing: -.025em;
+}
+
+.section-heading p {
+  max-width: 650px;
+  margin: 0;
+  color: var(--settings-secondary);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   PROFILE SUMMARY
+========================================================= */
+
+.profile-summary {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+  padding: 15px;
+  border-radius: 14px;
+  background: #f7f8fa;
+}
+
+.profile-avatar {
+  width: 52px;
+  height: 52px;
+  flex: 0 0 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--settings-blue-soft);
+  color: var(--settings-blue);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.profile-summary-info {
+  min-width: 0;
+}
+
+.profile-summary-info strong {
+  display: block;
+  margin-bottom: 3px;
+  color: var(--settings-text);
+  font-size: 14px;
+}
+
+.profile-summary-info span {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--settings-light);
+  font-size: 11px;
+}
+
+.profile-summary-info a {
+  color: var(--settings-blue);
+  font-size: 11px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+
+/* =========================================================
+   SETTINGS LIST
+========================================================= */
+
+.settings-list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--settings-border);
+}
+
+.setting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 72px;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--settings-border);
+}
+
+.setting-row:last-child {
+  border-bottom: 0;
+}
+
+.setting-info {
+  min-width: 0;
+  flex: 1;
+}
+
+.setting-info strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--settings-text);
+  font-size: 13px;
+}
+
+.setting-info span {
+  display: block;
+  color: var(--settings-secondary);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.text-button {
+  flex-shrink: 0;
+  padding: 7px 10px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--settings-blue);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.text-button:hover {
+  background: var(--settings-blue-soft);
+}
+
+
+/* =========================================================
+   SWITCH
+========================================================= */
+
+.switch {
+  position: relative;
+  width: 46px;
+  height: 27px;
+  flex: 0 0 46px;
+  display: inline-block;
+}
+
+.switch input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch-slider {
+  position: absolute;
+  inset: 0;
+  border-radius: 30px;
+  background: #d7d9dd;
+  cursor: pointer;
+  transition: background .2s ease;
+}
+
+.switch-slider::before {
+  content: "";
+  position: absolute;
+  width: 21px;
+  height: 21px;
+  left: 3px;
+  top: 3px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .15);
+  transition: transform .2s ease;
+}
+
+.switch input:checked + .switch-slider {
+  background: var(--settings-blue);
+}
+
+.switch input:checked + .switch-slider::before {
+  transform: translateX(19px);
+}
+
+
+/* =========================================================
+   PRIVACY NOTE
+========================================================= */
+
+.privacy-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 18px;
+  padding: 13px;
+  border-radius: 12px;
+  background: var(--settings-blue-soft);
+}
+
+.privacy-note-icon {
+  width: 27px;
+  height: 27px;
+  flex: 0 0 27px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: #fff;
+  color: var(--settings-blue);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.privacy-note p {
+  margin: 0;
+  color: var(--settings-secondary);
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   SECURITY
+========================================================= */
+
+.security-status {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+  padding: 14px;
+  border-radius: 13px;
+  background: var(--settings-green-soft);
+}
+
+.security-status-icon {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 11px;
+  background: #fff;
+  color: var(--settings-green);
+  font-weight: 700;
+}
+
+.security-status strong {
+  display: block;
+  margin-bottom: 3px;
+  color: var(--settings-text);
+  font-size: 12px;
+}
+
+.security-status span {
+  color: var(--settings-secondary);
+  font-size: 11px;
+}
+
+
+/* =========================================================
+   DATA ACTIONS
+========================================================= */
+
+.data-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.data-action {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 13px;
+  padding: 15px;
+  border: 1px solid var(--settings-border);
+  border-radius: 13px;
+}
+
+.data-action-icon {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: var(--settings-blue-soft);
+  color: var(--settings-blue);
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.data-action strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--settings-text);
+  font-size: 13px;
+}
+
+.data-action p {
+  margin: 0;
+  color: var(--settings-secondary);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.data-action.danger {
+  border-color: #f0d4d6;
+  background: #fffafa;
+}
+
+.data-action.danger .data-action-icon {
+  background: var(--settings-red-soft);
+  color: var(--settings-red);
+}
+
+.danger-button {
+  flex-shrink: 0;
+  padding: 8px 11px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--settings-red);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.danger-button:hover {
+  background: var(--settings-red-soft);
+}
+
+
+/* =========================================================
+   LOGOUT
+========================================================= */
+
+.logout-section {
+  padding: 20px 26px;
+  background: #fff;
+  border: 1px solid var(--settings-border);
+  border-radius: var(--settings-radius-lg);
+  box-shadow: var(--settings-shadow-sm);
+}
+
+.logout-button {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid #f0d4d6;
+  border-radius: 11px;
+  background: var(--settings-red-soft);
+  color: var(--settings-red);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.logout-button:hover {
+  background: #ffe7e9;
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, .45);
+  backdrop-filter: blur(5px);
+}
+
+.modal-overlay[hidden] {
+  display: none;
+}
+
+.confirmation-modal {
+  position: relative;
+  width: min(420px, 100%);
+  padding: 30px;
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, .2);
+}
+
+.modal-close {
+  position: absolute;
+  top: 13px;
+  right: 13px;
+  width: 34px;
+  height: 34px;
+  border: 0;
+  border-radius: 50%;
+  background: #f1f2f4;
+  color: var(--settings-secondary);
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.confirmation-icon {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  background: var(--settings-blue-soft);
+  color: var(--settings-blue);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.confirmation-modal h2 {
+  margin: 0 0 8px;
+  color: var(--settings-text);
+  font-size: 22px;
+  letter-spacing: -.025em;
+}
+
+.confirmation-modal > p {
+  margin: 0;
+  color: var(--settings-secondary);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.modal-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9px;
+  margin-top: 22px;
+}
+
+.modal-actions .btn {
+  min-height: 44px;
+  border-radius: 11px;
+  border: 1px solid transparent;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.modal-actions .btn-secondary {
+  border-color: var(--settings-border);
+  background: #fff;
+  color: var(--settings-text);
+}
+
+.modal-actions .btn-primary {
+  background: var(--settings-blue);
+  color: #fff;
+}
+
+.modal-actions .danger-confirm {
+  background: var(--settings-red);
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 800px) {
+
+  .settings-page {
+    padding: 32px 16px 60px;
+  }
+
+  .settings-layout {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .settings-sidebar {
+    position: static;
+    flex-direction: row;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .settings-sidebar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .settings-nav {
+    flex-shrink: 0;
+    padding: 0 13px;
+  }
+
+}
+
+
+@media (max-width: 560px) {
+
+  .settings-heading h1 {
+    font-size: 34px;
+  }
+
+  .settings-section {
+    padding: 20px 16px;
+    border-radius: 17px;
+  }
+
+  .setting-row {
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .setting-info strong {
+    font-size: 12px;
+  }
+
+  .setting-info span {
+    font-size: 10px;
+  }
+
+  .data-action {
+    grid-template-columns: 38px minmax(0, 1fr);
+  }
+
+  .data-action-icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .data-action .text-button,
+  .data-action .danger-button {
+    grid-column: 2;
+    justify-self: start;
+    padding-left: 0;
+  }
+
+  .logout-section {
+    padding: 16px;
+    border-radius: 17px;
+  }
+
+  .modal-actions {
+    grid-template-columns: 1fr;
+  }
+
+}
