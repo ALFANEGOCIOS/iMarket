@@ -1,1 +1,1522 @@
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Editar publicación | iMarket Cuba</title>
+    <meta
+        name="description"
+        content="Edita los datos de tu publicación de iPhone en iMarket Cuba."
+    >
+
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/editar-publicacion.css">
+</head>
+
+<body>
+
+<header class="site-header">
+    <div class="header-inner">
+
+        <a href="index.html" class="brand">
+            <div class="brand-mark">
+                <span>i</span>
+            </div>
+
+            <div class="brand-text">
+                <strong>iMarket</strong>
+                <span>Cuba</span>
+            </div>
+        </a>
+
+        <nav class="desktop-nav">
+            <a href="buscar.html">Buscar iPhones</a>
+            <a href="favoritos.html">Favoritos</a>
+
+            <a href="mis-publicaciones.html" class="nav-active">
+                Mis publicaciones
+            </a>
+        </nav>
+
+        <div class="header-actions">
+            <a href="publicar.html" class="publish-btn">
+                + Publicar
+            </a>
+
+            <button
+                type="button"
+                class="mobile-menu-btn"
+                id="mobileMenuBtn"
+                aria-label="Abrir menú"
+                aria-expanded="false"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+    </div>
+
+    <div class="mobile-nav" id="mobileNav">
+        <a href="buscar.html">Buscar iPhones</a>
+        <a href="favoritos.html">Favoritos</a>
+        <a href="mis-publicaciones.html">Mis publicaciones</a>
+        <a href="publicar.html">+ Publicar iPhone</a>
+    </div>
+</header>
+
+
+<main class="edit-page">
+
+    <div class="edit-container">
+
+        <!-- TOP -->
+        <div class="page-top">
+
+            <a href="mis-publicaciones.html" class="back-link">
+                ← Mis publicaciones
+            </a>
+
+            <div class="page-heading">
+                <span class="heading-badge">Editar publicación</span>
+
+                <h1>Editar tu iPhone</h1>
+
+                <p>
+                    Modifica la información de tu publicación.
+                    Los cambios serán revisados antes de volver a mostrarse,
+                    cuando corresponda.
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- LOADING -->
+        <div class="loading-card" id="loadingCard">
+
+            <div class="loading-spinner"></div>
+
+            <div>
+                <strong>Cargando publicación...</strong>
+                <span>Estamos preparando los datos para editarla.</span>
+            </div>
+
+        </div>
+
+
+        <!-- FORM -->
+        <form
+            id="editListingForm"
+            class="edit-form"
+            hidden
+        >
+
+            <!-- =========================
+                 BASIC INFORMATION
+            ========================== -->
+
+            <section class="form-section">
+
+                <div class="section-header">
+                    <div>
+                        <span class="section-number">01</span>
+                        <h2>Información del iPhone</h2>
+                    </div>
+
+                    <p>
+                        Datos principales del dispositivo.
+                    </p>
+                </div>
+
+
+                <div class="fields-grid">
+
+                    <div class="field full">
+
+                        <label for="model">
+                            Modelo
+                        </label>
+
+                        <select id="model" name="model" required>
+
+                            <option value="">
+                                Selecciona el modelo
+                            </option>
+
+                            <option>iPhone 6</option>
+                            <option>iPhone 6s</option>
+                            <option>iPhone 7</option>
+                            <option>iPhone 8</option>
+                            <option>iPhone X</option>
+                            <option>iPhone XS</option>
+                            <option>iPhone XR</option>
+                            <option>iPhone 11</option>
+                            <option>iPhone 11 Pro</option>
+                            <option>iPhone 12</option>
+                            <option>iPhone 12 Pro</option>
+                            <option>iPhone 13</option>
+                            <option>iPhone 13 Pro</option>
+                            <option>iPhone 14</option>
+                            <option>iPhone 14 Pro</option>
+                            <option>iPhone 15</option>
+                            <option>iPhone 15 Pro</option>
+                            <option>iPhone 16</option>
+                            <option>iPhone 16 Pro</option>
+                            <option>iPhone 17</option>
+                            <option>iPhone 17 Pro</option>
+                            <option>iPhone 17 Air</option>
+                            <option>iPhone 17e</option>
+                            <option>iPhone 18</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label for="storage">
+                            Almacenamiento
+                        </label>
+
+                        <select id="storage" name="storage" required>
+
+                            <option value="">
+                                Selecciona
+                            </option>
+
+                            <option value="32GB">32 GB</option>
+                            <option value="64GB">64 GB</option>
+                            <option value="128GB">128 GB</option>
+                            <option value="256GB">256 GB</option>
+                            <option value="512GB">512 GB</option>
+                            <option value="1TB">1 TB</option>
+                            <option value="2TB">2 TB</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label for="color">
+                            Color
+                        </label>
+
+                        <select id="color" name="color" required>
+
+                            <option value="">
+                                Selecciona primero el modelo
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label for="condition">
+                            Condición estética
+                        </label>
+
+                        <select
+                            id="condition"
+                            name="condition"
+                            required
+                        >
+
+                            <option value="">
+                                Selecciona
+                            </option>
+
+                            <option value="excelente">
+                                Excelente
+                            </option>
+
+                            <option value="muy-buena">
+                                Muy buena
+                            </option>
+
+                            <option value="buena">
+                                Buena
+                            </option>
+
+                            <option value="aceptable">
+                                Aceptable
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label for="price">
+                            Precio
+                        </label>
+
+                        <div class="price-input">
+                            <input
+                                type="number"
+                                id="price"
+                                name="price"
+                                min="1"
+                                step="0.01"
+                                placeholder="0.00"
+                                required
+                            >
+
+                            <span>USD</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label for="factoryUnlocked">
+                            Libre de fábrica
+                        </label>
+
+                        <select
+                            id="factoryUnlocked"
+                            name="factoryUnlocked"
+                            required
+                        >
+
+                            <option value="">
+                                Selecciona
+                            </option>
+
+                            <option value="true">Sí</option>
+                            <option value="false">No</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 BATTERY
+            ========================== -->
+
+            <section class="form-section">
+
+                <div class="section-header">
+                    <div>
+                        <span class="section-number">02</span>
+                        <h2>Batería y funcionamiento</h2>
+                    </div>
+
+                    <p>
+                        Indica el estado actual del dispositivo.
+                    </p>
+                </div>
+
+
+                <div class="fields-grid">
+
+                    <div class="field">
+
+                        <label for="battery">
+                            Salud de batería
+                        </label>
+
+                        <div class="battery-input">
+
+                            <input
+                                type="number"
+                                id="battery"
+                                name="battery"
+                                min="1"
+                                max="100"
+                                placeholder="85"
+                                required
+                            >
+
+                            <span>%</span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label for="batteryOriginal">
+                            Batería
+                        </label>
+
+                        <select
+                            id="batteryOriginal"
+                            name="batteryOriginal"
+                            required
+                        >
+
+                            <option value="">
+                                Selecciona
+                            </option>
+
+                            <option value="original">
+                                Original
+                            </option>
+
+                            <option value="generica">
+                                Genérica / reemplazada
+                            </option>
+
+                            <option value="unknown">
+                                No sé
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label for="faceId">
+                            Face ID
+                        </label>
+
+                        <select
+                            id="faceId"
+                            name="faceId"
+                            required
+                        >
+
+                            <option value="">
+                                Selecciona
+                            </option>
+
+                            <option value="true">Funciona</option>
+                            <option value="false">No funciona</option>
+                            <option value="unknown">No aplica</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label for="trueTone">
+                            True Tone
+                        </label>
+
+                        <select
+                            id="trueTone"
+                            name="trueTone"
+                            required
+                        >
+
+                            <option value="">
+                                Selecciona
+                            </option>
+
+                            <option value="true">Funciona</option>
+                            <option value="false">No funciona</option>
+                            <option value="unknown">No sé</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label for="warranty">
+                            Garantía restante
+                        </label>
+
+                        <div class="warranty-input">
+
+                            <input
+                                type="number"
+                                id="warranty"
+                                name="warranty"
+                                min="0"
+                                placeholder="0"
+                            >
+
+                            <span>días</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 ACCESSORIES
+            ========================== -->
+
+            <section class="form-section">
+
+                <div class="section-header">
+                    <div>
+                        <span class="section-number">03</span>
+                        <h2>Accesorios</h2>
+                    </div>
+
+                    <p>
+                        Indica qué incluye la venta.
+                    </p>
+                </div>
+
+
+                <div class="accessories-grid">
+
+                    <label class="check-card">
+
+                        <input
+                            type="checkbox"
+                            id="hasCable"
+                            name="hasCable"
+                        >
+
+                        <span class="check-box"></span>
+
+                        <span class="check-content">
+                            <strong>Cable</strong>
+                            <small>Incluido con el iPhone</small>
+                        </span>
+
+                    </label>
+
+
+                    <label class="check-card">
+
+                        <input
+                            type="checkbox"
+                            id="hasCharger"
+                            name="hasCharger"
+                        >
+
+                        <span class="check-box"></span>
+
+                        <span class="check-content">
+                            <strong>Cargador</strong>
+                            <small>Incluido con el iPhone</small>
+                        </span>
+
+                    </label>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 PHOTOS
+            ========================== -->
+
+            <section class="form-section">
+
+                <div class="section-header">
+                    <div>
+                        <span class="section-number">04</span>
+                        <h2>Fotos</h2>
+                    </div>
+
+                    <p>
+                        Puedes conservar, eliminar o reemplazar tus fotos.
+                    </p>
+                </div>
+
+
+                <div
+                    class="photo-grid"
+                    id="photoGrid"
+                >
+                    <!-- Se rellenará posteriormente con JS -->
+                </div>
+
+
+                <div class="photo-upload">
+
+                    <input
+                        type="file"
+                        id="newPhotos"
+                        name="newPhotos"
+                        accept="image/*"
+                        multiple
+                        hidden
+                    >
+
+                    <label
+                        for="newPhotos"
+                        class="upload-box"
+                    >
+
+                        <span class="upload-icon">+</span>
+
+                        <strong>
+                            Añadir fotos
+                        </strong>
+
+                        <small>
+                            Máximo 5 fotos en total
+                        </small>
+
+                    </label>
+
+                </div>
+
+                <p class="photo-help">
+                    Usa fotos claras y reales del dispositivo.
+                    La primera foto será la principal.
+                </p>
+
+            </section>
+
+
+            <!-- =========================
+                 LOCATION
+            ========================== -->
+
+            <section class="form-section">
+
+                <div class="section-header">
+                    <div>
+                        <span class="section-number">05</span>
+                        <h2>Ubicación</h2>
+                    </div>
+
+                    <p>
+                        Ayuda a los compradores a saber dónde se encuentra.
+                    </p>
+                </div>
+
+
+                <div class="fields-grid">
+
+                    <div class="field">
+
+                        <label for="municipality">
+                            Municipio
+                        </label>
+
+                        <select
+                            id="municipality"
+                            name="municipality"
+                            required
+                        >
+
+                            <option value="">
+                                Selecciona
+                            </option>
+
+                            <option value="arroyo-naranjo">
+                                Arroyo Naranjo
+                            </option>
+
+                            <option value="boyeros">
+                                Boyeros
+                            </option>
+
+                            <option value="centro-habana">
+                                Centro Habana
+                            </option>
+
+                            <option value="cerro">
+                                Cerro
+                            </option>
+
+                            <option value="cotorro">
+                                Cotorro
+                            </option>
+
+                            <option value="diez-de-octubre">
+                                Diez de Octubre
+                            </option>
+
+                            <option value="guanabacoa">
+                                Guanabacoa
+                            </option>
+
+                            <option value="habana-del-este">
+                                Habana del Este
+                            </option>
+
+                            <option value="la-habana-vieja">
+                                La Habana Vieja
+                            </option>
+
+                            <option value="la-lisa">
+                                La Lisa
+                            </option>
+
+                            <option value="marianao">
+                                Marianao
+                            </option>
+
+                            <option value="playa">
+                                Playa
+                            </option>
+
+                            <option value="plaza">
+                                Plaza de la Revolución
+                            </option>
+
+                            <option value="regla">
+                                Regla
+                            </option>
+
+                            <option value="san-miguel-del-padron">
+                                San Miguel del Padrón
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label for="address">
+                            Zona / dirección
+                        </label>
+
+                        <input
+                            type="text"
+                            id="address"
+                            name="address"
+                            placeholder="Ej. cerca de 23 y 12"
+                            maxlength="150"
+                        >
+
+                        <small>
+                            No publiques información privada que no quieras
+                            compartir.
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 DESCRIPTION
+            ========================== -->
+
+            <section class="form-section">
+
+                <div class="section-header">
+                    <div>
+                        <span class="section-number">06</span>
+                        <h2>Descripción</h2>
+                    </div>
+
+                    <p>
+                        Explica cualquier detalle importante.
+                    </p>
+                </div>
+
+
+                <div class="field">
+
+                    <label for="description">
+                        Descripción
+                    </label>
+
+                    <textarea
+                        id="description"
+                        name="description"
+                        rows="6"
+                        maxlength="1200"
+                        placeholder="Describe el estado del iPhone, reparaciones, detalles estéticos u otra información importante..."
+                    ></textarea>
+
+                    <div class="textarea-footer">
+
+                        <small>
+                            Sé claro y honesto con el estado del equipo.
+                        </small>
+
+                        <span id="descriptionCount">
+                            0 / 1200
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 ISSUES
+            ========================== -->
+
+            <section class="form-section">
+
+                <div class="section-header">
+                    <div>
+                        <span class="section-number">07</span>
+                        <h2>Detalles o problemas</h2>
+                    </div>
+
+                    <p>
+                        Informa de cualquier defecto conocido.
+                    </p>
+                </div>
+
+
+                <div class="field">
+
+                    <label for="issues">
+                        Problemas del dispositivo
+                    </label>
+
+                    <textarea
+                        id="issues"
+                        name="issues"
+                        rows="4"
+                        maxlength="800"
+                        placeholder="Ej. pequeño golpe en una esquina, cámara con detalle, pantalla reemplazada..."
+                    ></textarea>
+
+                    <small>
+                        Si no tiene problemas, puedes dejar este campo vacío.
+                    </small>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 ALERT
+            ========================== -->
+
+            <div
+                class="form-alert"
+                id="formAlert"
+                role="alert"
+                hidden
+            >
+                <span class="alert-icon">!</span>
+
+                <span id="formAlertText">
+                    Revisa los datos antes de guardar.
+                </span>
+            </div>
+
+
+            <!-- =========================
+                 ACTIONS
+            ========================== -->
+
+            <div class="form-actions">
+
+                <a
+                    href="mis-publicaciones.html"
+                    class="cancel-btn"
+                >
+                    Cancelar
+                </a>
+
+                <button
+                    type="submit"
+                    class="save-btn"
+                    id="saveButton"
+                >
+                    <span id="saveText">
+                        Guardar cambios
+                    </span>
+
+                    <span
+                        id="saveLoading"
+                        hidden
+                    >
+                        Guardando...
+                    </span>
+                </button>
+
+            </div>
+
+        </form>
+
+
+        <!-- NOT FOUND -->
+        <div
+            class="not-found-card"
+            id="notFoundCard"
+            hidden
+        >
+
+            <div class="not-found-icon">
+                !
+            </div>
+
+            <h2>Publicación no encontrada</h2>
+
+            <p>
+                No pudimos encontrar esta publicación o ya no está disponible.
+            </p>
+
+            <a href="mis-publicaciones.html">
+                Volver a mis publicaciones
+            </a>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<footer class="site-footer">
+
+    <div class="footer-inner">
+
+        <p>
+            © 2026 iMarket Cuba. Todos los derechos reservados.
+        </p>
+
+        <a
+            href="https://alfanegocios.github.io/"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            By ALFA NEGOCIOS
+        </a>
+
+    </div>
+
+</footer>
+
+
+<script>
+
+    /* =========================================
+       MOBILE MENU
+    ========================================= */
+
+    const mobileMenuBtn =
+        document.getElementById("mobileMenuBtn");
+
+    const mobileNav =
+        document.getElementById("mobileNav");
+
+
+    mobileMenuBtn.addEventListener("click", () => {
+
+        const isOpen =
+            mobileNav.classList.toggle("open");
+
+        mobileMenuBtn.classList.toggle("open", isOpen);
+
+        mobileMenuBtn.setAttribute(
+            "aria-expanded",
+            isOpen ? "true" : "false"
+        );
+
+    });
+
+
+    /* =========================================
+       IPHONE COLORS
+    ========================================= */
+
+    const iphoneColors = {
+
+        "iPhone 6": [
+            "Plata",
+            "Oro",
+            "Gris espacial"
+        ],
+
+        "iPhone 6s": [
+            "Plata",
+            "Oro",
+            "Gris espacial",
+            "Oro rosa"
+        ],
+
+        "iPhone 7": [
+            "Plata",
+            "Oro",
+            "Oro rosa",
+            "Negro",
+            "Negro brillante (Jet Black)",
+            "PRODUCT(RED)"
+        ],
+
+        "iPhone 8": [
+            "Plata",
+            "Oro",
+            "Gris espacial",
+            "PRODUCT(RED)"
+        ],
+
+        "iPhone X": [
+            "Plata",
+            "Gris espacial"
+        ],
+
+        "iPhone XS": [
+            "Plata",
+            "Gris espacial",
+            "Oro"
+        ],
+
+        "iPhone XR": [
+            "Blanco",
+            "Negro",
+            "Azul",
+            "Amarillo",
+            "Coral",
+            "PRODUCT(RED)"
+        ],
+
+        "iPhone 11": [
+            "Negro",
+            "Blanco",
+            "Verde",
+            "Amarillo",
+            "Morado",
+            "PRODUCT(RED)"
+        ],
+
+        "iPhone 11 Pro": [
+            "Verde noche",
+            "Plata",
+            "Oro",
+            "Gris espacial"
+        ],
+
+        "iPhone 12": [
+            "Negro",
+            "Blanco",
+            "Verde",
+            "Azul",
+            "PRODUCT(RED)",
+            "Morado"
+        ],
+
+        "iPhone 12 Pro": [
+            "Grafito",
+            "Plata",
+            "Oro",
+            "Azul pacífico"
+        ],
+
+        "iPhone 13": [
+            "Medianoche",
+            "Blanco estrella",
+            "Azul",
+            "Rosa",
+            "PRODUCT(RED)",
+            "Verde"
+        ],
+
+        "iPhone 13 Pro": [
+            "Grafito",
+            "Oro",
+            "Plata",
+            "Azul sierra",
+            "Verde alpino"
+        ],
+
+        "iPhone 14": [
+            "Medianoche",
+            "Azul",
+            "Blanco estrella",
+            "Morado",
+            "PRODUCT(RED)"
+        ],
+
+        "iPhone 14 Pro": [
+            "Negro espacial",
+            "Plata",
+            "Oro",
+            "Morado oscuro"
+        ],
+
+        "iPhone 15": [
+            "Negro",
+            "Azul",
+            "Verde",
+            "Amarillo",
+            "Rosa"
+        ],
+
+        "iPhone 15 Pro": [
+            "Titanio negro",
+            "Titanio blanco",
+            "Titanio azul",
+            "Titanio natural"
+        ],
+
+        "iPhone 16": [
+            "Negro",
+            "Blanco",
+            "Rosa",
+            "Verde azulado",
+            "Ultramarino"
+        ],
+
+        "iPhone 16 Pro": [
+            "Titanio negro",
+            "Titanio natural",
+            "Titanio blanco",
+            "Titanio desierto"
+        ],
+
+        "iPhone 17": [
+            "Negro",
+            "Blanco",
+            "Azul niebla",
+            "Salvia",
+            "Lavanda"
+        ],
+
+        "iPhone 17 Pro": [
+            "Naranja cósmico",
+            "Azul profundo",
+            "Plata"
+        ],
+
+        "iPhone 17 Air": [
+            "Negro espacial",
+            "Blanco nube",
+            "Oro claro",
+            "Azul cielo"
+        ],
+
+        "iPhone 17e": [
+            "Negro",
+            "Blanco"
+        ],
+
+        "iPhone 18": [
+            "Negro",
+            "Plata",
+            "Azul glacial",
+            "Burdeos"
+        ]
+
+    };
+
+
+    const modelSelect =
+        document.getElementById("model");
+
+    const colorSelect =
+        document.getElementById("color");
+
+
+    function populateColors(selectedColor = "") {
+
+        const model =
+            modelSelect.value;
+
+        colorSelect.innerHTML = "";
+
+        if (!model || !iphoneColors[model]) {
+
+            const option =
+                document.createElement("option");
+
+            option.value = "";
+            option.textContent =
+                "Selecciona primero el modelo";
+
+            colorSelect.appendChild(option);
+
+            return;
+        }
+
+
+        const defaultOption =
+            document.createElement("option");
+
+        defaultOption.value = "";
+        defaultOption.textContent =
+            "Selecciona el color";
+
+        colorSelect.appendChild(defaultOption);
+
+
+        iphoneColors[model].forEach(color => {
+
+            const option =
+                document.createElement("option");
+
+            option.value = color;
+            option.textContent = color;
+
+            if (color === selectedColor) {
+                option.selected = true;
+            }
+
+            colorSelect.appendChild(option);
+
+        });
+
+    }
+
+
+    modelSelect.addEventListener(
+        "change",
+        () => populateColors()
+    );
+
+
+    /* =========================================
+       DESCRIPTION COUNTER
+    ========================================= */
+
+    const description =
+        document.getElementById("description");
+
+    const descriptionCount =
+        document.getElementById("descriptionCount");
+
+
+    function updateDescriptionCount() {
+
+        descriptionCount.textContent =
+            `${description.value.length} / 1200`;
+
+    }
+
+
+    description.addEventListener(
+        "input",
+        updateDescriptionCount
+    );
+
+
+    /* =========================================
+       PHOTO PREVIEW
+    ========================================= */
+
+    const newPhotos =
+        document.getElementById("newPhotos");
+
+    const photoGrid =
+        document.getElementById("photoGrid");
+
+
+    let selectedNewFiles = [];
+
+
+    newPhotos.addEventListener(
+        "change",
+        event => {
+
+            const files =
+                Array.from(event.target.files);
+
+            selectedNewFiles =
+                [...selectedNewFiles, ...files];
+
+            renderNewPhotos();
+
+        }
+    );
+
+
+    function renderNewPhotos() {
+
+        const existing =
+            photoGrid.querySelectorAll(
+                ".new-photo"
+            );
+
+        existing.forEach(photo => photo.remove());
+
+
+        selectedNewFiles.forEach(
+            (file, index) => {
+
+                if (index >= 5) {
+                    return;
+                }
+
+                const reader =
+                    new FileReader();
+
+
+                reader.onload = event => {
+
+                    const wrapper =
+                        document.createElement("div");
+
+                    wrapper.className =
+                        "photo-item new-photo";
+
+
+                    wrapper.innerHTML = `
+
+                        <img
+                            src="${event.target.result}"
+                            alt="Nueva foto"
+                        >
+
+                        <button
+                            type="button"
+                            class="remove-photo"
+                            data-index="${index}"
+                            aria-label="Eliminar foto"
+                        >
+                            ×
+                        </button>
+
+                    `;
+
+
+                    wrapper
+                        .querySelector(".remove-photo")
+                        .addEventListener(
+                            "click",
+                            () => {
+
+                                selectedNewFiles.splice(
+                                    index,
+                                    1
+                                );
+
+                                renderNewPhotos();
+
+                            }
+                        );
+
+
+                    photoGrid.appendChild(wrapper);
+
+                };
+
+
+                reader.readAsDataURL(file);
+
+            }
+        );
+
+    }
+
+
+    /* =========================================
+       INITIAL DEMO STATE
+    ========================================= */
+
+    const loadingCard =
+        document.getElementById("loadingCard");
+
+    const editForm =
+        document.getElementById("editListingForm");
+
+    const notFoundCard =
+        document.getElementById("notFoundCard");
+
+
+    /*
+     * Temporalmente mostramos el formulario.
+     *
+     * Más adelante:
+     *
+     * 1. Se obtiene ?id=LISTING_ID
+     * 2. js/listings.js consulta Supabase
+     * 3. Se comprueba que el usuario sea el propietario
+     * 4. Se cargan todos los campos
+     * 5. Se cargan las fotos actuales
+     */
+
+    setTimeout(() => {
+
+        loadingCard.hidden = true;
+        editForm.hidden = false;
+
+        populateColors();
+
+    }, 450);
+
+
+    /* =========================================
+       FORM VALIDATION / SUBMIT
+    ========================================= */
+
+    const editListingForm =
+        document.getElementById("editListingForm");
+
+    const formAlert =
+        document.getElementById("formAlert");
+
+    const formAlertText =
+        document.getElementById("formAlertText");
+
+    const saveButton =
+        document.getElementById("saveButton");
+
+    const saveText =
+        document.getElementById("saveText");
+
+    const saveLoading =
+        document.getElementById("saveLoading");
+
+
+    function showFormError(message) {
+
+        formAlertText.textContent =
+            message;
+
+        formAlert.hidden = false;
+
+        formAlert.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+    }
+
+
+    editListingForm.addEventListener(
+        "submit",
+        async event => {
+
+            event.preventDefault();
+
+            formAlert.hidden = true;
+
+
+            const battery =
+                Number(
+                    document.getElementById("battery").value
+                );
+
+            const price =
+                Number(
+                    document.getElementById("price").value
+                );
+
+
+            if (!modelSelect.value) {
+
+                showFormError(
+                    "Selecciona el modelo del iPhone."
+                );
+
+                modelSelect.focus();
+
+                return;
+            }
+
+
+            if (!colorSelect.value) {
+
+                showFormError(
+                    "Selecciona el color del iPhone."
+                );
+
+                colorSelect.focus();
+
+                return;
+            }
+
+
+            if (
+                !Number.isFinite(price) ||
+                price <= 0
+            ) {
+
+                showFormError(
+                    "Introduce un precio válido."
+                );
+
+                document
+                    .getElementById("price")
+                    .focus();
+
+                return;
+            }
+
+
+            if (
+                !Number.isFinite(battery) ||
+                battery < 1 ||
+                battery > 100
+            ) {
+
+                showFormError(
+                    "La salud de batería debe estar entre 1% y 100%."
+                );
+
+                document
+                    .getElementById("battery")
+                    .focus();
+
+                return;
+            }
+
+
+            saveButton.disabled = true;
+
+            saveText.hidden = true;
+            saveLoading.hidden = false;
+
+
+            try {
+
+                /*
+                 * Aquí irá la actualización real
+                 * mediante js/listings.js y Supabase.
+                 */
+
+                await new Promise(
+                    resolve => setTimeout(resolve, 900)
+                );
+
+
+                formAlert.classList.add("success");
+
+                formAlertText.textContent =
+                    "Cambios preparados correctamente. La conexión con Supabase se añadirá después.";
+
+                formAlert.hidden = false;
+
+
+            } catch (error) {
+
+                formAlert.classList.remove("success");
+
+                showFormError(
+                    "No fue posible guardar los cambios."
+                );
+
+            } finally {
+
+                saveButton.disabled = false;
+
+                saveText.hidden = false;
+                saveLoading.hidden = true;
+
+            }
+
+        }
+    );
+
+</script>
+
+</body>
+</html>
