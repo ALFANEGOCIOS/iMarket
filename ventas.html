@@ -1,1 +1,779 @@
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Mis ventas | iMarket Cuba</title>
+  <meta
+    name="description"
+    content="Consulta y gestiona las ventas de tus iPhones en iMarket Cuba."
+  >
+
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/ventas.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+
+      <a href="index.html" class="brand">
+        <span class="brand-mark">i</span>
+        <span class="brand-name">iMarket <strong>Cuba</strong></span>
+      </a>
+
+      <nav class="desktop-nav">
+        <a href="buscar.html">Buscar iPhones</a>
+        <a href="favoritos.html">Favoritos</a>
+        <a href="mis-publicaciones.html">Mis publicaciones</a>
+        <a href="ventas.html" class="active">Mis ventas</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="publicar.html" class="btn btn-primary">
+          + Publicar
+        </a>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="buscar.html">Buscar iPhones</a>
+      <a href="favoritos.html">Favoritos</a>
+      <a href="mis-publicaciones.html">Mis publicaciones</a>
+      <a href="ventas.html" class="active">Mis ventas</a>
+      <a href="perfil.html">Mi perfil</a>
+
+      <a href="publicar.html" class="mobile-publish">
+        + Publicar iPhone
+      </a>
+    </div>
+  </header>
+
+
+  <!-- MAIN -->
+  <main class="sales-page">
+
+    <section class="page-container">
+
+      <!-- PAGE HEADER -->
+      <div class="page-heading">
+
+        <div>
+          <span class="eyebrow">VENTAS</span>
+
+          <h1>Mis ventas</h1>
+
+          <p>
+            Consulta el estado de las operaciones realizadas
+            a través de tus publicaciones.
+          </p>
+        </div>
+
+        <a href="mis-publicaciones.html" class="btn btn-secondary">
+          Ver mis publicaciones
+        </a>
+
+      </div>
+
+
+      <!-- STATS -->
+      <section class="sales-stats">
+
+        <div class="stat-card">
+          <div class="stat-icon stat-blue">↗</div>
+
+          <div>
+            <span class="stat-label">Ventas totales</span>
+            <strong class="stat-value">4</strong>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon stat-orange">◷</div>
+
+          <div>
+            <span class="stat-label">Pendientes</span>
+            <strong class="stat-value">1</strong>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon stat-green">✓</div>
+
+          <div>
+            <span class="stat-label">Completadas</span>
+            <strong class="stat-value">3</strong>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon stat-purple">$</div>
+
+          <div>
+            <span class="stat-label">Valor vendido</span>
+            <strong class="stat-value">$1,140</strong>
+          </div>
+        </div>
+
+      </section>
+
+
+      <!-- FILTERS -->
+      <section class="sales-toolbar">
+
+        <div class="sales-tabs" role="tablist">
+
+          <button
+            class="sales-tab active"
+            data-filter="all"
+            role="tab"
+          >
+            Todas
+            <span>4</span>
+          </button>
+
+          <button
+            class="sales-tab"
+            data-filter="reported"
+            role="tab"
+          >
+            Pendientes
+            <span>1</span>
+          </button>
+
+          <button
+            class="sales-tab"
+            data-filter="confirmed"
+            role="tab"
+          >
+            Completadas
+            <span>3</span>
+          </button>
+
+          <button
+            class="sales-tab"
+            data-filter="cancelled"
+            role="tab"
+          >
+            Canceladas
+            <span>0</span>
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- SALES LIST -->
+      <section class="sales-list" id="salesList">
+
+
+        <!-- SALE 1 -->
+        <article
+          class="sale-card"
+          data-status="reported"
+        >
+
+          <div class="sale-main">
+
+            <div class="sale-image">
+              <img
+                src="assets/images/iphone-placeholder.webp"
+                alt="iPhone 15 Pro"
+                onerror="this.src='https://placehold.co/300x300/f0f1f3/111111?text=iPhone+15+Pro'"
+              >
+            </div>
+
+            <div class="sale-info">
+
+              <div class="sale-title-row">
+
+                <div>
+                  <span class="sale-date">
+                    17 septiembre 2026
+                  </span>
+
+                  <h2>iPhone 15 Pro</h2>
+                </div>
+
+                <span class="status-badge status-pending">
+                  Pendiente
+                </span>
+
+              </div>
+
+              <div class="sale-details">
+
+                <span>256 GB</span>
+                <span>Titanio natural</span>
+                <span>92% batería</span>
+
+              </div>
+
+              <div class="sale-location">
+                📍 Playa, La Habana
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="sale-side">
+
+            <div class="sale-price">
+              <span>Precio</span>
+              <strong>$650</strong>
+            </div>
+
+            <button
+              class="btn btn-primary btn-confirm"
+              data-sale="iphone15"
+            >
+              Confirmar venta
+            </button>
+
+            <a href="iphone.html?id=demo15" class="sale-link">
+              Ver publicación
+            </a>
+
+          </div>
+
+        </article>
+
+
+        <!-- SALE 2 -->
+        <article
+          class="sale-card"
+          data-status="confirmed"
+        >
+
+          <div class="sale-main">
+
+            <div class="sale-image">
+              <img
+                src="assets/images/iphone-placeholder.webp"
+                alt="iPhone 12 Pro"
+                onerror="this.src='https://placehold.co/300x300/f0f1f3/111111?text=iPhone+12+Pro'"
+              >
+            </div>
+
+            <div class="sale-info">
+
+              <div class="sale-title-row">
+
+                <div>
+                  <span class="sale-date">
+                    12 septiembre 2026
+                  </span>
+
+                  <h2>iPhone 12 Pro</h2>
+                </div>
+
+                <span class="status-badge status-completed">
+                  Completada
+                </span>
+
+              </div>
+
+              <div class="sale-details">
+
+                <span>128 GB</span>
+                <span>Grafito</span>
+                <span>89% batería</span>
+
+              </div>
+
+              <div class="sale-location">
+                📍 La Lisa, La Habana
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="sale-side">
+
+            <div class="sale-price">
+              <span>Precio</span>
+              <strong>$430</strong>
+            </div>
+
+            <span class="sale-confirmed">
+              ✓ Venta confirmada
+            </span>
+
+            <a href="iphone.html?id=demo12pro" class="sale-link">
+              Ver publicación
+            </a>
+
+          </div>
+
+        </article>
+
+
+        <!-- SALE 3 -->
+        <article
+          class="sale-card"
+          data-status="confirmed"
+        >
+
+          <div class="sale-main">
+
+            <div class="sale-image">
+              <img
+                src="assets/images/iphone-placeholder.webp"
+                alt="iPhone 11"
+                onerror="this.src='https://placehold.co/300x300/f0f1f3/111111?text=iPhone+11'"
+              >
+            </div>
+
+            <div class="sale-info">
+
+              <div class="sale-title-row">
+
+                <div>
+                  <span class="sale-date">
+                    5 septiembre 2026
+                  </span>
+
+                  <h2>iPhone 11</h2>
+                </div>
+
+                <span class="status-badge status-completed">
+                  Completada
+                </span>
+
+              </div>
+
+              <div class="sale-details">
+
+                <span>128 GB</span>
+                <span>Negro</span>
+                <span>84% batería</span>
+
+              </div>
+
+              <div class="sale-location">
+                📍 Arroyo Naranjo, La Habana
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="sale-side">
+
+            <div class="sale-price">
+              <span>Precio</span>
+              <strong>$310</strong>
+            </div>
+
+            <span class="sale-confirmed">
+              ✓ Venta confirmada
+            </span>
+
+            <a href="iphone.html?id=demo11" class="sale-link">
+              Ver publicación
+            </a>
+
+          </div>
+
+        </article>
+
+
+        <!-- SALE 4 -->
+        <article
+          class="sale-card"
+          data-status="confirmed"
+        >
+
+          <div class="sale-main">
+
+            <div class="sale-image">
+              <img
+                src="assets/images/iphone-placeholder.webp"
+                alt="iPhone XR"
+                onerror="this.src='https://placehold.co/300x300/f0f1f3/111111?text=iPhone+XR'"
+              >
+            </div>
+
+            <div class="sale-info">
+
+              <div class="sale-title-row">
+
+                <div>
+                  <span class="sale-date">
+                    28 agosto 2026
+                  </span>
+
+                  <h2>iPhone XR</h2>
+                </div>
+
+                <span class="status-badge status-completed">
+                  Completada
+                </span>
+
+              </div>
+
+              <div class="sale-details">
+
+                <span>64 GB</span>
+                <span>Azul</span>
+                <span>81% batería</span>
+
+              </div>
+
+              <div class="sale-location">
+                📍 Boyeros, La Habana
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="sale-side">
+
+            <div class="sale-price">
+              <span>Precio</span>
+              <strong>$240</strong>
+            </div>
+
+            <span class="sale-confirmed">
+              ✓ Venta confirmada
+            </span>
+
+            <a href="iphone.html?id=demoXR" class="sale-link">
+              Ver publicación
+            </a>
+
+          </div>
+
+        </article>
+
+
+      </section>
+
+
+      <!-- EMPTY STATE -->
+      <section class="empty-state" id="emptyState" hidden>
+
+        <div class="empty-icon">
+          $
+        </div>
+
+        <h2>No hay ventas aquí</h2>
+
+        <p>
+          Cuando una venta cambie a este estado,
+          aparecerá en esta sección.
+        </p>
+
+      </section>
+
+
+      <!-- INFORMATION CARD -->
+      <section class="sales-help">
+
+        <div class="help-icon">
+          ✓
+        </div>
+
+        <div>
+
+          <h3>¿Cómo funciona una venta?</h3>
+
+          <p>
+            Cuando un comprador indique que adquirió tu iPhone,
+            la operación aparecerá como pendiente. Después de
+            confirmar que la venta realmente se realizó, quedará
+            registrada como completada.
+          </p>
+
+          <a href="como-funciona.html">
+            Conoce cómo funciona iMarket Cuba →
+          </a>
+
+        </div>
+
+      </section>
+
+    </section>
+
+  </main>
+
+
+  <!-- CONFIRMATION MODAL -->
+  <div class="modal-overlay" id="confirmModal" hidden>
+
+    <div class="modal">
+
+      <button
+        class="modal-close"
+        id="modalClose"
+        aria-label="Cerrar"
+      >
+        ×
+      </button>
+
+      <div class="modal-icon">
+        ✓
+      </div>
+
+      <h2>¿Confirmar esta venta?</h2>
+
+      <p>
+        Al confirmar, indicarás que el iPhone fue vendido
+        correctamente. Esta acción actualizará el estado
+        de la operación.
+      </p>
+
+      <div class="modal-product">
+        <strong id="modalProductName">
+          iPhone 15 Pro
+        </strong>
+
+        <span id="modalProductPrice">
+          $650
+        </span>
+      </div>
+
+      <div class="modal-actions">
+
+        <button
+          class="btn btn-secondary"
+          id="cancelModal"
+        >
+          Cancelar
+        </button>
+
+        <button
+          class="btn btn-primary"
+          id="confirmSale"
+        >
+          Confirmar venta
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+
+    <div class="footer-inner">
+
+      <div class="footer-brand">
+        <strong>iMarket Cuba</strong>
+        <span>Marketplace de iPhones entre particulares.</span>
+      </div>
+
+      <div class="footer-links">
+
+        <a href="seguridad.html">Seguridad</a>
+        <a href="terminos.html">Términos</a>
+        <a href="como-funciona.html">Cómo funciona</a>
+
+      </div>
+
+      <div class="footer-credit">
+        By
+        <a
+          href="https://alfanegocios.github.io/"
+          target="_blank"
+          rel="noopener"
+        >
+          ALFA NEGOCIOS
+        </a>
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+      /* =========================
+         MOBILE MENU
+      ========================= */
+
+      const menuToggle = document.getElementById("menuToggle");
+      const mobileMenu = document.getElementById("mobileMenu");
+
+      menuToggle?.addEventListener("click", () => {
+        menuToggle.classList.toggle("open");
+        mobileMenu.classList.toggle("open");
+      });
+
+
+      /* =========================
+         SALES FILTER
+      ========================= */
+
+      const tabs = document.querySelectorAll(".sales-tab");
+      const cards = document.querySelectorAll(".sale-card");
+      const emptyState = document.getElementById("emptyState");
+
+      tabs.forEach(tab => {
+
+        tab.addEventListener("click", () => {
+
+          tabs.forEach(item => {
+            item.classList.remove("active");
+          });
+
+          tab.classList.add("active");
+
+          const filter = tab.dataset.filter;
+          let visibleCards = 0;
+
+          cards.forEach(card => {
+
+            const status = card.dataset.status;
+
+            if (filter === "all" || status === filter) {
+              card.style.display = "";
+              visibleCards++;
+            } else {
+              card.style.display = "none";
+            }
+
+          });
+
+          emptyState.hidden = visibleCards !== 0;
+
+        });
+
+      });
+
+
+      /* =========================
+         CONFIRM SALE MODAL
+      ========================= */
+
+      const modal = document.getElementById("confirmModal");
+      const modalClose = document.getElementById("modalClose");
+      const cancelModal = document.getElementById("cancelModal");
+      const confirmSale = document.getElementById("confirmSale");
+
+      const modalProductName =
+        document.getElementById("modalProductName");
+
+      const modalProductPrice =
+        document.getElementById("modalProductPrice");
+
+      let selectedSale = null;
+
+
+      document.querySelectorAll(".btn-confirm").forEach(button => {
+
+        button.addEventListener("click", () => {
+
+          selectedSale = button.dataset.sale;
+
+          const card = button.closest(".sale-card");
+
+          const productName =
+            card.querySelector("h2")?.textContent || "iPhone";
+
+          const productPrice =
+            card.querySelector(".sale-price strong")?.textContent || "";
+
+          modalProductName.textContent = productName;
+          modalProductPrice.textContent = productPrice;
+
+          modal.hidden = false;
+
+          document.body.classList.add("modal-open");
+
+        });
+
+      });
+
+
+      function closeModal() {
+
+        modal.hidden = true;
+        document.body.classList.remove("modal-open");
+        selectedSale = null;
+
+      }
+
+
+      modalClose?.addEventListener("click", closeModal);
+      cancelModal?.addEventListener("click", closeModal);
+
+
+      modal?.addEventListener("click", event => {
+
+        if (event.target === modal) {
+          closeModal();
+        }
+
+      });
+
+
+      confirmSale?.addEventListener("click", () => {
+
+        if (!selectedSale) return;
+
+        const card = document.querySelector(
+          `.btn-confirm[data-sale="${selectedSale}"]`
+        )?.closest(".sale-card");
+
+        if (card) {
+
+          card.dataset.status = "confirmed";
+
+          const badge =
+            card.querySelector(".status-badge");
+
+          if (badge) {
+            badge.textContent = "Completada";
+            badge.className =
+              "status-badge status-completed";
+          }
+
+          const button =
+            card.querySelector(".btn-confirm");
+
+          if (button) {
+            button.outerHTML = `
+              <span class="sale-confirmed">
+                ✓ Venta confirmada
+              </span>
+            `;
+          }
+
+        }
+
+        closeModal();
+
+      });
+
+    });
+  </script>
+
+</body>
+</html>
