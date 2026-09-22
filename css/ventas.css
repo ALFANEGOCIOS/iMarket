@@ -863,3 +863,9 @@ body.modal-open {
   }
 
 }
+/* Correcciones de estructura */
+body:has(.sales-page) { display:flex; flex-direction:column; min-height:100vh; background:var(--sales-bg); }
+body:has(.sales-page) .sales-page { flex:1 0 auto; width:100%; }
+body:has(.sales-page) .site-footer { flex:0 0 auto; }
+@media (max-width:760px) { .page-heading { align-items:flex-start; flex-direction:column; } .sales-stats { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media (max-width:480px) { .sales-stats { grid-template-columns:1fr; } .sales-page { padding-left:14px; padding-right:14px; } }

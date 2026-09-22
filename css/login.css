@@ -793,3 +793,11 @@
     gap: 5px;
   }
 }
+/* Ajustes de estructura y móvil */
+.auth-page { overflow-x: hidden; }
+.auth-page .auth-header { flex: 0 0 auto; }
+.auth-page .auth-footer { flex: 0 0 auto; }
+.auth-page .login-main { width: 100%; }
+@media (max-width: 600px) {
+  .auth-page .auth-footer-inner { width: min(100%, 100%); }
+}

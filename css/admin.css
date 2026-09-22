@@ -171,3 +171,21 @@
     padding: 20px;
   }
 }
+
+:root {
+  --bg-main:#f6f7f9;
+  --secondary:#111111;
+  --primary:#147ef5;
+  --text-muted:#6b6f76;
+  --border-subtle:#e5e7eb;
+  --radius-md:16px;
+  --radius-full:999px;
+  --shadow-sm:0 2px 8px rgba(0,0,0,.05);
+}
+.admin-body { margin:0; background:var(--bg-main); color:#111; font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+.admin-page-shell { min-height:100vh; display:flex; align-items:center; justify-content:center; padding:30px; }
+.admin-page-card { width:min(720px,100%); background:#fff; border:1px solid var(--border-subtle); border-radius:20px; padding:32px; box-shadow:var(--shadow-sm); }
+.admin-page-card h1 { margin:0 0 10px; }
+.admin-page-card p { color:var(--text-muted); line-height:1.6; }
+.admin-page-links { display:flex; flex-wrap:wrap; gap:10px; margin-top:22px; }
+.admin-page-links a { padding:10px 14px; border-radius:10px; background:#111; color:#fff; text-decoration:none; font-size:14px; }

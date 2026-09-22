@@ -842,3 +842,14 @@
         font-size: 23px;
     }
 }
+/* Ajustes de estructura y móvil */
+body:has(.register-page) { display: flex; flex-direction: column; background: var(--register-background); }
+body:has(.register-page) .register-page { flex: 1 0 auto; width: 100%; }
+body:has(.register-page) .auth-footer { flex: 0 0 auto; }
+@media (max-width: 600px) {
+  .register-page { align-items: stretch; }
+  .register-card { width: 100%; }
+}
+.input-prefix { display:flex; align-items:center; padding:0 10px 0 13px; color:var(--register-secondary); font-weight:700; font-size:14px; }
+.input-wrapper:has(.input-prefix) { display:flex; align-items:center; }
+.input-wrapper:has(.input-prefix) input { flex:1; min-width:0; }
