@@ -2,8 +2,6 @@
 <html lang="es">
 <head>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="js/supabase.js"></script>
     <meta charset="UTF-8">
 
     <meta
@@ -24,6 +22,8 @@
     <title>iMarket Cuba | Compra y vende iPhones</title>
 
     <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/components.css">
 </head>
 
 <body>
@@ -858,43 +858,7 @@
     <!-- =========================================================
          JAVASCRIPT
          ========================================================= -->
-
-    <script>
-
-        /*
-         * Por ahora el index es solamente visual.
-         *
-         * Más adelante:
-         *
-         * listings.js
-         *  ↓
-         * Supabase
-         *  ↓
-         * publicaciones reales
-         *
-         * También conectaremos:
-         * - favoritos
-         * - autenticación
-         * - menú móvil
-         * - búsqueda
-         * - vendedor verificado
-         */
-
-        document.querySelectorAll(".favorite-button")
-            .forEach(button => {
-
-                button.addEventListener("click", event => {
-
-                    event.preventDefault();
-                    event.stopPropagation();
-
-                    button.classList.toggle("active");
-
-                });
-
-            });
-
-    </script>
+<script type="module" src="js/bootstrap.js"></script>
 
 </body>
 </html>

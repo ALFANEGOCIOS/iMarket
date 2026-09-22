@@ -190,7 +190,7 @@
 
               <div class="profile-summary-info">
 
-                <strong>Juan Pérez</strong>
+                <strong id="accountName">Juan Pérez</strong>
 
                 <span>
                   Usuario desde septiembre de 2026
@@ -214,7 +214,7 @@
                   <strong>Correo electrónico</strong>
 
                   <span>
-                    juan.perez@example.com
+                    <span id="accountEmail">juan.perez@example.com</span>
                   </span>
 
                 </div>
@@ -236,7 +236,7 @@
                   <strong>Número de teléfono</strong>
 
                   <span>
-                    +53 5 XXX XXXX
+                    <span id="accountPhone">+53 5 XXX XXXX</span>
                   </span>
 
                 </div>
@@ -1132,26 +1132,6 @@
 
 
       /* =====================================================
-         LOGOUT
-      ===================================================== */
-
-      document
-        .getElementById("logoutButton")
-        ?.addEventListener(
-          "click",
-          () => {
-
-            openModal(
-              "Cerrar sesión",
-              "¿Quieres cerrar la sesión en este dispositivo?",
-              "logout"
-            );
-
-          }
-        );
-
-
-      /* =====================================================
          CONFIRM
       ===================================================== */
 
@@ -1194,6 +1174,8 @@
     });
 
   </script>
+
+  <script type="module" src="js/bootstrap.js"></script>
 
 </body>
 </html>

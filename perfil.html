@@ -911,43 +911,11 @@
         );
 
 
-        /* =====================================================
-           LOGOUT PLACEHOLDER
-        ===================================================== */
-
-        const logoutButton =
-            document.getElementById(
-                "logoutButton"
-            );
-
-
-        logoutButton.addEventListener(
-            "click",
-            () => {
-
-                /*
-                 * La lógica real se moverá posteriormente
-                 * a js/auth.js:
-                 *
-                 * await supabase.auth.signOut();
-                 */
-
-                const confirmLogout =
-                    confirm(
-                        "¿Quieres cerrar sesión?"
-                    );
-
-                if (!confirmLogout) {
-                    return;
-                }
-
-                window.location.href =
-                    "login.html";
-
-            }
-        );
+        
 
     </script>
+
+  <script type="module" src="js/bootstrap.js"></script>
 
 </body>
 </html>

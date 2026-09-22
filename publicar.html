@@ -16,6 +16,8 @@
     <title>Publicar iPhone | iMarket Cuba</title>
 
     <link rel="stylesheet" href="css/publicar.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/components.css">
 </head>
 
 <body>
@@ -1748,56 +1750,7 @@
             });
 
 
-        /* =========================================================
-           FORMULARIO
-           ========================================================= */
-
-        document
-            .getElementById("listingForm")
-            .addEventListener(
-                "submit",
-                function (event) {
-
-                    event.preventDefault();
-
-
-                    if (!selectedColor.value) {
-
-                        colorSection.scrollIntoView({
-                            behavior: "smooth",
-                            block: "center"
-                        });
-
-                        alert(
-                            "Selecciona el color de tu iPhone."
-                        );
-
-                        return;
-                    }
-
-
-                    const formData =
-                        new FormData(this);
-
-
-                    const data =
-                        Object.fromEntries(
-                            formData.entries()
-                        );
-
-
-                    console.log(
-                        "Datos de prueba:",
-                        data
-                    );
-
-
-                    alert(
-                        "Prueba completada. Los datos se han enviado a la consola del navegador."
-                    );
-
-                }
-            );
+        /* La publicación real se gestiona desde js/bootstrap.js y Supabase. */
 
 
         /* =========================================================
@@ -1839,6 +1792,8 @@
             );
 
     </script>
+
+  <script type="module" src="js/bootstrap.js"></script>
 
 </body>
 </html>
