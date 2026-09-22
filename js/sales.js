@@ -1,91 +1,48 @@
 import { supabase } from './supabase.js';
 import { showToast, toggleGlobalLoader } from './app.js';
 
-/**
- * Registra una intención de compra o solicitud sobre un anuncio.
- */
-export async function createPurchaseOffer(listingId, offerPrice, message = '') {
+export async function markAsSold(listingId, soldPriceUsd, buyerId = null, saleSource = 'external') {
   toggleGlobalLoader(true);
   try {
-    const { data: { session } } = await supabase.auth.getSession();
-    if (!session) {
-      showToast('Debes iniciar sesión para realizar una oferta', 'warning');
-      return;
-    }
-
-    const { data, error } = await supabase
-      .from('offers')
-      .insert({
-        listing_id: listingId,
-        buyer_id: session.user.id,
-        offered_price: offerPrice,
-        message: message,
-        status: 'pending'
-      })
-      .select()
-      .single();
-
-    if (error) throw error;
-
-    showToast('¡Oferta enviada al vendedor exitosamente!', 'success');
-    return data;
-  } catch (err) {
-    showToast(err.message || 'Error al enviar la oferta', 'error');
-  } finally {
-    toggleGlobalLoader(false);
-  }
-}
-
-/**
- * Marca una publicación como vendida e invoca el RPC para cerrar el trato.
- * 
- * @param {string} listingId - ID de la publicación
- * @param {string} buyerId - ID del comprador seleccionado
- */
-export async function markAsSold(listingId, buyerId) {
-  toggleGlobalLoader(true);
-  try {
-    const { data, error } = await supabase.rpc('process_sale_transaction', {
+    const { data, error } = await supabase.rpc('mark_listing_sold', {
       p_listing_id: listingId,
-      p_buyer_id: buyerId
+      p_sold_price_usd: Number(soldPriceUsd),
+      p_buyer_id: buyerId,
+      p_sale_source: saleSource
     });
-
     if (error) throw error;
-
-    showToast('¡Venta completada! Se ha habilitado la opción de reseña.', 'success');
-    return data;
-  } catch (err) {
-    showToast(err.message || 'Error al procesar la venta', 'error');
+    showToast('La publicación fue marcada como vendida.', 'success');
+    return { success: true, data };
+  } catch (error) {
+    console.error('[iMarket] markAsSold:', error);
+    showToast(error.message || 'No se pudo registrar la venta.', 'error');
+    return { success: false, error: error.message };
   } finally {
     toggleGlobalLoader(false);
   }
 }
 
-/**
- * Obtiene el historial de compras o ventas del usuario autenticado.
- * 
- * @param {'seller'|'buyer'} role - Rol a consultar
- */
+export async function confirmSale(saleId) {
+  const { data, error } = await supabase.rpc('confirm_sale', { p_sale_id: saleId });
+  if (error) throw error;
+  return data;
+}
+
 export async function getUserSalesHistory(role = 'seller') {
-  const { data: { session } } = await supabase.auth.getSession();
-  if (!session) return [];
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) return { data: [], error: new Error('No autenticado') };
 
-  const columnFilter = role === 'seller' ? 'seller_id' : 'buyer_id';
-
+  const column = role === 'buyer' ? 'buyer_id' : 'seller_id';
   const { data, error } = await supabase
-    .from('sales_history')
+    .from('sales')
     .select(`
       *,
-      listings (title, price, listing_images (image_url)),
-      profiles:buyer_id (full_name, avatar_url)
+      listings (id, title, model, price, listing_images (image_url)),
+      buyer:buyer_id (id, full_name, avatar_url),
+      seller:seller_id (id, full_name, avatar_url)
     `)
-    .eq(columnFilter, session.user.id)
+    .eq(column, user.id)
     .order('created_at', { ascending: false });
 
-  if (error) {
-    console.error('Error al consultar historial:', error);
-    return [];
-  }
-
-  return data;
+  return { data: data || [], error };
 }

@@ -1,96 +1,64 @@
 import { supabase } from './supabase.js';
 import { showToast, toggleGlobalLoader } from './app.js';
+import { requireAdmin } from './guards.js';
 
-/**
- * Verifica si el usuario actual tiene el rol de administrador.
- */
 export async function checkAdminAccess() {
-  const { data: { session } } = await supabase.auth.getSession();
-  if (!session) {
-    window.location.href = '../login.html';
-    return false;
-  }
-
-  const { data: profile } = await supabase
-    .from('profiles')
-    .select('role')
-    .eq('id', session.user.id)
-    .single();
-
-  if (profile?.role !== 'admin') {
-    showToast('Acceso denegado: Área restringida a administradores', 'error');
-    setTimeout(() => { window.location.href = '../index.html'; }, 1500);
-    return false;
-  }
-
-  return true;
+  return await requireAdmin();
 }
 
-/**
- * Obtiene métricas generales para las KPI Cards del Admin.
- */
 export async function fetchAdminMetrics() {
-  const [usersCount, listingsCount, pendingKycCount] = await Promise.all([
+  const [users, listings, verifications, sales] = await Promise.all([
     supabase.from('profiles').select('id', { count: 'exact', head: true }),
     supabase.from('listings').select('id', { count: 'exact', head: true }).eq('status', 'active'),
-    supabase.from('kyc_requests').select('id', { count: 'exact', head: true }).eq('status', 'pending')
+    supabase.from('verification_requests').select('id', { count: 'exact', head: true }).eq('status', 'pending'),
+    supabase.from('sales').select('id', { count: 'exact', head: true })
   ]);
 
   return {
-    totalUsers: usersCount.count || 0,
-    activeListings: listingsCount.count || 0,
-    pendingKYC: pendingKycCount.count || 0
+    totalUsers: users.count || 0,
+    activeListings: listings.count || 0,
+    pendingVerification: verifications.count || 0,
+    totalSales: sales.count || 0,
+    errors: [users, listings, verifications, sales].filter(r => r.error).map(r => r.error)
   };
 }
 
-/**
- * Moderación de publicaciones (Aprobar o Pausar/Rechazar).
- */
 export async function moderateListing(listingId, status) {
   toggleGlobalLoader(true);
   try {
-    const { error } = await supabase
-      .from('listings')
-      .update({ status: status })
-      .eq('id', listingId);
-
+    const { error } = await supabase.from('listings').update({ status }).eq('id', listingId);
     if (error) throw error;
-
-    showToast(`Publicación actualizada a: ${status}`, 'success');
-  } catch (err) {
-    showToast(err.message || 'Error al moderar publicación', 'error');
+    showToast('Publicación actualizada.', 'success');
+    return true;
+  } catch (error) {
+    showToast(error.message || 'No se pudo actualizar la publicación.', 'error');
+    return false;
   } finally {
     toggleGlobalLoader(false);
   }
 }
 
-/**
- * Evalúa y aprueba/rechaza una solicitud KYC de un usuario.
- */
-export async function reviewKYCRequest(requestId, userId, approve = true) {
+export async function reviewVerification(requestId, userId, approve = true) {
   toggleGlobalLoader(true);
   try {
-    const newStatus = approve ? 'approved' : 'rejected';
-
-    // 1. Actualizar solicitud KYC
-    const { error: kycErr } = await supabase
-      .from('kyc_requests')
-      .update({ status: newStatus, reviewed_at: new Date().toISOString() })
+    const status = approve ? 'approved' : 'rejected';
+    const { error: requestError } = await supabase
+      .from('verification_requests')
+      .update({ status, reviewed_at: new Date().toISOString() })
       .eq('id', requestId);
+    if (requestError) throw requestError;
 
-    if (kycErr) throw kycErr;
-
-    // 2. Actualizar el perfil del usuario
-    const { error: profileErr } = await supabase
+    const { error: profileError } = await supabase
       .from('profiles')
-      .update({ kyc_status: newStatus })
+      .update({ verification_status: status, updated_at: new Date().toISOString() })
       .eq('id', userId);
+    if (profileError) throw profileError;
 
-    if (profileErr) throw profileErr;
-
-    showToast(`Verificación KYC ${approve ? 'Aprobada' : 'Rechazada'}`, approve ? 'success' : 'info');
-  } catch (err) {
-    showToast(err.message || 'Error al procesar la verificación', 'error');
+    showToast(approve ? 'Verificación aprobada.' : 'Verificación rechazada.', 'success');
+    return true;
+  } catch (error) {
+    showToast(error.message || 'No se pudo procesar la verificación.', 'error');
+    return false;
   } finally {
     toggleGlobalLoader(false);
   }

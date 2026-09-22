@@ -37,7 +37,7 @@ export async function submitKYCVerification(docFile, selfieFile, docType = 'iden
 
     // 3. Crear solicitud en DB
     const { error: dbErr } = await supabase
-      .from('kyc_requests')
+      .from('verification_requests')
       .insert({
         user_id: userId,
         document_type: docType,
@@ -48,11 +48,6 @@ export async function submitKYCVerification(docFile, selfieFile, docType = 'iden
 
     if (dbErr) throw dbErr;
 
-    // Actualizar perfil a estado pendiente
-    await supabase
-      .from('profiles')
-      .update({ kyc_status: 'pending' })
-      .eq('id', userId);
 
     showToast('Documentos enviados a revisión correctamente.', 'success');
     return true;
@@ -73,10 +68,10 @@ export async function getKYCStatus() {
 
   const { data, error } = await supabase
     .from('profiles')
-    .select('kyc_status')
+    .select('verification_status')
     .eq('id', session.user.id)
     .single();
 
   if (error || !data) return 'unverified';
-  return data.kyc_status || 'unverified';
+  return data.verification_status || 'unverified';
 }

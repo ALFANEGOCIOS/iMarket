@@ -1,131 +1,121 @@
 import { supabase } from './supabase.js';
+import { showToast, toggleGlobalLoader } from './app.js';
 
-/**
- * Registra un nuevo usuario en Supabase Auth y crea automáticamente
- * las entradas iniciales en 'profiles' y 'profile_private'.
- * 
- * @param {string} email 
- * @param {string} password 
- * @param {Object} metadata - Datos adicionales ({ full_name, phone_number, identity_document })
- */
+export async function getCurrentUser() {
+  const { data, error } = await supabase.auth.getUser();
+  if (error || !data.user) return null;
+  return data.user;
+}
+
+export async function ensureProfile(user, metadata = {}) {
+  if (!user) return { success: false, error: 'Usuario no autenticado.' };
+
+  const payload = {
+    id: user.id,
+    full_name: metadata.full_name ?? user.user_metadata?.full_name ?? '',
+    phone_number: metadata.phone_number ?? user.user_metadata?.phone_number ?? null,
+    updated_at: new Date().toISOString()
+  };
+
+  const { data, error } = await supabase
+    .from('profiles')
+    .upsert(payload, { onConflict: 'id' })
+    .select()
+    .single();
+
+  if (error) return { success: false, error: error.message };
+  return { success: true, data };
+}
+
 export async function signUpUser(email, password, metadata = {}) {
   try {
-    const { full_name, phone_number, identity_document } = metadata;
+    toggleGlobalLoader(true);
 
-    // 1. Registro en Supabase Auth
-    const { data: authData, error: authError } = await supabase.auth.signUp({
-      email: email.trim(),
-      password: password,
+    const { data, error } = await supabase.auth.signUp({
+      email: email.trim().toLowerCase(),
+      password,
       options: {
         data: {
-          full_name: full_name || ''
+          full_name: metadata.full_name || '',
+          phone_number: metadata.phone_number || ''
         }
       }
     });
 
-    if (authError) throw authError;
+    if (error) throw error;
+    if (!data.user) throw new Error('Supabase no devolvió el usuario registrado.');
 
-    const user = authData.user;
-    if (!user) throw new Error('No se pudo obtener la información del usuario registrado.');
-
-    // 2. Insertar/Actualizar perfil público (public.profiles)
-    const { error: profileError } = await supabase
-      .from('profiles')
-      .upsert({
-        id: user.id,
-        full_name: full_name || '',
-        phone_number: phone_number || null,
-        updated_at: new Date().toISOString()
-      }, { onConflict: 'id' });
-
-    if (profileError) throw profileError;
-
-    // 3. Insertar/Actualizar datos privados (public.profile_private)
-    if (identity_document) {
-      const { error: privateError } = await supabase
-        .from('profile_private')
-        .upsert({
-          id: user.id,
-          identity_document: identity_document,
-          updated_at: new Date().toISOString()
-        }, { onConflict: 'id' });
-
-      if (privateError) throw privateError;
+    let profileResult = null;
+    if (data.session) {
+      profileResult = await ensureProfile(data.user, metadata);
+      if (!profileResult.success) throw new Error(profileResult.error);
     }
 
-    return { success: true, user: authData.user, session: authData.session };
+    return {
+      success: true,
+      user: data.user,
+      session: data.session,
+      requiresEmailConfirmation: !data.session,
+      profile: profileResult?.data || null
+    };
   } catch (error) {
-    console.error('Error en signUpUser:', error.message);
-    return { success: false, error: error.message };
+    console.error('[iMarket] signUpUser:', error);
+    return { success: false, error: error.message || 'No se pudo crear la cuenta.' };
+  } finally {
+    toggleGlobalLoader(false);
   }
 }
 
-/**
- * Inicia sesión con correo y contraseña.
- * 
- * @param {string} email 
- * @param {string} password 
- */
 export async function signInUser(email, password) {
   try {
+    toggleGlobalLoader(true);
+
     const { data, error } = await supabase.auth.signInWithPassword({
-      email: email.trim(),
-      password: password
+      email: email.trim().toLowerCase(),
+      password
     });
 
     if (error) throw error;
 
+    await ensureProfile(data.user);
     return { success: true, user: data.user, session: data.session };
   } catch (error) {
-    console.error('Error en signInUser:', error.message);
-    return { success: false, error: error.message };
+    console.error('[iMarket] signInUser:', error);
+    return { success: false, error: error.message || 'No se pudo iniciar sesión.' };
+  } finally {
+    toggleGlobalLoader(false);
   }
 }
 
-/**
- * Cierra la sesión activa del usuario y redirige a la página principal.
- */
 export async function signOutUser() {
-  try {
-    const { error } = await supabase.auth.signOut();
-    if (error) throw error;
-
-    window.location.href = '/login.html';
-  } catch (error) {
-    console.error('Error al cerrar sesión:', error.message);
+  const { error } = await supabase.auth.signOut();
+  if (error) {
+    showToast(error.message || 'No se pudo cerrar la sesión.', 'error');
+    return false;
   }
+
+  const loginUrl = new URL('login.html', window.location.href).href;
+  window.location.href = loginUrl;
+  return true;
 }
 
-/**
- * Envía un correo electrónico para restablecer la contraseña.
- * 
- * @param {string} email 
- */
 export async function sendPasswordReset(email) {
   try {
-    const { error } = await supabase.auth.resetPasswordForEmail(email.trim(), {
-      redirectTo: `${window.location.origin}/configuracion.html`
-    });
-
+    const redirectTo = new URL('configuracion.html', window.location.href).href;
+    const { error } = await supabase.auth.resetPasswordForEmail(email.trim().toLowerCase(), { redirectTo });
     if (error) throw error;
-
     return { success: true };
   } catch (error) {
-    console.error('Error en sendPasswordReset:', error.message);
-    return { success: false, error: error.message };
+    return { success: false, error: error.message || 'No se pudo enviar el correo.' };
   }
 }
 
-/**
- * Obtiene el usuario autenticado actualmente en el navegador.
- */
-export async function getCurrentUser() {
-  try {
-    const { data: { user }, error } = await supabase.auth.getUser();
-    if (error || !user) return null;
-    return user;
-  } catch (error) {
-    console.error('Error en getCurrentUser:', error.message);
-    return null;
-  }
+export function getFriendlyAuthError(message = '') {
+  const text = message.toLowerCase();
+  if (text.includes('invalid login credentials')) return 'El correo o la contraseña no son correctos.';
+  if (text.includes('email not confirmed')) return 'Debes confirmar tu correo antes de iniciar sesión.';
+  if (text.includes('user already registered')) return 'Ya existe una cuenta con ese correo.';
+  if (text.includes('password should be at least')) return 'La contraseña no cumple los requisitos mínimos.';
+  if (text.includes('rate limit')) return 'Demasiados intentos. Espera unos minutos y vuelve a intentarlo.';
+  return message || 'Ocurrió un error con Supabase.';
 }

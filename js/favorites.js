@@ -1,111 +1,60 @@
 import { supabase } from './supabase.js';
 import { showToast } from './app.js';
 
-/**
- * Obtiene los IDs de todas las publicaciones marcadas como favoritas por el usuario.
- */
 export async function getUserFavoriteIds() {
-  const { data: { session } } = await supabase.auth.getSession();
-  if (!session) return [];
-
-  const { data, error } = await supabase
-    .from('favorites')
-    .select('listing_id')
-    .eq('user_id', session.user.id);
-
-  if (error) {
-    console.error('Error al obtener favoritos:', error);
-    return [];
-  }
-
-  return data.map(item => item.listing_id);
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) return [];
+  const { data, error } = await supabase.from('favorites').select('listing_id').eq('user_id', user.id);
+  if (error) throw error;
+  return (data || []).map(row => row.listing_id);
 }
 
-/**
- * Alterna el estado de favorito de una publicación (Agregar / Quitar).
- * 
- * @param {string} listingId - UUID de la publicación
- * @param {HTMLElement} [btnElement] - Botón para actualizar su estilo en vivo
- */
-export async function toggleFavorite(listingId, btnElement = null) {
-  const { data: { session } } = await supabase.auth.getSession();
-  
-  if (!session) {
-    showToast('Debes iniciar sesión para guardar favoritos', 'warning');
-    setTimeout(() => { window.location.href = 'login.html'; }, 1500);
+export async function toggleFavorite(listingId, button = null) {
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) {
+    showToast('Debes iniciar sesión para guardar favoritos.', 'warning');
+    window.location.href = new URL('login.html', window.location.href).href;
     return false;
   }
 
-  const userId = session.user.id;
-
-  // Verificar si ya existe en favoritos
-  const { data: existing } = await supabase
+  const { data: existing, error: lookupError } = await supabase
     .from('favorites')
     .select('id')
-    .eq('user_id', userId)
+    .eq('user_id', user.id)
     .eq('listing_id', listingId)
     .maybeSingle();
 
+  if (lookupError) throw lookupError;
+
   if (existing) {
-    // Eliminar de favoritos
-    const { error } = await supabase
-      .from('favorites')
-      .delete()
-      .eq('id', existing.id);
-
-    if (error) {
-      showToast('No se pudo quitar de favoritos', 'error');
-      return false;
-    }
-
-    showToast('Eliminado de tus favoritos', 'info');
-    if (btnElement) {
-      btnElement.classList.remove('active');
-      const icon = btnElement.querySelector('svg');
-      if (icon) {
-        icon.setAttribute('fill', 'none');
-        icon.setAttribute('stroke', 'currentColor');
-      }
-    }
+    const { error } = await supabase.from('favorites').delete().eq('id', existing.id);
+    if (error) throw error;
+    button?.classList.remove('active');
+    if (button) button.textContent = '♡';
+    showToast('Eliminado de favoritos.', 'info');
     return false;
-  } else {
-    // Agregar a favoritos
-    const { error } = await supabase
-      .from('favorites')
-      .insert({ user_id: userId, listing_id: listingId });
-
-    if (error) {
-      showToast('Error al guardar en favoritos', 'error');
-      return false;
-    }
-
-    showToast('Guardado en tus favoritos', 'success');
-    if (btnElement) {
-      btnElement.classList.add('active');
-      const icon = btnElement.querySelector('svg');
-      if (icon) {
-        icon.setAttribute('fill', '#e63946');
-        icon.setAttribute('stroke', '#e63946');
-      }
-    }
-    return true;
   }
+
+  const { error } = await supabase.from('favorites').insert({ user_id: user.id, listing_id: listingId });
+  if (error) throw error;
+  button?.classList.add('active');
+  if (button) button.textContent = '♥';
+  showToast('Guardado en favoritos.', 'success');
+  return true;
 }
 
-/**
- * Delegación global para eventos click en botones de favoritos (.favorite-btn).
- */
 export function initFavoriteButtons() {
-  document.addEventListener('click', async (e) => {
-    const btn = e.target.closest('.favorite-btn');
-    if (!btn) return;
+  document.addEventListener('click', async event => {
+    const button = event.target.closest('.favorite-btn');
+    if (!button) return;
+    event.preventDefault();
+    event.stopPropagation();
 
-    e.preventDefault();
-    e.stopPropagation();
-
-    const listingId = btn.dataset.favoriteId;
-    if (listingId) {
-      await toggleFavorite(listingId, btn);
+    try {
+      await toggleFavorite(button.dataset.favoriteId, button);
+    } catch (error) {
+      console.error(error);
+      showToast('No se pudo actualizar favoritos.', 'error');
     }
   });
 }

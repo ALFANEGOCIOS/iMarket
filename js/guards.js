@@ -1,29 +1,41 @@
 import { supabase } from './supabase.js';
 
-// Guard para páginas de usuarios autenticados (perfil.html, publicar.html, etc.)
-export async function requireAuth() {
-  const { data: { session } } = await supabase.auth.getSession();
-  if (!session) {
-    window.location.href = '/login.html';
-    return null;
-  }
-  return session.user;
+function redirectTo(file) {
+  window.location.href = new URL(file, window.location.href).href;
 }
 
-// Guard para el panel de administración (/admin/*)
+export async function requireAuth() {
+  const { data, error } = await supabase.auth.getSession();
+  if (error || !data.session) {
+    redirectTo('login.html');
+    return null;
+  }
+  return data.session.user;
+}
+
+export async function getProfile(userId) {
+  const { data, error } = await supabase
+    .from('profiles')
+    .select('*')
+    .eq('id', userId)
+    .maybeSingle();
+  return { data, error };
+}
+
 export async function requireAdmin() {
   const user = await requireAuth();
-  if (!user) return;
+  if (!user) return null;
 
-  // Consultar el rol en la tabla user_roles
-  const { data: roles, error } = await supabase
-    .from('user_roles')
+  const { data: profile, error } = await supabase
+    .from('profiles')
     .select('role')
-    .eq('user_id', user.id);
+    .eq('id', user.id)
+    .maybeSingle();
 
-  const isAdmin = roles?.some(r => r.role === 'admin' || r.role === 'moderator')[cite: 5];
-
-  if (error || !isAdmin) {
-    window.location.href = '/index.html';
+  if (error || !['admin', 'moderator'].includes(profile?.role)) {
+    redirectTo('index.html');
+    return null;
   }
+
+  return user;
 }

@@ -1,72 +1,49 @@
+import { checkSupabaseConnection } from './supabase.js';
 import { renderHeader, renderFooter } from './components.js';
 
-/**
- * Inicializador global del sistema. Se ejecuta automáticamente cuando el DOM está listo.
- */
-document.addEventListener('DOMContentLoaded', async () => {
-  // 1. Renderizar estructura global
-  await renderHeader();
-  renderFooter();
+let toastContainer;
 
-  // 2. Crear el contenedor de notificaciones Toast si no existe
-  initToastContainer();
-});
+function escapeHtml(value = '') {
+  return String(value)
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#039;');
+}
 
-/**
- * Inicializa el contenedor flotante para los mensajes Toast.
- */
-function initToastContainer() {
+export function initToastContainer() {
   if (!document.getElementById('toast-container')) {
-    const container = document.createElement('div');
-    container.id = 'toast-container';
-    container.className = 'toast-container';
-    document.body.appendChild(container);
+    toastContainer = document.createElement('div');
+    toastContainer.id = 'toast-container';
+    toastContainer.className = 'toast-container';
+    document.body.appendChild(toastContainer);
+  } else {
+    toastContainer = document.getElementById('toast-container');
   }
 }
 
-/**
- * Muestra una notificación emergente (Toast) en pantalla.
- * 
- * @param {string} message - Texto del mensaje
- * @param {'success'|'error'|'info'|'warning'} type - Tipo de notificación (color/icono)
- * @param {number} duration - Tiempo de visibilidad en milisegundos (default: 3500ms)
- */
 export function showToast(message, type = 'info', duration = 3500) {
   initToastContainer();
-  const container = document.getElementById('toast-container');
 
   const toast = document.createElement('div');
   toast.className = `toast toast-${type}`;
-  
-  const icons = {
-    success: '✓',
-    error: '✕',
-    info: 'ℹ',
-    warning: '⚠'
-  };
+  const icons = { success: '✓', error: '✕', info: 'ℹ', warning: '⚠' };
 
   toast.innerHTML = `
-    <span class="toast-icon">${icons[type] || 'ℹ'}</span>
-    <span class="toast-message">${message}</span>
+    <span class="toast-icon">${icons[type] || icons.info}</span>
+    <span class="toast-message">${escapeHtml(message)}</span>
   `;
 
-  container.appendChild(toast);
+  toastContainer.appendChild(toast);
+  requestAnimationFrame(() => toast.classList.add('show'));
 
-  // Animación de entrada
-  setTimeout(() => toast.classList.add('show'), 10);
-
-  // Remoción automática
-  setTimeout(() => {
+  window.setTimeout(() => {
     toast.classList.remove('show');
-    toast.addEventListener('transitionend', () => toast.remove());
+    window.setTimeout(() => toast.remove(), 250);
   }, duration);
 }
 
-/**
- * Muestra o oculta un indicador de carga global en la pantalla.
- * 
- * @param {boolean} show - true para mostrar, false para ocultar
- */
 export function toggleGlobalLoader(show = true) {
   let loader = document.getElementById('global-loader');
 
@@ -75,9 +52,7 @@ export function toggleGlobalLoader(show = true) {
       loader = document.createElement('div');
       loader.id = 'global-loader';
       loader.className = 'global-loader-overlay';
-      loader.innerHTML = `
-        <div class="spinner"></div>
-      `;
+      loader.innerHTML = '<div class="spinner" aria-label="Cargando"></div>';
       document.body.appendChild(loader);
     }
     loader.classList.remove('hidden');
@@ -86,16 +61,49 @@ export function toggleGlobalLoader(show = true) {
   }
 }
 
-/**
- * Helper para formatear precios en dólares USD.
- * 
- * @param {number} amount 
- * @returns {string} Precio formateado
- */
+export function showConnectionError(error) {
+  let banner = document.getElementById('supabase-connection-error');
+
+  if (!banner) {
+    banner = document.createElement('div');
+    banner.id = 'supabase-connection-error';
+    banner.className = 'supabase-connection-error';
+    banner.setAttribute('role', 'alert');
+    document.body.prepend(banner);
+  }
+
+  banner.innerHTML = `
+    <strong>No se pudo conectar con Supabase.</strong>
+    <span>Los datos de la aplicación no están disponibles en este momento.</span>
+    <button type="button" aria-label="Cerrar aviso">×</button>
+  `;
+
+  banner.querySelector('button').addEventListener('click', () => banner.remove(), { once: true });
+  console.error('[iMarket] Supabase unavailable:', error);
+}
+
 export function formatCurrency(amount) {
   return new Intl.NumberFormat('es-CU', {
     style: 'currency',
     currency: 'USD',
     maximumFractionDigits: 0
-  }).format(amount || 0);
+  }).format(Number(amount) || 0);
+}
+
+export function escapeText(value) {
+  return escapeHtml(value);
+}
+
+export async function initApp({ header = false, footer = false } = {}) {
+  initToastContainer();
+
+  const connection = await checkSupabaseConnection();
+  document.documentElement.dataset.supabase = connection.connected ? 'connected' : 'error';
+
+  if (!connection.connected) showConnectionError(connection.error);
+
+  if (header) await renderHeader();
+  if (footer) renderFooter();
+
+  return connection;
 }
